@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-warm-white text-[#4A4038] font-body;
+  }
+
+  ::selection {
+    background: #C5A97B;
+    color: #FDFBF8;
+  }
+}
+
+@layer utilities {
+  .card-3d {
+    perspective: 1200px;
+    transform-style: preserve-3d;
+  }
+
+  .card-3d-inner {
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+  }
+
+  .card-3d:hover .card-3d-inner {
+    transform: rotateY(-3deg) rotateX(3deg) translateZ(20px);
+  }
+
+  .glass {
+    background: rgba(253, 251, 248, 0.7);
+    backdrop-filter: blur(20px) saturate(1.5);
+    -webkit-backdrop-filter: blur(20px) saturate(1.5);
+    border: 1px solid rgba(232, 224, 212, 0.4);
+  }
+
+  .glass-dark {
+    background: rgba(58, 46, 34, 0.85);
+    backdrop-filter: blur(20px) saturate(1.5);
+    -webkit-backdrop-filter: blur(20px) saturate(1.5);
+    border: 1px solid rgba(197, 169, 123, 0.15);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 40px -10px rgba(197, 169, 123, 0.4),
+                0 0 80px -20px rgba(197, 169, 123, 0.2);
+  }
+
+  .glow-gold-hover:hover {
+    box-shadow: 0 0 60px -10px rgba(197, 169, 123, 0.5),
+                0 0 120px -20px rgba(197, 169, 123, 0.3);
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #C5A97B 0%, #E2D4B8 50%, #C5A97B 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .shadow-layered {
+    box-shadow:
+      0 1px 2px rgba(58, 46, 34, 0.04),
+      0 4px 8px rgba(58, 46, 34, 0.04),
+      0 12px 24px rgba(58, 46, 34, 0.06),
+      0 24px 48px rgba(58, 46, 34, 0.04);
+  }
+
+  .shadow-layered-hover:hover {
+    box-shadow:
+      0 2px 4px rgba(58, 46, 34, 0.06),
+      0 8px 16px rgba(58, 46, 34, 0.06),
+      0 16px 32px rgba(58, 46, 34, 0.08),
+      0 32px 64px rgba(58, 46, 34, 0.06);
+  }
+
+  /* 3D Shader-like gradient background for Hero */
+  .hero-gradient-bg {
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(197, 169, 123, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(212, 165, 154, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 80%, rgba(155, 168, 142, 0.08) 0%, transparent 50%),
+      linear-gradient(135deg, #FDFBF8 0%, #F7F3EE 50%, #FDFBF8 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease-in-out infinite;
+  }
+
+  /* Animated mesh gradient overlay */
+  .mesh-gradient {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 30% 40%, rgba(197, 169, 123, 0.2) 0%, transparent 40%),
+      radial-gradient(circle at 70% 60%, rgba(212, 165, 154, 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 50% 20%, rgba(226, 212, 184, 0.1) 0%, transparent 40%);
+    filter: blur(40px);
+    animation: gradientShift 12s ease-in-out infinite reverse;
+    pointer-events: none;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #F7F3EE; }
+::-webkit-scrollbar-thumb { background: #C5A97B; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #8B7355; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx --yes @anthropic-ai/claude-code-skill search \"UX UI design\")",
+      "Bash(gh search:*)",
+      "WebSearch",
+      "Bash(curl -sL -w \"\\\\n%{http_code}\" \"https://raw.githubusercontent.com/nextlevelbuilder/ui-ux-pro-max-skill/main/SKILL.md\")",
+      "Bash(curl -s -L -w \"\\\\n%{http_code}\" \"https://raw.githubusercontent.com/anthropics/claude-code/main/plugins/frontend-design/skills/frontend-design/SKILL.md\")",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:github.com)",
+      "Bash(curl -s -L -o /tmp/homepage.html -w \"%{http_code}\" \"https://goodhairbyzane.com\")",
+      "Bash(curl -s -L https://21st.dev)",
+      "Bash(curl -s -L https://21st.dev/docs)",
+      "WebFetch(domain:goodhairbyzane.com)",
+      "WebFetch(domain:21st.dev)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(curl -s http://localhost:3005/_next/static/css/app/layout.css)",
+      "Bash(gh auth:*)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\cryptomeda\\Desktop\\Swarm\\myprojects\\zanekadernictvo\\.claude"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/block-dangerous.sh\"",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "WebFetch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/block-internal-urls.sh\"",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/protect-files.sh\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash|WebFetch|WebSearch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/audit-all.sh\"",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "Read|WebFetch|WebSearch|Bash|Grep|Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/scan-injection.sh\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
