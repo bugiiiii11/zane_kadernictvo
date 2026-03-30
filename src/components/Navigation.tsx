@@ -31,7 +31,7 @@ export default function Navigation() {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
             ? 'glass py-3 shadow-[0_1px_0_rgba(139,115,85,0.1)]'
-            : 'bg-transparent py-5'
+            : 'bg-gradient-to-b from-warm-white/80 via-warm-white/40 to-transparent py-5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between">
