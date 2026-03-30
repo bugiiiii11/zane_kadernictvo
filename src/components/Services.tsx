@@ -20,7 +20,7 @@ const services = [
     title: 'Predlžovanie vlasov',
     desc: 'Profesionálne predlžovanie a zahusťovanie vlasov prispôsobené vášmu typu vlasov a životnému štýlu. Používame výlučne 100% ľudské vlasy najvyššej kvality pre dokonale prirodzený vzhľad, ktorý vás nadchne.',
     details: [
-      ['Keratínová metóda', 'Najtrvácnejší spoj, 4–6 mesiacov'],
+      ['Keratínová metóda', 'Najtrvácnejší spoj, 3–5 mesiacov'],
       ['Micro-ring', 'Bez tepla a lepidla, najšetrnejšia'],
       ['Nano-ring', 'Najmenšie spoje, maximálna diskrétnosť'],
       ['Mikrokapsule', 'Neviditeľné spoje, revolúcia v predlžovaní'],
@@ -98,11 +98,11 @@ function ServiceCard({
           <p className="text-sm text-[#8A7F72] leading-relaxed font-light mb-6">
             {service.desc}
           </p>
-          <div className="border-t border-sand pt-4 space-y-2">
+          <div className="border-t border-sand pt-5 grid grid-cols-2 gap-x-4 gap-y-3">
             {service.details.map(([label, value]) => (
-              <div key={label} className="flex justify-between text-[0.82rem]">
-                <span className="text-[#8A7F72]">{label}</span>
-                <span className="text-deep-brown font-normal">{value}</span>
+              <div key={label}>
+                <div className="text-[0.78rem] font-normal text-deep-brown">{label}</div>
+                <div className="text-[0.72rem] text-[#8A7F72] font-light mt-0.5">{value}</div>
               </div>
             ))}
           </div>

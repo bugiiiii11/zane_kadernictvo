@@ -35,21 +35,21 @@ const categories = [
   },
   {
     title: 'Regeneračné kúry',
-    items: [
+    items: [    
       {
-        name: 'Hĺbková regenerácia vlasov',
-        desc: 'Intenzívna výživa pre suché a poškodené vlasy. Obnovuje hydratáciu, elasticitu a lesk.',
-        price: 'od 45 €',
+        name: 'Prémiová rekonštrukčná kúra',
+        desc: 'Najúčinnejšia obnova pre intenzívne namáhané a chemicky ošetrené vlasy. Viditeľný efekt po 1 aplikácii.',
+        price: 'od 85 €',
       },
       {
         name: 'Keratínové ošetrenie',
         desc: 'Vyhladenie, lesk a ochrana vlasového vlákna. Eliminuje krepovitosť, výsledok 6–8 týždňov.',
-        price: 'od 60 €',
+        price: 'od 100 €',
       },
-      {
-        name: 'Prémiová regeneračná kúra',
-        desc: 'Najúčinnejšia obnova pre intenzívne namáhané a chemicky ošetrené vlasy. Viditeľný efekt po 1 aplikácii.',
-        price: 'od 85 €',
+     {
+        name: 'Hĺbková regenerácia vlasov',
+        desc: 'Intenzívna výživa pre suché a poškodené vlasy. Obnovuje hydratáciu, elasticitu a lesk.',
+        price: 'od 45 €',
       },
     ],
   },
