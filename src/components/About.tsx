@@ -43,8 +43,8 @@ export default function About() {
             <p className="text-[#8A7F72] mb-8 leading-relaxed font-light">
               Každej klientke venujeme individuálnu pozornosť a navrhneme
               riešenie presne podľa jej typu vlasov, životného štýlu a
-              očakávaní. Či chcete dlhšie, hustejšie, alebo jednoducho zdravšie
-              vlasy — sme tu pre vás. Navštívte nás len 15 minút od centra
+              očakávaní. Či chcete zdravšie
+              vlasy alebo jednoducho dlhšie, hustejšie — sme tu pre vás. Navštívte nás len 15 minút od centra
               Bratislavy.
             </p>
           </Reveal>
@@ -73,7 +73,7 @@ export default function About() {
           <div className="grid grid-cols-2 gap-3 h-[420px] lg:h-[500px]">
             <div className="row-span-2 relative rounded overflow-hidden shadow-layered">
               <Image
-                src="/priestory/DSC_3461-HDR.jpg"
+                src="/priestory/DSC_3492-HDR.jpg"
                 alt="Kadernícke stanice v salóne Good Hair by Zane — dve pracovné miesta so zrkadlami a kvetinovými dekoráciami"
                 fill
                 className="object-cover"

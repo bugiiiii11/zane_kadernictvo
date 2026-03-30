@@ -100,7 +100,7 @@ export default function Hero() {
       <div className="relative lg:h-screen h-[50vh]">
         <motion.div style={{ y: imageY }} className="absolute inset-0">
           <Image
-            src="/priestory/DSC_3418-HDR.jpg"
+            src="/priestory/DSC_3470-HDR.jpg"
             alt="Interiér vlasového salónu Good Hair by Zane v Ivanke pri Dunaji — kadernícke stanice s osvetlenými zrkadlami a kvetinovými dekoráciami"
             fill
             className="object-cover"
