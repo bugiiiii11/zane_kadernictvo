@@ -5,25 +5,25 @@ import Reveal from './Reveal';
 
 const images = [
   {
-    src: '/vysledky/image3.jpeg',
-    alt: 'Predlžovanie vlasov Ivanka pri Dunaji — zahustenie a predĺženie blond vlasov v Good Hair by Zane',
+    src: '/vysledky/IMG_9324.jpeg',
+    alt: 'Predlžovanie a zahusťovanie dlhých blond kučeravých vlasov — výsledok v salóne Good Hair by Zane v Ivanke pri Dunaji',
     span: true,
   },
   {
-    src: '/vysledky/image4.jpeg',
-    alt: 'Regeneračná kúra pre poškodené kučeravé vlasy — premena na hladké a zdravé vlasy v Ivanke pri Dunaji',
+    src: '/vysledky/IMG_8590.jpeg',
+    alt: 'Predlžovanie vlasov keratínovou metódou — dokonale hladké blond vlasy v Good Hair by Zane',
   },
   {
-    src: '/vysledky/image5.jpeg',
-    alt: 'Regenerácia a vyhladenie namáhaných vlasov — pred a po ošetrení v salóne Good Hair by Zane',
+    src: '/vysledky/IMG_9164.jpeg',
+    alt: 'Zahusťovanie vlasov — luxusné platinové vlny po predĺžení v salóne Good Hair by Zane',
   },
   {
-    src: '/vysledky/image6.jpeg',
-    alt: 'Keratínová regenerácia tmavých vlasov — lesk a vitalita po ošetrení Good Hair by Zane',
+    src: '/vysledky/IMG_8938.jpeg',
+    alt: 'Rekonštrukčná kúra pre tmavé vlasy — lesk a vitalita po ošetrení Good Hair by Zane',
   },
   {
-    src: '/vysledky/image7.jpeg',
-    alt: 'Predlžovanie a zahusťovanie dlhých blond vlasov — výsledok v salóne Good Hair by Zane',
+    src: '/vysledky/IMG_7945.jpeg',
+    alt: 'Kreatívne copánkové účesy s farebnými prameňmi v salóne Good Hair by Zane Ivanka pri Dunaji',
   },
 ];
 
