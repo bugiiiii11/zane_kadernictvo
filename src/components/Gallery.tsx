@@ -10,7 +10,7 @@ const images = [
     span: true,
   },
   {
-    src: '/vysledky/IMG_8590.jpeg',
+    src: '/vysledky/IMG_7166.jpeg',
     alt: 'Predlžovanie vlasov keratínovou metódou — dokonale hladké blond vlasy v Good Hair by Zane',
   },
   {

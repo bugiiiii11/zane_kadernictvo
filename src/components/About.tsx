@@ -73,7 +73,7 @@ export default function About() {
           <div className="grid grid-cols-2 gap-3 h-[420px] lg:h-[500px]">
             <div className="row-span-2 relative rounded overflow-hidden shadow-layered">
               <Image
-                src="/priestory/DSC_3492-HDR.jpg"
+                src="/vysledky/IMG_8590.jpeg"
                 alt="Kadernícke stanice v salóne Good Hair by Zane — dve pracovné miesta so zrkadlami a kvetinovými dekoráciami"
                 fill
                 className="object-cover"
@@ -82,7 +82,7 @@ export default function About() {
             </div>
             <div className="relative rounded overflow-hidden shadow-layered">
               <Image
-                src="/priestory/DSC_3492-HDR.jpg"
+                src="/produkty/DSC_3649-HDR.jpg"
                 alt="Detail pracovného miesta Good Hair Club — osvetlené zrkadlo a profesionálne kadernícke nástroje"
                 fill
                 className="object-cover"
