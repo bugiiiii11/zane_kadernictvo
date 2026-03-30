@@ -12,16 +12,17 @@ Modern website for luxury hair salon "Good Hair by Zane" in Ivanka pri Dunaji, S
 - **Deployment**: Vercel
 
 ## Current State
-- **Session**: 1
-- **Status**: MVP deployed to Vercel, placeholder images
+- **Session**: 2
+- **Status**: Real images, Google Maps, favicon deployed. Content finalized.
 - **Repo**: https://github.com/bugiiiii11/zane_kadernictvo
 - **Live**: deployed on Vercel (domain TBD)
 
 ## SEO Strategy
 - **Primary keywords**: predlzovanie vlasov Ivanka pri Dunaji, kadernictvo Ivanka pri Dunaji
-- **Secondary**: zahustovanie vlasov Bratislava, keratinove predlzovanie, tape-in, micro-ring, vlasovy salon Senec
+- **Secondary**: zahustovanie vlasov Bratislava, keratinove predlzovanie, micro-ring, nano-ring, mikrokapsule, vlasovy salon Senec
 - **Schema**: HairSalon, FAQPage, BreadcrumbList, WebSite
-- **Local SEO**: geo meta tags, NAP consistency, Google Maps placeholder
+- **Local SEO**: geo meta tags, NAP consistency, Google Maps embedded
+- **Methods offered**: Keratinova metoda, Micro-ring, Nano-ring, Mikrokapsule (NO tape-in)
 
 ## Contact (NAP)
 - **Name**: Good Hair by Zane
