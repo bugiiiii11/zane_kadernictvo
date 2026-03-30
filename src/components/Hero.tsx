@@ -99,17 +99,14 @@ export default function Hero() {
       {/* Hero image */}
       <div className="relative lg:h-screen h-[50vh]">
         <motion.div style={{ y: imageY }} className="absolute inset-0">
-          {/* Placeholder - replace with actual salon image */}
-          <div className="absolute inset-0 bg-gradient-to-br from-sand/40 via-gold-light/30 to-blush/20 flex items-center justify-center">
-            <div className="text-center text-mocha/40">
-              <div className="w-24 h-24 mx-auto mb-4 rounded-full border-2 border-mocha/20 flex items-center justify-center">
-                <Sparkles className="w-10 h-10" />
-              </div>
-              <p className="text-sm font-body tracking-wide uppercase">
-                Foto salónu
-              </p>
-            </div>
-          </div>
+          <Image
+            src="/priestory/DSC_3418-HDR.jpg"
+            alt="Interiér vlasového salónu Good Hair by Zane v Ivanke pri Dunaji — kadernícke stanice s osvetlenými zrkadlami a kvetinovými dekoráciami"
+            fill
+            className="object-cover"
+            priority
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-warm-white/60 via-transparent to-transparent lg:bg-gradient-to-r lg:from-warm-white/30 lg:via-transparent" />
         </motion.div>
 

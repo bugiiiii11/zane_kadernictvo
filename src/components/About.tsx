@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { Check } from 'lucide-react';
 import Reveal from './Reveal';
 
@@ -70,21 +71,32 @@ export default function About() {
 
         <Reveal delay={0.2} direction="right">
           <div className="grid grid-cols-2 gap-3 h-[420px] lg:h-[500px]">
-            {/* Placeholder images - replace with actual salon photos */}
-            <div className="row-span-2 relative rounded overflow-hidden shadow-layered bg-gradient-to-br from-sand via-gold-light/50 to-blush/30 flex items-center justify-center">
-              <span className="text-mocha/30 text-xs tracking-wide uppercase text-center px-4">
-                Foto 1
-              </span>
+            <div className="row-span-2 relative rounded overflow-hidden shadow-layered">
+              <Image
+                src="/priestory/DSC_3461-HDR.jpg"
+                alt="Kadernícke stanice v salóne Good Hair by Zane — dve pracovné miesta so zrkadlami a kvetinovými dekoráciami"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 50vw, 25vw"
+              />
             </div>
-            <div className="relative rounded overflow-hidden shadow-layered bg-gradient-to-br from-gold-light/40 via-sand to-cream flex items-center justify-center">
-              <span className="text-mocha/30 text-xs tracking-wide uppercase text-center px-4">
-                Foto 2
-              </span>
+            <div className="relative rounded overflow-hidden shadow-layered">
+              <Image
+                src="/priestory/DSC_3492-HDR.jpg"
+                alt="Detail pracovného miesta Good Hair Club — osvetlené zrkadlo a profesionálne kadernícke nástroje"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 50vw, 25vw"
+              />
             </div>
-            <div className="relative rounded overflow-hidden shadow-layered bg-gradient-to-br from-blush/30 via-sand to-gold-light/40 flex items-center justify-center">
-              <span className="text-mocha/30 text-xs tracking-wide uppercase text-center px-4">
-                Foto 3
-              </span>
+            <div className="relative rounded overflow-hidden shadow-layered">
+              <Image
+                src="/produkty/DSC_3592-HDR.jpg"
+                alt="Prémiové vlasové produkty Sens.ùs a milk_shake používané v salóne Good Hair by Zane"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 50vw, 25vw"
+              />
             </div>
           </div>
         </Reveal>

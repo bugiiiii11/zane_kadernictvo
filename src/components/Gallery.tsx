@@ -1,23 +1,29 @@
 'use client';
 
+import Image from 'next/image';
 import Reveal from './Reveal';
 
 const images = [
   {
-    alt: 'Predlžovanie vlasov Ivanka pri Dunaji — výsledok keratínovej metódy v Good Hair by Zane',
+    src: '/vysledky/image3.jpeg',
+    alt: 'Predlžovanie vlasov Ivanka pri Dunaji — zahustenie a predĺženie blond vlasov v Good Hair by Zane',
     span: true,
   },
   {
-    alt: 'Tape-in predlžovanie vlasov — prirodzený výsledok, salón Good Hair by Zane',
+    src: '/vysledky/image4.jpeg',
+    alt: 'Regeneračná kúra pre poškodené kučeravé vlasy — premena na hladké a zdravé vlasy v Ivanke pri Dunaji',
   },
   {
-    alt: 'Regeneračná kúra pre poškodené vlasy — starostlivosť v Ivanke pri Dunaji',
+    src: '/vysledky/image5.jpeg',
+    alt: 'Regenerácia a vyhladenie namáhaných vlasov — pred a po ošetrení v salóne Good Hair by Zane',
   },
   {
-    alt: 'Zahusťovanie vlasov pre objem a dĺžku v Good Hair by Zane',
+    src: '/vysledky/image6.jpeg',
+    alt: 'Keratínová regenerácia tmavých vlasov — lesk a vitalita po ošetrení Good Hair by Zane',
   },
   {
-    alt: 'Luxusný interiér vlasového salónu Good Hair by Zane v Ivanke pri Dunaji',
+    src: '/vysledky/image7.jpeg',
+    alt: 'Predlžovanie a zahusťovanie dlhých blond vlasov — výsledok v salóne Good Hair by Zane',
   },
 ];
 
@@ -46,12 +52,13 @@ export default function Gallery() {
               className={img.span ? 'col-span-2 row-span-2' : ''}
             >
               <div className="relative overflow-hidden rounded-sm aspect-[3/4] group shadow-layered">
-                {/* Placeholder - replace with actual images */}
-                <div className="absolute inset-0 bg-gradient-to-br from-sand/60 via-gold-light/30 to-blush/20 flex items-center justify-center">
-                  <span className="text-mocha/30 text-xs tracking-wide uppercase text-center px-4">
-                    {img.alt.split('—')[0].trim()}
-                  </span>
-                </div>
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  sizes={img.span ? '(max-width: 1024px) 100vw, 50vw' : '(max-width: 1024px) 50vw, 25vw'}
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-deep-brown/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
             </Reveal>

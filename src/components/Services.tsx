@@ -6,24 +6,24 @@ import Reveal from './Reveal';
 const services = [
   {
     num: '01',
-    title: 'Predlžovanie vlasov',
-    desc: 'Profesionálne predlžovanie a zahusťovanie vlasov prispôsobené vášmu typu vlasov a životnému štýlu. Používame výlučne 100% ľudské vlasy najvyššej kvality pre dokonale prirodzený vzhľad, ktorý vás nadchne.',
-    details: [
-      ['Keratínová metóda', 'Najtrvácnejší spoj, 4–6 mesiacov'],
-      ['Tape-in metóda', 'Šetrná, rýchla aplikácia do 60 min'],
-      ['Micro-ring', 'Bez tepla a lepidla, najšetrnejšia'],
-      ['Kvalita vlasov', '100% európske ľudské vlasy'],
-    ],
-  },
-  {
-    num: '02',
-    title: 'Regeneračné kúry',
-    desc: 'Prémiové regeneračné kúry, ktoré intenzívne vyživujú a obnovujú poškodené vlasy. Vráťia vašim vlasom lesk, silu a vitalitu — viditeľný výsledok už po prvom ošetrení. Ideálne pre farbené, chemicky ošetrené alebo suché vlasy.',
+    title: 'Rekonštrukčné a regeneračné kúry',
+    desc: 'Rekonštrukčná procedúra pre hĺbkovú regeneráciu suchých, lámavých a poškodených vlasov. Vráťia vašim vlasom lesk, silu a vitalitu — viditeľný výsledok už po prvom ošetrení. Ideálne pre farbené, chemicky ošetrené alebo suché vlasy.',
     details: [
       ['Hĺbková regenerácia', 'Intenzívna výživa pre suché vlasy'],
       ['Keratínové ošetrenie', 'Vyhladenie, lesk a ochrana vlákna'],
       ['Obnova štruktúry', 'Pre farbené a namáhané vlasy'],
       ['Efekt', 'Okamžitý a dlhotrvajúci výsledok'],
+    ],
+  },
+  {
+    num: '02',
+    title: 'Predlžovanie vlasov',
+    desc: 'Profesionálne predlžovanie a zahusťovanie vlasov prispôsobené vášmu typu vlasov a životnému štýlu. Používame výlučne 100% ľudské vlasy najvyššej kvality pre dokonale prirodzený vzhľad, ktorý vás nadchne.',
+    details: [
+      ['Keratínová metóda', 'Najtrvácnejší spoj, 4–6 mesiacov'],
+      ['Micro-ring', 'Bez tepla a lepidla, najšetrnejšia'],
+      ['Nano-ring', 'Najmenšie spoje, maximálna diskrétnosť'],
+      ['Kvalita vlasov', '100% európske ľudské vlasy'],
     ],
   },
   {
