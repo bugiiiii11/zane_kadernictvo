@@ -134,16 +134,16 @@ export default function Contact() {
 
         <Reveal delay={0.2} direction="right">
           <div className="rounded overflow-hidden h-[400px] lg:h-full min-h-[400px] shadow-layered">
-            {/* Map placeholder - replace with actual Google Maps embed URL */}
-            <div className="w-full h-full bg-charcoal/50 flex items-center justify-center border border-gold/10 rounded">
-              <div className="text-center text-cream/30">
-                <MapPin className="w-12 h-12 mx-auto mb-3 text-gold/30" />
-                <p className="text-sm font-body">Google Maps</p>
-                <p className="text-xs mt-1">
-                  Cintorínska 272/1, Ivanka pri Dunaji
-                </p>
-              </div>
-            </div>
+            <iframe
+              src="https://maps.google.com/maps?q=48.1876108,17.2544667&z=16&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Good Hair by Zane — Cintorínska 272/1, Ivanka pri Dunaji"
+            />
           </div>
         </Reveal>
       </div>

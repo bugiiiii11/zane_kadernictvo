@@ -8,19 +8,19 @@ import Reveal from './Reveal';
 const faqs = [
   {
     q: 'Koľko stojí predlžovanie vlasov v Ivanke pri Dunaji?',
-    a: 'Cena predlžovania vlasov závisí od zvolenej metódy (keratín, tape-in alebo micro-ring), počtu prameňov a požadovanej dĺžky. Tape-in predlžovanie začína od 280 €, keratínové od 350 € a micro-ring od 300 €. Ponúkame bezplatnú konzultáciu, kde vám navrhneme optimálne riešenie a presnú cenu.',
+    a: 'Cena predlžovania vlasov závisí od zvolenej metódy (keratín, micro-ring, nano-ring alebo mikrokapsule), počtu prameňov a požadovanej dĺžky. Keratínové predlžovanie začína od 350 €, micro-ring od 300 €, nano-ring od 320 € a mikrokapsule od 400 €. Ponúkame bezplatnú konzultáciu, kde vám navrhneme optimálne riešenie a presnú cenu.',
   },
   {
     q: 'Aké metódy predlžovania vlasov ponúkate?',
-    a: 'V salóne Good Hair by Zane ponúkame tri overené metódy: keratínové predlžovanie (najtrvácnejší spoj, výdrž 4–6 mesiacov), tape-in metódu (šetrná a rýchla aplikácia do 60 minút, ideálna pre jemné vlasy) a micro-ring techniku (úplne bez tepla a lepidla — najšetrnejšia k vlastným vlasom). Všetky metódy používajú 100% ľudské vlasy najvyššej kvality.',
+    a: 'V salóne Good Hair by Zane ponúkame štyri overené metódy: keratínové predlžovanie (najtrvácnejší spoj, výdrž 4–6 mesiacov), micro-ring (bez tepla a lepidla, najšetrnejšia), nano-ring (najmenšie spoje, maximálna diskrétnosť) a mikrokapsule (neviditeľné spoje, revolúcia v predlžovaní). Všetky metódy používajú 100% ľudské vlasy najvyššej kvality.',
   },
   {
     q: 'Ako dlho vydržia predĺžené vlasy?',
-    a: 'Predĺžené vlasy pri správnej starostlivosti vydržia 3 až 6 mesiacov v závislosti od metódy a rastu vlastných vlasov. Keratínové spoje vydržia najdlhšie (4–6 mesiacov), tape-in pramene je potrebné prepojiť každých 6–8 týždňov. Po odrastení je možné pramene opätovne pripojiť, čo je výrazne lacnejšie ako nová aplikácia.',
+    a: 'Predĺžené vlasy pri správnej starostlivosti vydržia 3 až 6 mesiacov v závislosti od metódy a rastu vlastných vlasov. Keratínové spoje vydržia najdlhšie (4–6 mesiacov), micro-ring a nano-ring 3–5 mesiacov. Po odrastení je možné pramene opätovne pripojiť, čo je výrazne lacnejšie ako nová aplikácia.',
   },
   {
     q: 'Poškodí predlžovanie moje vlastné vlasy?',
-    a: 'Nie, pri správnej aplikácii a dodržaní starostlivosti predlžovanie vlasy nepoškodzuje. Používame šetrné metódy a kvalitné materiály. Na bezplatnej konzultácii zhodnotíme stav vašich vlasov a odporučíme najvhodnejšiu metódu — napríklad pre jemné vlasy je ideálna tape-in metóda.',
+    a: 'Nie, pri správnej aplikácii a dodržaní starostlivosti predlžovanie vlasy nepoškodzuje. Používame šetrné metódy a kvalitné materiály. Na bezplatnej konzultácii zhodnotíme stav vašich vlasov a odporučíme najvhodnejšiu metódu — napríklad pre jemné vlasy sú ideálne nano-ring alebo mikrokapsule.',
   },
   {
     q: 'Kde sa nachádza salón Good Hair by Zane?',

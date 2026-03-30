@@ -69,7 +69,7 @@ export default function Hero() {
           className="text-[#8A7F72] text-base lg:text-lg max-w-md mb-8 font-light leading-relaxed"
         >
           Špecializujeme sa na prémiové predlžovanie a zahusťovanie vlasov
-          keratínovou, tape-in a micro-ring metódou. Viac ako 10 rokov
+          keratínovou, micro-ring, nano-ring a mikrokapsulovou metódou. Viac ako 10 rokov
           skúseností, 150+ spokojných klientok a individuálny prístup ku každej
           jednej z vás.
         </motion.p>

@@ -23,6 +23,7 @@ const services = [
       ['Keratínová metóda', 'Najtrvácnejší spoj, 4–6 mesiacov'],
       ['Micro-ring', 'Bez tepla a lepidla, najšetrnejšia'],
       ['Nano-ring', 'Najmenšie spoje, maximálna diskrétnosť'],
+      ['Mikrokapsule', 'Neviditeľné spoje, revolúcia v predlžovaní'],
       ['Kvalita vlasov', '100% európske ľudské vlasy'],
     ],
   },

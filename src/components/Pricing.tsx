@@ -12,14 +12,19 @@ const categories = [
         price: 'od 350 €',
       },
       {
-        name: 'Tape-in predlžovanie',
-        desc: 'Šetrná metóda s rýchlou aplikáciou do 60 minút. Ideálna pre jemné vlasy, ľahká údržba.',
-        price: 'od 280 €',
-      },
-      {
         name: 'Micro-ring predlžovanie',
         desc: 'Bez tepla a lepidla — najšetrnejšia metóda. Spoj pomocou mikro krúžkov, ľahko odnímateľné.',
         price: 'od 300 €',
+      },
+      {
+        name: 'Nano-ring predlžovanie',
+        desc: 'Najmenšie spoje pre maximálnu diskrétnosť. Bez tepla a lepidla, ideálne pre jemné vlasy.',
+        price: 'od 320 €',
+      },
+      {
+        name: 'Mikrokapsulové predlžovanie',
+        desc: 'Neviditeľné spoje — revolúcia v predlžovaní. Mikrokapsule sa aplikujú na jednotlivé vlasy pre dokonale prirodzený výsledok.',
+        price: 'od 400 €',
       },
       {
         name: 'Prepojenie existujúcich prameňov',

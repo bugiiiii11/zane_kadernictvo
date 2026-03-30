@@ -34,8 +34,8 @@ export default function About() {
             <p className="text-[#8A7F72] mb-4 leading-relaxed font-light">
               Good Hair by Zane je vlasový salón v Ivanke pri Dunaji, ktorý sa
               špecializuje na profesionálne predlžovanie vlasov a prémiové
-              regeneračné kúry. Ponúkame tri overené metódy — keratínové
-              predlžovanie, tape-in a micro-ring — všetky s použitím výlučne
+              regeneračné kúry. Ponúkame štyri overené metódy — keratínové
+              predlžovanie, micro-ring, nano-ring a mikrokapsule — všetky s použitím výlučne
               100% ľudských vlasov najvyššej kvality.
             </p>
           </Reveal>

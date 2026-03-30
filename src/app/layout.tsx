@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: '%s | Good Hair by Zane',
   },
   description:
-    'Profesionálne predlžovanie vlasov a regeneračné kúry v Ivanke pri Dunaji. Luxusný vlasový salón s 10+ ročnými skúsenosťami a 150+ spokojnými klientkami. Keratínové, tape-in a micro-ring metódy. Objednajte sa!',
+    'Profesionálne predlžovanie vlasov a rekonštrukčné kúry v Ivanke pri Dunaji. Luxusný vlasový salón s 10+ ročnými skúsenosťami a 150+ spokojnými klientkami. Keratínové, micro-ring, nano-ring a mikrokapsulové metódy. Objednajte sa!',
   keywords: [
     'predlžovanie vlasov Ivanka pri Dunaji',
     'kaderníctvo Ivanka pri Dunaji',
@@ -32,7 +32,8 @@ export const metadata: Metadata = {
     'predlžovanie vlasov Bratislava',
     'zahusťovanie vlasov',
     'keratínové predlžovanie vlasov',
-    'tape-in predlžovanie',
+    'nano-ring predlžovanie',
+    'mikrokapsule predlžovanie vlasov',
     'micro-ring predlžovanie',
     'vlasový salón Senec',
     'vlasový salón Bernolákovo',
@@ -85,7 +86,7 @@ const jsonLd = {
       name: 'Good Hair by Zane',
       image: 'https://goodhairbyzane.com/og-image.jpg',
       description:
-        'Luxusný vlasový salón v Ivanke pri Dunaji špecializujúci sa na profesionálne predlžovanie vlasov a prémiové regeneračné kúry. Keratínové, tape-in a micro-ring metódy s použitím 100% ľudských vlasov.',
+        'Luxusný vlasový salón v Ivanke pri Dunaji špecializujúci sa na profesionálne predlžovanie vlasov a rekonštrukčné regeneračné kúry. Keratínové, micro-ring, nano-ring a mikrokapsulové metódy s použitím 100% ľudských vlasov.',
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Cintorínska 272/1',
@@ -144,9 +145,18 @@ const jsonLd = {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'Service',
-              name: 'Tape-in predlžovanie vlasov',
+              name: 'Nano-ring predlžovanie vlasov',
               description:
-                'Šetrná metóda predlžovania vlasov ideálna pre jemné vlasy. Rýchla aplikácia do 60 minút.',
+                'Predlžovanie vlasov s najmenšími spojmi pre maximálnu diskrétnosť. Bez tepla a lepidla.',
+            },
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Mikrokapsulové predlžovanie vlasov',
+              description:
+                'Revolučná technika s neviditeľnými spojmi. Mikrokapsule sa aplikujú na jednotlivé vlasy pre dokonale prirodzený výsledok.',
             },
           },
           {
@@ -162,7 +172,7 @@ const jsonLd = {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'Service',
-              name: 'Regeneračné kúry',
+              name: 'Rekonštrukčné a regeneračné kúry',
               description:
                 'Prémiové regeneračné kúry pre obnovu zdravia a vitality vlasov. Keratínové ošetrenie, hĺbková regenerácia.',
             },
@@ -198,7 +208,7 @@ const jsonLd = {
           name: 'Koľko stojí predlžovanie vlasov v Ivanke pri Dunaji?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Cena predlžovania vlasov závisí od zvolenej metódy, počtu prameňov a požadovanej dĺžky. Tape-in predlžovanie začína od 280 €, keratínové od 350 € a micro-ring od 300 €. Ponúkame bezplatnú konzultáciu s presnou cenovou kalkuláciou na mieru.',
+            text: 'Cena predlžovania vlasov závisí od zvolenej metódy, počtu prameňov a požadovanej dĺžky. Keratínové predlžovanie začína od 350 €, micro-ring od 300 € a nano-ring od 320 €. Ponúkame bezplatnú konzultáciu s presnou cenovou kalkuláciou na mieru.',
           },
         },
         {
@@ -206,7 +216,7 @@ const jsonLd = {
           name: 'Aké metódy predlžovania vlasov ponúkate?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Ponúkame tri overené metódy: keratínové predlžovanie (najtrvácnejší spoj, 4–6 mesiacov), tape-in metódu (šetrná, rýchla aplikácia do 60 min, ideálna pre jemné vlasy) a micro-ring techniku (úplne bez tepla a lepidla). Všetky metódy používajú 100% ľudské vlasy najvyššej kvality.',
+            text: 'Ponúkame štyri overené metódy: keratínové predlžovanie (najtrvácnejší spoj, 4–6 mesiacov), micro-ring (bez tepla a lepidla), nano-ring (najmenšie spoje, maximálna diskrétnosť) a mikrokapsule (neviditeľné spoje, revolúcia v predlžovaní). Všetky metódy používajú 100% ľudské vlasy najvyššej kvality.',
           },
         },
         {
@@ -214,7 +224,7 @@ const jsonLd = {
           name: 'Ako dlho vydržia predĺžené vlasy?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Predĺžené vlasy vydržia 3 až 6 mesiacov pri správnej starostlivosti v závislosti od metódy a rastu vlastných vlasov. Keratínové spoje vydržia najdlhšie (4–6 mesiacov), tape-in je potrebné prepojiť každých 6–8 týždňov. Po odrastení je možné pramene opätovne pripojiť.',
+            text: 'Predĺžené vlasy vydržia 3 až 6 mesiacov pri správnej starostlivosti v závislosti od metódy a rastu vlastných vlasov. Keratínové spoje vydržia najdlhšie (4–6 mesiacov), micro-ring a nano-ring 3–5 mesiacov. Po odrastení je možné pramene opätovne pripojiť.',
           },
         },
         {
@@ -254,8 +264,8 @@ export default function RootLayout({
   return (
     <html lang="sk" className={`${cormorant.variable} ${outfit.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/zane_favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/zane_favicon.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
