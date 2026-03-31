@@ -5,24 +5,24 @@ import Reveal from './Reveal';
 
 const images = [
   {
-    src: '/vysledky/IMG_9324.jpeg',
+    src: '/vysledky/IMG_9324.webp',
     alt: 'Predlžovanie a zahusťovanie dlhých blond kučeravých vlasov — výsledok v salóne Good Hair by Zane v Ivanke pri Dunaji',
     span: true,
   },
   {
-    src: '/vysledky/IMG_7166.jpeg',
+    src: '/vysledky/IMG_7166.webp',
     alt: 'Predlžovanie vlasov keratínovou metódou — dokonale hladké blond vlasy v Good Hair by Zane',
   },
   {
-    src: '/vysledky/IMG_9164.jpeg',
+    src: '/vysledky/IMG_9164.webp',
     alt: 'Zahusťovanie vlasov — luxusné platinové vlny po predĺžení v salóne Good Hair by Zane',
   },
   {
-    src: '/vysledky/IMG_8938.jpeg',
+    src: '/vysledky/IMG_8938.webp',
     alt: 'Rekonštrukčná kúra pre tmavé vlasy — lesk a vitalita po ošetrení Good Hair by Zane',
   },
   {
-    src: '/vysledky/IMG_7945.jpeg',
+    src: '/vysledky/IMG_7945.webp',
     alt: 'Kreatívne copánkové účesy s farebnými prameňmi v salóne Good Hair by Zane Ivanka pri Dunaji',
   },
 ];

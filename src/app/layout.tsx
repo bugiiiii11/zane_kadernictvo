@@ -24,10 +24,10 @@ export const metadata: Metadata = {
     template: '%s | Good Hair by Zane',
   },
   description:
-    'Profesionálne predlžovanie vlasov a rekonštrukčné kúry v Ivanke pri Dunaji. Luxusný vlasový salón s 10+ ročnými skúsenosťami a 150+ spokojnými klientkami. Keratínové, micro-ring, nano-ring a mikrokapsulové metódy. Objednajte sa!',
+    'Predlžovanie vlasov a rekonštrukčné kúry v Ivanke pri Dunaji. 10+ rokov skúseností, 150+ klientok. Keratín, micro-ring, nano-ring, mikrokapsule. Objednajte sa!',
   keywords: [
     'predlžovanie vlasov Ivanka pri Dunaji',
-    'kaderníctvo Ivanka pri Dunaji',
+    'rekonštrukčné kúry vlasy',
     'regeneračné kúry vlasy',
     'predlžovanie vlasov Bratislava',
     'zahusťovanie vlasov',
@@ -38,7 +38,6 @@ export const metadata: Metadata = {
     'vlasový salón Senec',
     'vlasový salón Bernolákovo',
     'predlžovanie vlasov cena',
-    'luxusné kaderníctvo Bratislava',
   ],
   authors: [{ name: 'Good Hair by Zane' }],
   robots: {
@@ -108,18 +107,25 @@ const jsonLd = {
         'https://www.facebook.com/people/Good-hair-by-zane/61585936526464/',
       ],
       priceRange: '€€',
+      areaServed: [
+        { '@type': 'City', name: 'Ivanka pri Dunaji' },
+        { '@type': 'City', name: 'Bratislava' },
+        { '@type': 'City', name: 'Senec' },
+        { '@type': 'City', name: 'Bernolákovo' },
+        { '@type': 'City', name: 'Most pri Bratislave' },
+      ],
+      founder: {
+        '@type': 'Person',
+        name: 'Zane',
+        jobTitle: 'Vlasová špecialistka',
+        worksFor: { '@id': 'https://goodhairbyzane.com/#salon' },
+      },
       openingHoursSpecification: [
         {
           '@type': 'OpeningHoursSpecification',
           dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
           opens: '09:00',
           closes: '18:00',
-        },
-        {
-          '@type': 'OpeningHoursSpecification',
-          dayOfWeek: 'Saturday',
-          opens: '09:00',
-          closes: '15:00',
         },
       ],
       aggregateRating: {
