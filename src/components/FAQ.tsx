@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Plus } from 'lucide-react';
 import Reveal from './Reveal';
 
@@ -53,21 +53,19 @@ function FAQItem({ faq, index }: { faq: (typeof faqs)[0]; index: number }) {
             <Plus className="w-5 h-5 text-mocha" />
           </motion.div>
         </button>
-        <AnimatePresence initial={false}>
-          {open && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
-              className="overflow-hidden"
-            >
-              <p className="pb-5 text-sm text-[#8A7F72] leading-relaxed font-light">
-                {faq.a}
-              </p>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <div
+          className="grid transition-[grid-template-rows,opacity] duration-300 ease-[cubic-bezier(0.25,0.4,0.25,1)]"
+          style={{
+            gridTemplateRows: open ? '1fr' : '0fr',
+            opacity: open ? 1 : 0,
+          }}
+        >
+          <div className="overflow-hidden">
+            <p className="pb-5 text-sm text-[#8A7F72] leading-relaxed font-light">
+              {faq.a}
+            </p>
+          </div>
+        </div>
       </div>
     </Reveal>
   );
