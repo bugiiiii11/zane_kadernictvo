@@ -6,68 +6,83 @@
 |---------|------|-------|--------|
 | 1 | 2026-03-28 | Initial website build + deploy | 32652c6 |
 | 2 | 2026-03-31 | Real images, content updates, UX fixes | 3a302f2 |
+| 3 | 2026-03-31 | SEO audit, image optimization, security headers | 9255cd0 |
+
+## What Was Done (Session 3) -- SEO Audit, Image Optimization, Security
+
+1. **Image-to-WebP conversion** -- Updated png-to-webp skill to support JPG/JPEG/BMP/TIFF. Created scripts/convert.py. Converted 16 of 21 images to WebP (5 skipped — already smaller as JPG). 13.2 MB saved (42%). Committed: 9255cd0.
+
+2. **Image resizing** -- All 37 images (JPG + WebP) resized from 6048px originals to max 2000px width. 43 MB total savings. Hero image went from 1.7 MB to 254 KB (WebP). Committed: 9255cd0.
+
+3. **Full SEO audit** -- Ran comprehensive audit across 7 categories. Score: 62/100 (penalized by domain pointing to WordPress during DNS propagation). Generated FULL-AUDIT-REPORT.md and ACTION-PLAN.md. Committed: 9255cd0.
+
+4. **OG image created** -- Generated 1200x630 og-image.jpg from salon interior photo (DSC_3461). 178 KB. Fixes 404 on social sharing. Committed: 9255cd0.
+
+5. **Meta description shortened** -- From ~230 chars to ~148 chars for proper SERP display. Committed: 9255cd0.
+
+6. **Security headers added** -- HSTS (max-age=63072000; includeSubDomains; preload) and Permissions-Policy (camera, microphone, geolocation denied) in next.config.js. Committed: 9255cd0.
+
+7. **Schema fixes** -- Removed Saturday from fixed opening hours (is by appointment). Added areaServed (5 cities). Added founder Person schema for Zane. Committed: 9255cd0.
+
+8. **Alt text fix** -- "Good Hair Club" → "Good Hair by Zane" in About.tsx. Committed: 9255cd0.
+
+9. **Keywords cleanup** -- Removed "kaderníctvo" from meta keywords (not core business). Added "rekonštrukčné kúry vlasy". Committed: 9255cd0.
+
+10. **llms.txt added** -- AI search readiness file with services, prices, contact, hours. Committed: 9255cd0.
 
 ## What Was Done (Session 2) -- Real Images, Content Updates, UX Fixes
 
-1. **Real images added** -- Replaced all placeholders with salon photos across Hero, About, Gallery. 9 priestory photos, 6 produkty photos, 6 vysledky result photos. Files: src/components/Hero.tsx, About.tsx, Gallery.tsx. Committed: c6ebe4b, 8527f48, 3a302f2.
+1. **Real images added** -- Replaced all placeholders with salon photos across Hero, About, Gallery. 9 priestory photos, 6 produkty photos, 6 vysledky result photos.
 
-2. **Services reordered and updated** -- Moved "Rekonstrukcne a regeneracne kury" to position 01, "Predlzovanie vlasov" to 02. Updated regeneration title and description. Committed: c6ebe4b.
+2. **Services reordered and updated** -- Moved "Rekonstrukcne a regeneracne kury" to position 01, "Predlzovanie vlasov" to 02.
 
-3. **Tape-in removed, new methods added** -- Removed all tape-in references site-wide. Added Nano-ring and Mikrokapsule methods to Services, Pricing, FAQ, schema.org, and meta description. Committed: 666de0e.
+3. **Tape-in removed, new methods added** -- Added Nano-ring and Mikrokapsule methods site-wide.
 
-4. **Google Maps embedded** -- Replaced map placeholder in Contact with iframe (Cintorinska 272/1, coords 48.1876108, 17.2544667). Committed: 666de0e.
+4. **Google Maps embedded** -- Cintorinska 272/1, coords 48.1876108, 17.2544667.
 
-5. **Favicon added** -- zane_favicon.png set as favicon and apple-touch-icon. Committed: 666de0e.
-
-6. **Pricing updated** -- User edited regeneration prices (Premiova rekonstrukcna kura od 85 EUR, Keratinove osetrenie od 100 EUR, Hlbkova regeneracia od 45 EUR). Added Nano-ring od 320 EUR and Mikrokapsule od 400 EUR. Committed: 85eb750.
-
-7. **Service card layout redesigned** -- Changed details from broken side-by-side layout to clean 2-column grid with stacked label/value. Committed: 85eb750.
-
-8. **Navbar UX fix** -- Added full-width backdrop-blur-md to navbar (50% opacity at top, 85% when scrolled). Nav links now readable over hero image. Committed: ddf6537.
-
-9. **Keratin duration updated** -- Changed from 4-6 to 3-5 mesiacov. Committed: 85eb750.
+5. **Favicon, pricing, navbar, keratin duration** -- Various fixes and updates.
 
 ## What Was Done (Session 1) -- Initial Website Build
 
-1. **Project scaffold** -- Next.js 14 + Tailwind CSS + Framer Motion + TypeScript. Committed: 32652c6.
-
-2. **SEO foundation** -- Root layout with metadata, HairSalon schema, FAQPage schema (6 questions), BreadcrumbList, Open Graph tags, geo meta tags.
-
-3. **9 components built** -- Navigation, Hero, About, Services, Pricing, Gallery, FAQ, Contact, Footer.
-
-4. **Design system** -- Luxury warm palette, Cormorant Garamond + Outfit fonts, glassmorphism, 3D card transforms, grain overlay.
-
-5. **Deployed** -- Pushed to GitHub, deployed on Vercel.
+1. Next.js 14 + Tailwind CSS + Framer Motion + TypeScript scaffold.
+2. SEO foundation with HairSalon, FAQPage, BreadcrumbList schemas.
+3. 9 components: Navigation, Hero, About, Services, Pricing, Gallery, FAQ, Contact, Footer.
+4. Deployed to GitHub + Vercel.
 
 ## What To Do Next
 
 | Priority | Task | Notes |
 |----------|------|-------|
-| 1 | Add OG image | User will provide or generate from salon photos. Save to public/og-image.jpg. |
-| 2 | Connect custom domain | goodhairbyzane.com -- A record + CNAME in Vercel dashboard. |
-| 3 | Convert images to WebP | Large JPGs cause slow loading. Convert all photos to WebP for performance. |
-| 4 | Run /seo-audit | Full SEO audit after domain is connected. |
-| 5 | Google Search Console | Add property, verify, submit sitemap.xml. |
-| 6 | Google My Business | Create/claim profile with matching NAP data. |
-| 7 | 21st.dev 3D components | Add animated shader hero or gradient animation for visual upgrade. |
-| 8 | Blog section | Add MDX blog for SEO content marketing (hair care tips, extensions guides). |
-| 9 | Online booking | Integrate Calendly or Booksy for appointment scheduling. |
+| 1 | Google Search Console | Verify domain, submit sitemap.xml. Wait for DNS propagation. |
+| 2 | Google My Business | Create/claim profile with matching NAP data. |
+| 3 | Improve OG image | Replace auto-generated with branded version if desired. |
+| 4 | Blog section | MDX blog for content marketing (hair care tips, extensions guides). |
+| 5 | Online booking | Integrate Calendly or Booksy for appointment scheduling. |
+| 6 | Real customer reviews | Replace AggregateRating placeholder with actual Google Reviews link. |
+| 7 | Color contrast fix | Darken #8A7F72 text for WCAG AA compliance. |
+| 8 | 21st.dev 3D components | Animated shader hero or gradient animation. |
 
 ## Key Files
 
 | File | Purpose |
 |------|---------|
-| src/app/layout.tsx | Root layout, SEO metadata, schema.org (HairSalon, FAQ, Breadcrumb) |
+| src/app/layout.tsx | Root layout, SEO metadata, schema.org (HairSalon, FAQ, Breadcrumb, Person) |
 | src/app/page.tsx | Main page, imports all components |
 | src/app/globals.css | Tailwind base + glassmorphism, 3D, grain utilities |
+| next.config.js | Security headers (HSTS, X-Frame, CSP), image config |
 | tailwind.config.ts | Custom colors (cream, mocha, gold...), animations, fonts |
-| src/components/Hero.tsx | Hero with parallax, real salon photo, stats cards |
+| src/components/Hero.tsx | Hero with parallax, salon photo, stats cards |
 | src/components/Services.tsx | 3 service cards with 3D hover, 2-col detail grid |
 | src/components/Pricing.tsx | Textual pricing (SEO indexable) |
-| src/components/Gallery.tsx | 5 result photos with hover zoom |
+| src/components/Gallery.tsx | 5 result photos (WebP) with hover zoom |
 | src/components/FAQ.tsx | 6 FAQ items with accordion animation |
 | src/components/Contact.tsx | Contact info + Google Maps iframe |
 | src/components/Navigation.tsx | Navbar with backdrop-blur, mobile menu |
-| public/priestory/ | 9 salon interior photos |
-| public/produkty/ | 6 product photos (milk_shake, Vitaker) |
-| public/vysledky/ | 6 result photos (hair extensions, treatments) |
+| public/og-image.jpg | OG image for social sharing (1200x630) |
+| public/llms.txt | AI search readiness file |
+| scripts/convert.py | Image → WebP converter (PNG, JPG, JPEG, BMP, TIFF) |
+| FULL-AUDIT-REPORT.md | Complete SEO audit findings |
+| ACTION-PLAN.md | Prioritized SEO action plan |
+| public/priestory/ | 9 salon interior photos (JPG + 7 WebP) |
+| public/produkty/ | 6 product photos (JPG + 3 WebP) |
+| public/vysledky/ | 6 result photos (JPEG + 6 WebP) |
