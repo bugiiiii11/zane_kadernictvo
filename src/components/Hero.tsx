@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import { ArrowRight, Sparkles } from 'lucide-react';
@@ -11,15 +11,28 @@ const stats = [
   { num: '50+', label: 'Prémiových produktov' },
 ];
 
+function useIsDesktop() {
+  const [isDesktop, setIsDesktop] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1024px)');
+    setIsDesktop(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+  return isDesktop;
+}
+
 export default function Hero() {
   const ref = useRef(null);
+  const isDesktop = useIsDesktop();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start start', 'end start'],
   });
-  const imageY = useTransform(scrollYProgress, [0, 1], [0, 120]);
-  const textY = useTransform(scrollYProgress, [0, 1], [0, -60]);
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, isDesktop ? 120 : 0]);
+  const textY = useTransform(scrollYProgress, [0, 1], [0, isDesktop ? -60 : 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, isDesktop ? 0 : 1]);
 
   return (
     <header
@@ -31,9 +44,9 @@ export default function Hero() {
       <div className="absolute inset-0 hero-gradient-bg" />
       <div className="mesh-gradient" />
 
-      {/* Ambient glow orbs */}
-      <div className="absolute top-20 left-[10%] w-72 h-72 bg-gold/8 rounded-full blur-[100px] animate-glow" />
-      <div className="absolute bottom-20 right-[20%] w-96 h-96 bg-blush/6 rounded-full blur-[120px] animate-glow" />
+      {/* Ambient glow orbs — hidden on mobile for performance */}
+      <div className="absolute top-20 left-[10%] w-72 h-72 bg-gold/8 rounded-full blur-[100px] animate-glow hidden lg:block" />
+      <div className="absolute bottom-20 right-[20%] w-96 h-96 bg-blush/6 rounded-full blur-[120px] animate-glow hidden lg:block" />
 
       <motion.div
         style={{ y: textY, opacity }}

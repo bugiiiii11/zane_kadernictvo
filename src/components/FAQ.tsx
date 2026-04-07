@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import { Plus } from 'lucide-react';
 import Reveal from './Reveal';
 
@@ -45,13 +44,12 @@ function FAQItem({ faq, index }: { faq: (typeof faqs)[0]; index: number }) {
           <span className="font-display text-lg text-deep-brown pr-8 group-hover:text-mocha transition-colors">
             {faq.q}
           </span>
-          <motion.div
-            animate={{ rotate: open ? 45 : 0 }}
-            transition={{ duration: 0.3 }}
-            className="flex-shrink-0"
+          <div
+            className="flex-shrink-0 transition-transform duration-300"
+            style={{ transform: open ? 'rotate(45deg)' : 'rotate(0deg)' }}
           >
             <Plus className="w-5 h-5 text-mocha" />
-          </motion.div>
+          </div>
         </button>
         <div
           className="grid transition-[grid-template-rows,opacity] duration-300 ease-[cubic-bezier(0.25,0.4,0.25,1)]"
