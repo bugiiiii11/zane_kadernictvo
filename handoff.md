@@ -7,6 +7,26 @@
 | 1 | 2026-03-28 | Initial website build + deploy | 32652c6 |
 | 2 | 2026-03-31 | Real images, content updates, UX fixes | 3a302f2 |
 | 3 | 2026-03-31 | SEO audit, image optimization, security headers | 9255cd0 |
+| 4 | 2026-04-17 | Mobile performance fixes, footer branding | e36c801 |
+
+## What Was Done (Session 4) -- Mobile Performance, Footer Branding
+
+1. **M.D.N Tech credit in footer** -- Added "Vytvorené (logo) M.D.N Tech" centered in footer bottom row with link to https://www.mdntech.org/ and hover effect. Logo: public/pictures/mdntech-footer-logo.png. Committed: 200edc3.
+
+2. **FAQ accordion lag fixed** -- Replaced Framer Motion `height: 0→auto` animation (causes reflow per frame) with CSS `grid-template-rows: 0fr→1fr` transition (GPU-accelerated, no reflows). Removed `AnimatePresence`. Commit: 92ff32c.
+
+3. **Hero + FAQ mobile lag fixed** -- Comprehensive mobile optimization:
+   - **Hero parallax disabled on mobile** — `useTransform` now returns 0 on <1024px (no scroll listener overhead).
+   - **Blur orbs hidden on mobile** — 100-120px blur was GPU killer; now `hidden lg:block`.
+   - **Backdrop-filter reduced** — `blur(20px)` → `blur(8px)` on <1024px.
+   - **Gradient animations stopped** — `.hero-gradient-bg` and `.mesh-gradient` animation: none on mobile.
+   - **Blur filter reduced** — `.mesh-gradient` filter reduced from 40px to 20px on mobile.
+   - **Box-shadow simplified** — 4-layer shadow → 2-layer on mobile.
+   - **Grain overlay hidden** — SVG noise pseudo-element removed on mobile.
+   - **FAQ Plus icon rotation** — Replaced Framer Motion with CSS `transition-transform` (JS-free).
+   - Committed: e36c801.
+
+**Root cause analysis:** Desktop emulation in DevTools uses PC GPU (handles anything smoothly). Real mobile phones with weaker GPUs can't handle: parallax transforms on every scroll frame + 100-120px blur orbs + backdrop-filter blur + 2 simultaneous infinite gradient animations. Fix disables effects on mobile that users don't notice on small screens anyway.
 
 ## What Was Done (Session 3) -- SEO Audit, Image Optimization, Security
 
@@ -53,36 +73,35 @@
 
 | Priority | Task | Notes |
 |----------|------|-------|
-| 1 | Google Search Console | Verify domain, submit sitemap.xml. Wait for DNS propagation. |
-| 2 | Google My Business | Create/claim profile with matching NAP data. |
-| 3 | Improve OG image | Replace auto-generated with branded version if desired. |
-| 4 | Blog section | MDX blog for content marketing (hair care tips, extensions guides). |
-| 5 | Online booking | Integrate Calendly or Booksy for appointment scheduling. |
-| 6 | Real customer reviews | Replace AggregateRating placeholder with actual Google Reviews link. |
-| 7 | Color contrast fix | Darken #8A7F72 text for WCAG AA compliance. |
-| 8 | 21st.dev 3D components | Animated shader hero or gradient animation. |
+| 1 | Google Search Console | Verify domain, submit sitemap.xml. Critical for indexing. |
+| 2 | Google My Business | Create/claim profile with matching NAP data. Local SEO essential. |
+| 3 | Real customer reviews | Replace AggregateRating placeholder with actual Google Reviews link. |
+| 4 | Online booking | Integrate Calendly or Booksy for appointment scheduling. |
+| 5 | Blog section | MDX blog for content marketing (hair care tips, extensions guides). Local SEO boost. |
+| 6 | Color contrast fix | Darken #8A7F72 text for WCAG AA compliance. |
+| 7 | Improve OG image | Replace auto-generated with branded salon photo if desired. |
 
 ## Key Files
 
-| File | Purpose |
-|------|---------|
-| src/app/layout.tsx | Root layout, SEO metadata, schema.org (HairSalon, FAQ, Breadcrumb, Person) |
-| src/app/page.tsx | Main page, imports all components |
-| src/app/globals.css | Tailwind base + glassmorphism, 3D, grain utilities |
-| next.config.js | Security headers (HSTS, X-Frame, CSP), image config |
-| tailwind.config.ts | Custom colors (cream, mocha, gold...), animations, fonts |
-| src/components/Hero.tsx | Hero with parallax, salon photo, stats cards |
-| src/components/Services.tsx | 3 service cards with 3D hover, 2-col detail grid |
-| src/components/Pricing.tsx | Textual pricing (SEO indexable) |
-| src/components/Gallery.tsx | 5 result photos (WebP) with hover zoom |
-| src/components/FAQ.tsx | 6 FAQ items with accordion animation |
-| src/components/Contact.tsx | Contact info + Google Maps iframe |
-| src/components/Navigation.tsx | Navbar with backdrop-blur, mobile menu |
-| public/og-image.jpg | OG image for social sharing (1200x630) |
-| public/llms.txt | AI search readiness file |
-| scripts/convert.py | Image → WebP converter (PNG, JPG, JPEG, BMP, TIFF) |
-| FULL-AUDIT-REPORT.md | Complete SEO audit findings |
-| ACTION-PLAN.md | Prioritized SEO action plan |
-| public/priestory/ | 9 salon interior photos (JPG + 7 WebP) |
-| public/produkty/ | 6 product photos (JPG + 3 WebP) |
-| public/vysledky/ | 6 result photos (JPEG + 6 WebP) |
+| File | Purpose | Session 4 Changes |
+|------|---------|-------------------|
+| src/app/layout.tsx | Root layout, SEO metadata, schema.org | — |
+| src/app/page.tsx | Main page, imports all components | — |
+| src/app/globals.css | Tailwind base + utilities | Mobile-only media query: disabled animations, reduced blur, simplified shadows |
+| next.config.js | Security headers, image config | — |
+| tailwind.config.ts | Custom colors, animations, fonts | — |
+| src/components/Hero.tsx | Hero with parallax, salon photo, stats cards | Parallax disabled on mobile via `useIsDesktop()` hook; blur orbs hidden on mobile |
+| src/components/Services.tsx | 3 service cards with 3D hover | — |
+| src/components/Pricing.tsx | Textual pricing (SEO indexable) | — |
+| src/components/Gallery.tsx | 5 result photos (WebP) with zoom | — |
+| src/components/FAQ.tsx | 6 FAQ items with accordion | CSS grid-template-rows animation (session 2); Plus icon CSS rotation (session 4) |
+| src/components/Contact.tsx | Contact info + Google Maps | — |
+| src/components/Navigation.tsx | Navbar with backdrop-blur | — |
+| src/components/Footer.tsx | Footer with copyright, contact, M.D.N credit | Added M.D.N Tech logo + link (session 4) |
+| public/og-image.jpg | OG image (1200x630) | — |
+| public/llms.txt | AI search readiness file | — |
+| public/pictures/mdntech-footer-logo.png | M.D.N Tech footer logo | Session 4 |
+| scripts/convert.py | Image → WebP converter | — |
+| public/priestory/ | 9 salon interior photos (JPG + WebP) | — |
+| public/produkty/ | 6 product photos (JPG + WebP) | — |
+| public/vysledky/ | 6 result photos (JPEG + WebP) | — |
