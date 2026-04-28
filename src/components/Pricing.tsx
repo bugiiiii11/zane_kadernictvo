@@ -76,7 +76,7 @@ export default function Pricing() {
       <div className="max-w-3xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <Reveal>
-            <span className="text-xs tracking-[0.2em] uppercase text-mocha font-body block mb-4">
+            <span className="section-label mb-5 mx-auto">
               Cenník 2026/27
             </span>
           </Reveal>
@@ -91,23 +91,24 @@ export default function Pricing() {
         {categories.map((cat, ci) => (
           <Reveal key={cat.title} delay={ci * 0.1}>
             <div className="mb-10">
-              <h3 className="font-display text-xl text-deep-brown mb-4 pb-2 border-b border-sand">
+              <h3 className="font-display text-2xl text-deep-brown mb-5 pb-3 border-b-2 border-gold/40 flex items-center gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold" />
                 {cat.title}
               </h3>
               {cat.items.map((item) => (
                 <div
                   key={item.name}
-                  className="flex justify-between items-baseline py-3 border-b border-dotted border-sand/60 group"
+                  className="flex justify-between items-baseline py-4 border-b border-dotted border-sand group hover:bg-warm-white/40 transition-colors -mx-2 px-2 rounded-sm"
                 >
                   <div className="pr-4">
-                    <div className="text-sm text-deep-brown group-hover:text-mocha transition-colors">
+                    <div className="text-sm font-medium text-deep-brown group-hover:text-espresso transition-colors">
                       {item.name}
                     </div>
-                    <div className="text-xs text-[#8A7F72] mt-0.5 font-light">
+                    <div className="text-xs text-[#6B5F52] mt-1 font-normal leading-relaxed">
                       {item.desc}
                     </div>
                   </div>
-                  <div className="font-display text-lg font-medium text-espresso whitespace-nowrap">
+                  <div className="font-display text-xl font-semibold text-espresso whitespace-nowrap group-hover:text-gold transition-colors">
                     {item.price}
                   </div>
                 </div>

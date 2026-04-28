@@ -56,10 +56,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="inline-flex items-center gap-2 mb-6"
+          className="inline-flex items-center gap-3 mb-6 px-4 py-2 rounded-full bg-gold-light/40 border border-gold/30"
         >
-          <Sparkles className="w-4 h-4 text-gold" />
-          <span className="text-xs tracking-[0.2em] uppercase text-mocha font-body">
+          <Sparkles className="w-4 h-4 text-espresso" />
+          <span className="text-[0.7rem] tracking-[0.22em] uppercase text-espresso font-body font-medium">
             Vlasový salón v Ivanke pri Dunaji
           </span>
         </motion.div>
@@ -79,7 +79,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
-          className="text-[#8A7F72] text-base lg:text-lg max-w-md mb-8 font-light leading-relaxed"
+          className="text-[#5C4A35] text-base lg:text-lg max-w-md mb-8 font-normal leading-relaxed"
         >
           Špecializujeme sa na prémiové predlžovanie a zahusťovanie vlasov
           keratínovou, micro-ring, nano-ring a mikrokapsulovou metódou. Viac ako 10 rokov
@@ -95,14 +95,14 @@ export default function Hero() {
         >
           <a
             href="tel:+421944854229"
-            className="group inline-flex items-center gap-3 px-7 py-4 bg-espresso text-cream text-[0.82rem] tracking-[0.1em] uppercase hover:bg-deep-brown transition-all duration-300 hover:-translate-y-0.5 glow-gold-hover"
+            className="group btn-primary-luxe inline-flex items-center gap-3 px-8 py-4 text-cream text-[0.82rem] tracking-[0.12em] uppercase font-medium"
           >
             Objednať sa
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
           <a
             href="#sluzby"
-            className="inline-flex items-center gap-3 px-7 py-4 border border-sand text-espresso text-[0.82rem] tracking-[0.1em] uppercase hover:border-mocha transition-all duration-300"
+            className="inline-flex items-center gap-3 px-7 py-4 border-2 border-espresso/80 text-espresso text-[0.82rem] tracking-[0.12em] uppercase font-medium hover:bg-espresso hover:text-cream transition-all duration-300"
           >
             Naše služby
           </a>
@@ -135,13 +135,13 @@ export default function Hero() {
                 delay: 0.9 + i * 0.15,
                 ease: [0.25, 0.4, 0.25, 1],
               }}
-              className="glass px-4 py-3 md:px-5 md:py-4 text-center shadow-layered"
+              className="glass px-4 py-3 md:px-5 md:py-4 text-center shadow-luxury border-t-2 border-t-gold"
               style={{ perspective: '600px' }}
             >
-              <div className="font-display text-2xl md:text-3xl font-medium text-espresso leading-none">
+              <div className="font-display text-2xl md:text-3xl font-semibold text-deep-brown leading-none">
                 {stat.num}
               </div>
-              <div className="text-[0.65rem] md:text-[0.7rem] tracking-[0.06em] uppercase text-[#8A7F72] mt-1">
+              <div className="text-[0.65rem] md:text-[0.7rem] tracking-[0.08em] uppercase text-mocha font-medium mt-1.5">
                 {stat.label}
               </div>
             </motion.div>

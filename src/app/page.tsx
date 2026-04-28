@@ -7,6 +7,7 @@ import Gallery from '@/components/Gallery';
 import FAQ from '@/components/FAQ';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import RelocationPopup from '@/components/RelocationPopup';
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <FAQ />
       <Contact />
       <Footer />
+      <RelocationPopup />
     </main>
   );
 }

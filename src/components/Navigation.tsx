@@ -58,7 +58,7 @@ export default function Navigation() {
             <li>
               <a
                 href="tel:+421944854229"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-espresso text-cream text-[0.78rem] tracking-[0.1em] uppercase hover:bg-deep-brown transition-colors"
+                className="btn-primary-luxe inline-flex items-center gap-2 px-6 py-2.5 text-cream text-[0.78rem] tracking-[0.12em] uppercase font-medium"
               >
                 <Phone className="w-3.5 h-3.5" />
                 Objednať sa

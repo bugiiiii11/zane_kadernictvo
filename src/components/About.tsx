@@ -20,7 +20,7 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
         <div>
           <Reveal>
-            <span className="text-xs tracking-[0.2em] uppercase text-mocha font-body block mb-4">
+            <span className="section-label mb-5">
               O nás
             </span>
           </Reveal>
@@ -31,7 +31,7 @@ export default function About() {
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="text-[#8A7F72] mb-4 leading-relaxed font-light">
+            <p className="text-[#5C4A35] mb-4 leading-relaxed font-normal">
               Good Hair by Zane je vlasový salón v Ivanke pri Dunaji, ktorý sa
               špecializuje na profesionálne predlžovanie vlasov a prémiové
               regeneračné kúry. Ponúkame štyri overené metódy — keratínové
@@ -40,7 +40,7 @@ export default function About() {
             </p>
           </Reveal>
           <Reveal delay={0.3}>
-            <p className="text-[#8A7F72] mb-8 leading-relaxed font-light">
+            <p className="text-[#5C4A35] mb-8 leading-relaxed font-normal">
               Každej klientke venujeme individuálnu pozornosť a navrhneme
               riešenie presne podľa jej typu vlasov, životného štýlu a
               očakávaní. Či chcete zdravšie
@@ -52,14 +52,14 @@ export default function About() {
             {features.map((f, i) => (
               <Reveal key={f.title} delay={0.3 + i * 0.1}>
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-full bg-gold-light flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Check className="w-4 h-4 text-espresso" />
+                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-gold to-gold-light flex items-center justify-center flex-shrink-0 mt-0.5 shadow-md">
+                    <Check className="w-4 h-4 text-deep-brown stroke-[2.5]" />
                   </div>
                   <div>
-                    <div className="text-sm font-body font-normal text-deep-brown">
+                    <div className="text-sm font-body font-medium text-deep-brown">
                       {f.title}
                     </div>
-                    <div className="text-xs text-[#8A7F72] font-light mt-0.5">
+                    <div className="text-xs text-mocha font-normal mt-0.5 leading-relaxed">
                       {f.desc}
                     </div>
                   </div>

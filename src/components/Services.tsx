@@ -73,7 +73,7 @@ function ServiceCard({
         ref={cardRef}
         onMouseMove={handleMouse}
         onMouseLeave={handleLeave}
-        className="relative bg-cream rounded-sm p-8 lg:p-10 transition-all duration-500 cursor-default overflow-hidden group"
+        className="relative bg-warm-white rounded-sm p-8 lg:p-10 transition-all duration-500 cursor-default overflow-hidden group shadow-luxury border border-sand/80 hover:border-gold/40"
         style={{
           transform: transform || undefined,
           transition: transform
@@ -81,28 +81,28 @@ function ServiceCard({
             : 'transform 0.6s cubic-bezier(0.23,1,0.32,1)',
         }}
       >
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+        <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-gold via-gold-light to-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
         <div
           className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
           style={{
-            background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, rgba(197,169,123,0.08) 0%, transparent 60%)`,
+            background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, rgba(197,169,123,0.12) 0%, transparent 60%)`,
           }}
         />
         <div className="relative z-10">
-          <span className="font-display text-5xl font-light text-sand/60 leading-none block mb-4">
+          <span className="font-display text-6xl font-light text-gradient-gold leading-none block mb-5">
             {service.num}
           </span>
-          <h3 className="font-display text-2xl text-deep-brown mb-4">
+          <h3 className="font-display text-2xl text-deep-brown mb-4 font-normal">
             {service.title}
           </h3>
-          <p className="text-sm text-[#8A7F72] leading-relaxed font-light mb-6">
+          <p className="text-sm text-[#5C4A35] leading-relaxed font-normal mb-6">
             {service.desc}
           </p>
           <div className="border-t border-sand pt-5 grid grid-cols-2 gap-x-4 gap-y-3">
             {service.details.map(([label, value]) => (
               <div key={label}>
-                <div className="text-[0.78rem] font-normal text-deep-brown">{label}</div>
-                <div className="text-[0.72rem] text-[#8A7F72] font-light mt-0.5">{value}</div>
+                <div className="text-[0.78rem] font-medium text-deep-brown">{label}</div>
+                <div className="text-[0.72rem] text-mocha font-normal mt-0.5">{value}</div>
               </div>
             ))}
           </div>
@@ -118,7 +118,7 @@ export default function Services() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <Reveal>
-            <span className="text-xs tracking-[0.2em] uppercase text-mocha font-body block mb-4">
+            <span className="section-label mb-5 mx-auto">
               Naše služby
             </span>
           </Reveal>

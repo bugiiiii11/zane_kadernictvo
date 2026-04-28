@@ -35,20 +35,22 @@ function FAQItem({ faq, index }: { faq: (typeof faqs)[0]; index: number }) {
   const [open, setOpen] = useState(false);
   return (
     <Reveal delay={index * 0.08}>
-      <div className="border-b border-sand">
+      <div className={`border-b-2 transition-colors ${open ? 'border-gold/50' : 'border-sand'}`}>
         <button
           onClick={() => setOpen(!open)}
           className="w-full flex items-center justify-between py-5 text-left group"
           aria-expanded={open}
         >
-          <span className="font-display text-lg text-deep-brown pr-8 group-hover:text-mocha transition-colors">
+          <span className="font-display text-lg lg:text-xl text-deep-brown pr-8 group-hover:text-espresso transition-colors font-normal">
             {faq.q}
           </span>
           <div
-            className="flex-shrink-0 transition-transform duration-300"
+            className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
+              open ? 'bg-gold text-deep-brown' : 'bg-warm-white border border-sand text-mocha group-hover:border-gold group-hover:text-espresso'
+            }`}
             style={{ transform: open ? 'rotate(45deg)' : 'rotate(0deg)' }}
           >
-            <Plus className="w-5 h-5 text-mocha" />
+            <Plus className="w-4 h-4" strokeWidth={2.5} />
           </div>
         </button>
         <div
@@ -59,7 +61,7 @@ function FAQItem({ faq, index }: { faq: (typeof faqs)[0]; index: number }) {
           }}
         >
           <div className="overflow-hidden">
-            <p className="pb-5 text-sm text-[#8A7F72] leading-relaxed font-light">
+            <p className="pb-5 text-sm text-[#5C4A35] leading-relaxed font-normal">
               {faq.a}
             </p>
           </div>
@@ -75,7 +77,7 @@ export default function FAQ() {
       <div className="max-w-3xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <Reveal>
-            <span className="text-xs tracking-[0.2em] uppercase text-mocha font-body block mb-4">
+            <span className="section-label mb-5 mx-auto">
               Časté otázky
             </span>
           </Reveal>
