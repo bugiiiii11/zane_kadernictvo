@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import { Cormorant_Garamond, Outfit } from 'next/font/google';
 import './globals.css';
 
@@ -278,14 +277,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased">
-        {children}
-        <Script
-          src="https://www.mdntech.org/widget.js"
-          data-chatbot-id="f9ae9d8d-a733-4407-9bd7-09e9ea2d0f9f"
-          strategy="lazyOnload"
-        />
-      </body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
