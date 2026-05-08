@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Cormorant_Garamond, Outfit } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 
 const cormorant = Cormorant_Garamond({
@@ -277,7 +278,14 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {children}
+        <Script
+          src="https://www.mdntech.org/widget.js"
+          data-chatbot-id="60b63ca6-a231-4812-9288-3f6b776edbd8"
+          strategy="lazyOnload"
+        />
+      </body>
     </html>
   );
 }
