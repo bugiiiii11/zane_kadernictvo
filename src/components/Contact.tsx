@@ -7,13 +7,13 @@ export default function Contact() {
   return (
     <section
       id="kontakt"
-      className="py-20 lg:py-28 bg-deep-brown text-cream relative overflow-hidden"
+      className="py-24 lg:py-36 bg-deep-brown text-cream relative overflow-hidden"
     >
       <div className="absolute top-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-[150px]" />
       <div className="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-12 lg:gap-16 relative z-10">
         <div>
           <Reveal>
-            <h2 className="font-display text-[clamp(2rem,3.5vw,2.8rem)] font-light text-cream mb-4">
+            <h2 className="font-display text-[clamp(2.15rem,3.8vw,3rem)] font-light text-cream leading-tight text-balance mb-4">
               Objednajte sa ešte{' '}
               <em className="italic text-gold">dnes</em>
             </h2>
@@ -36,7 +36,7 @@ export default function Contact() {
                   <Phone className="w-[18px] h-[18px] text-gold" />
                 </div>
                 <div>
-                  <div className="text-[0.7rem] tracking-[0.1em] uppercase text-cream/40 mb-0.5">
+                  <div className="text-[0.75rem] tracking-[0.1em] uppercase text-cream/65 mb-0.5">
                     Telefón
                   </div>
                   <div className="text-cream group-hover:text-gold transition-colors">
@@ -54,7 +54,7 @@ export default function Contact() {
                   <Mail className="w-[18px] h-[18px] text-gold" />
                 </div>
                 <div>
-                  <div className="text-[0.7rem] tracking-[0.1em] uppercase text-cream/40 mb-0.5">
+                  <div className="text-[0.75rem] tracking-[0.1em] uppercase text-cream/65 mb-0.5">
                     Email
                   </div>
                   <div className="text-cream group-hover:text-gold transition-colors">
@@ -69,7 +69,7 @@ export default function Contact() {
                   <MapPin className="w-[18px] h-[18px] text-gold" />
                 </div>
                 <div>
-                  <div className="text-[0.7rem] tracking-[0.1em] uppercase text-cream/40 mb-0.5">
+                  <div className="text-[0.75rem] tracking-[0.1em] uppercase text-cream/65 mb-0.5">
                     Adresa
                   </div>
                   <div className="text-cream">
@@ -84,15 +84,15 @@ export default function Contact() {
 
           <Reveal delay={0.35}>
             <div className="mb-10">
-              <div className="text-[0.7rem] tracking-[0.1em] uppercase text-cream/40 mb-3">
+              <div className="text-[0.75rem] tracking-[0.1em] uppercase text-cream/65 mb-3">
                 Otváracie hodiny
               </div>
-              <div className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-sm">
-                <span className="text-cream/50">Pondelok — Piatok</span>
+              <div className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-1.5 text-[0.95rem]">
+                <span className="text-cream/60">Pondelok — Piatok</span>
                 <span>09:00 — 18:00</span>
-                <span className="text-cream/50">Sobota</span>
+                <span className="text-cream/60">Sobota</span>
                 <span>Na objednávku</span>
-                <span className="text-cream/50">Nedeľa</span>
+                <span className="text-cream/60">Nedeľa</span>
                 <span>Zatvorené</span>
               </div>
             </div>

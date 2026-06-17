@@ -11,6 +11,8 @@
 
   body {
     @apply bg-warm-white text-[#4A4038] font-body;
+    /* Fluid body size per DESIGN.md token: 16px → 18px on wide screens */
+    font-size: clamp(1rem, 0.94rem + 0.35vw, 1.125rem);
   }
 
   ::selection {
@@ -20,20 +22,6 @@
 }
 
 @layer utilities {
-  .card-3d {
-    perspective: 1200px;
-    transform-style: preserve-3d;
-  }
-
-  .card-3d-inner {
-    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    transform-style: preserve-3d;
-  }
-
-  .card-3d:hover .card-3d-inner {
-    transform: rotateY(-3deg) rotateX(3deg) translateZ(20px);
-  }
-
   .glass {
     background: rgba(253, 251, 248, 0.7);
     backdrop-filter: blur(20px) saturate(1.5);
@@ -58,19 +46,15 @@
                 0 0 120px -20px rgba(197, 169, 123, 0.3);
   }
 
-  .text-gradient-gold {
-    background: linear-gradient(135deg, #C5A97B 0%, #E2D4B8 50%, #C5A97B 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
   .grain::after {
     content: '';
     position: absolute;
     inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    /* Tile a small seamless texture instead of rasterizing one huge noise
+       layer across the whole (tall) section — far cheaper to paint. */
+    background-size: 256px 256px;
+    background-repeat: repeat;
     pointer-events: none;
     z-index: 1;
   }
@@ -148,44 +132,42 @@
       0 4px 12px -2px rgba(58, 46, 34, 0.30),
       0 0 0 1px rgba(197, 169, 123, 0.20),
       inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    transition:
+      transform 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+      box-shadow 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+      filter 0.45s cubic-bezier(0.23, 1, 0.32, 1);
   }
+  /* Diagonal light sweep — a single, brighter pass of gold sheen */
   .btn-primary-luxe::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, transparent, rgba(197, 169, 123, 0.25), transparent);
-    transform: translateX(-100%);
-    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    background: linear-gradient(
+      105deg,
+      transparent 35%,
+      rgba(226, 212, 184, 0.5) 50%,
+      transparent 65%
+    );
+    transform: translateX(-120%);
+    transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    pointer-events: none;
   }
   .btn-primary-luxe:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    filter: brightness(1.08) saturate(1.04);
     box-shadow:
-      0 12px 32px -4px rgba(58, 46, 34, 0.40),
-      0 0 0 1px rgba(197, 169, 123, 0.45),
-      0 0 32px -8px rgba(197, 169, 123, 0.50),
-      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      0 16px 38px -6px rgba(58, 46, 34, 0.45),
+      0 0 0 1px rgba(197, 169, 123, 0.55),
+      0 0 44px -8px rgba(197, 169, 123, 0.55),
+      inset 0 1px 0 rgba(255, 255, 255, 0.16);
   }
   .btn-primary-luxe:hover::before {
-    transform: translateX(100%);
+    transform: translateX(120%);
   }
-
-  .section-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-size: 0.7rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #5C4A35;
-    font-weight: 500;
-  }
-  .section-label::before,
-  .section-label::after {
-    content: '';
-    width: 24px;
-    height: 1px;
-    background: #C5A97B;
+  /* Tactile press — settle back down on click */
+  .btn-primary-luxe:active {
+    transform: translateY(-1px);
+    transition-duration: 0.1s;
   }
 
   /* 3D Shader-like gradient background for Hero */

@@ -1,11 +1,9 @@
 'use client';
 
-import { useRef, useState } from 'react';
 import Reveal from './Reveal';
 
 const services = [
   {
-    num: '01',
     title: 'Rekonštrukčné a regeneračné kúry',
     desc: 'Rekonštrukčná procedúra pre hĺbkovú regeneráciu suchých, lámavých a poškodených vlasov. Vráťia vašim vlasom lesk, silu a vitalitu — viditeľný výsledok už po prvom ošetrení. Ideálne pre farbené, chemicky ošetrené alebo suché vlasy.',
     details: [
@@ -16,7 +14,6 @@ const services = [
     ],
   },
   {
-    num: '02',
     title: 'Predlžovanie vlasov',
     desc: 'Profesionálne predlžovanie a zahusťovanie vlasov prispôsobené vášmu typu vlasov a životnému štýlu. Používame výlučne 100% ľudské vlasy najvyššej kvality pre dokonale prirodzený vzhľad, ktorý vás nadchne.',
     details: [
@@ -28,7 +25,6 @@ const services = [
     ],
   },
   {
-    num: '03',
     title: 'Individuálna konzultácia',
     desc: 'Bezplatná osobná konzultácia, počas ktorej zhodnotíme stav vašich vlasov, navrhneme optimálne riešenie a pripravíme presnú cenovú kalkuláciu. Žiadne skryté poplatky — transparentný prístup od prvého stretnutia.',
     details: [
@@ -47,67 +43,32 @@ function ServiceCard({
   service: (typeof services)[0];
   index: number;
 }) {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [transform, setTransform] = useState('');
-  const [glare, setGlare] = useState({ x: 50, y: 50 });
-
-  const handleMouse = (e: React.MouseEvent) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width;
-    const y = (e.clientY - rect.top) / rect.height;
-    setTransform(
-      `perspective(800px) rotateX(${(y - 0.5) * -8}deg) rotateY(${(x - 0.5) * 8}deg) translateZ(10px)`
-    );
-    setGlare({ x: x * 100, y: y * 100 });
-  };
-
-  const handleLeave = () => {
-    setTransform('');
-    setGlare({ x: 50, y: 50 });
-  };
-
   return (
-    <Reveal delay={index * 0.15}>
-      <div
-        ref={cardRef}
-        onMouseMove={handleMouse}
-        onMouseLeave={handleLeave}
-        className="relative bg-warm-white rounded-sm p-8 lg:p-10 transition-all duration-500 cursor-default overflow-hidden group shadow-luxury border border-sand/80 hover:border-gold/40"
-        style={{
-          transform: transform || undefined,
-          transition: transform
-            ? 'none'
-            : 'transform 0.6s cubic-bezier(0.23,1,0.32,1)',
-        }}
-      >
-        <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-gold via-gold-light to-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-        <div
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-          style={{
-            background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, rgba(197,169,123,0.12) 0%, transparent 60%)`,
-          }}
-        />
-        <div className="relative z-10">
-          <span className="font-display text-6xl font-light text-gradient-gold leading-none block mb-5">
-            {service.num}
-          </span>
-          <h3 className="font-display text-2xl text-deep-brown mb-4 font-normal">
-            {service.title}
-          </h3>
-          <p className="text-sm text-[#5C4A35] leading-relaxed font-normal mb-6">
-            {service.desc}
-          </p>
-          <div className="border-t border-sand pt-5 grid grid-cols-2 gap-x-4 gap-y-3">
-            {service.details.map(([label, value]) => (
-              <div key={label}>
-                <div className="text-[0.78rem] font-medium text-deep-brown">{label}</div>
-                <div className="text-[0.72rem] text-mocha font-normal mt-0.5">{value}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+    <Reveal delay={index * 0.12}>
+      <article className="group relative h-full bg-warm-white p-8 lg:p-10 shadow-luxury border border-sand/70 transition-[transform,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1.5 hover:border-gold/40">
+        {/* Gold hairline — the connective thread, grows on hover */}
+        <span className="block h-px w-10 bg-gradient-to-r from-gold to-gold-light transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:w-16" />
+
+        <h3 className="font-display text-2xl lg:text-[1.7rem] text-deep-brown mt-6 mb-4 font-normal leading-snug">
+          {service.title}
+        </h3>
+        <p className="text-[0.95rem] lg:text-base text-espresso leading-relaxed mb-7">
+          {service.desc}
+        </p>
+
+        <dl className="border-t border-sand pt-6 grid grid-cols-2 gap-x-5 gap-y-4">
+          {service.details.map(([label, value]) => (
+            <div key={label}>
+              <dt className="text-[0.95rem] font-medium text-deep-brown">
+                {label}
+              </dt>
+              <dd className="text-[0.85rem] text-[#6B5A45] leading-relaxed mt-1">
+                {value}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </article>
     </Reveal>
   );
 }
@@ -116,22 +77,19 @@ export default function Services() {
   return (
     <section id="sluzby" className="py-20 lg:py-28 bg-warm-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 max-w-2xl mx-auto">
           <Reveal>
-            <span className="section-label mb-5 mx-auto">
-              Naše služby
-            </span>
+            <span className="block h-px w-16 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-7" />
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="font-display text-[clamp(2rem,3.5vw,2.8rem)] font-light text-deep-brown">
-              Špecializujeme sa na to, čo robíme{' '}
-              <em className="italic text-mocha">najlepšie</em>
+            <h2 className="font-display text-[clamp(2.15rem,3.8vw,3rem)] font-light text-deep-brown leading-tight text-balance">
+              Špecializujeme sa na to, čo robíme najlepšie
             </h2>
           </Reveal>
         </div>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 items-stretch">
           {services.map((s, i) => (
-            <ServiceCard key={s.num} service={s} index={i} />
+            <ServiceCard key={s.title} service={s} index={i} />
           ))}
         </div>
       </div>

@@ -9,7 +9,64 @@
 | 3 | 2026-03-31 | SEO audit, image optimization, security headers | 9255cd0 |
 | 4 | 2026-04-17 | Mobile performance fixes, footer branding | e36c801 |
 | 5 | 2026-05-08 | Chatbot KB, relocation popup, visual hierarchy | 887e3e6 |
-| 6 | 2026-06-17 | Relocation to Most pri Bratislave, new price list, WebP | (this session) |
+| 6 | 2026-06-17 | Relocation to Most pri Bratislave, new price list, WebP | 1d7737b |
+| 7 | 2026-06-17 | Impeccable design polish: de-template, Hero/About/Services, AA fixes | (S9 commit) |
+| 8 | 2026-06-17 | Impeccable cont.: site-wide type scale, Pricing menu redesign, perf, FAQ/Footer/Nav | (S9 commit) |
+| 9 | 2026-06-18 | Footer text bump, primary-button hover polish, Gallery WebP; committed S7+S8+S9 | (this commit) |
+
+## What Was Done (Session 9) -- Footer Text Bump, Button Hover Polish, Gallery WebP + Commit
+
+Short polish session. **All prior uncommitted work (S7 + S8) plus S9 committed + pushed to `main` together** (triggers Vercel deploy) — closing out the long-standing "uncommitted design work" item.
+
+1. **Footer bottom-row text enlarged (user-reported "way too small").** The copyright line (`© … Good Hair by Zane. Všetky práva vyhradené.`) went `text-[0.78rem]` → `text-[0.9rem]`; the "Vytvorené M.D.N Tech" credit went `text-[0.72rem]` → `text-[0.85rem]`. Both bumped `cream/55` → `cream/60` so the larger text holds contrast on the charcoal ground (stays within the DESIGN.md readable-text rule). `src/components/Footer.tsx`.
+
+2. **Primary-button hover refined (`.btn-primary-luxe` in `globals.css`).** Kept the documented intent (lift + gold ring + glow + single sweep) but sharpened execution: faint 90° gold sweep (0.25) → brighter 105° diagonal `gold-light` sheen (0.5); added `filter: brightness(1.08) saturate(1.04)` so the espresso surface visibly warms; lift `-2px` → `-3px` with deeper warm shadow + fuller 44px gold glow; new `:active` press settling to `-1px`. Swapped `transition: all` for explicit `transform/box-shadow/filter`. Affects both CTAs (Hero "Objednať sa" + Navigation). Existing global `prefers-reduced-motion` block already neutralizes the motion.
+
+3. **Gallery photos regenerated to WebP.** User dropped updated `IMG_8938.png` (4.4 MB) + `IMG_9164.png` (5.4 MB) into `public/vysledky/`; converted via `scripts/convert.py` q=85 → `IMG_8938.webp` (405 KB) + `IMG_9164.webp` (418 KB), ~92% smaller. Both 1500×2000 (already under the 2000px cap, no resize). These `.webp` were already tracked + referenced by `Gallery.tsx` (lines 17/21), so the new photos replace the old gallery content directly — no code change. **Source PNGs deleted** per user (matching the project's post-conversion cleanup convention).
+
+Build verified clean (`npm run build`) after the Footer + CSS changes. Excluded from the commit (deliberate): `.claude/agents/` + `.claude/skills/` (local impeccable tooling), and `knowledge-base.md` (stale chatbot KB — still says old Ivanka address; belongs to the deferred chatbot task).
+
+Files: `src/components/Footer.tsx`, `src/app/globals.css`, `public/vysledky/IMG_8938.webp`, `public/vysledky/IMG_9164.webp` (+ S7/S8 files below).
+
+## What Was Done (Session 8) -- Impeccable Cont.: Type Scale, Pricing Redesign, Perf, FAQ/Footer/Nav
+
+Continued `/impeccable polish` (register: brand; North Star "The Warm Atelier"). **NOT committed** — left uncommitted alongside all of S7 for user review. User confirmed both reported issues fixed (text bigger, Pricing lag gone).
+
+1. **Readability — site-wide body type scale (user-reported "text too small" on desktop).** Root cause was drift: the DESIGN.md body token was never applied — base was browser-default 16px and supporting text was hard-coded as small as `text-[0.72rem]` (~11.5px). Set the global body base in `globals.css` to a fluid `clamp(1rem, 0.94rem + 0.35vw, 1.125rem)` (16→18px on wide screens), then bumped supporting/detail text across Hero (lead 16→20, badge/stat labels), About (feature title 14→15.2, desc 12→13.6), Services (desc 14→16, dl label/value), Contact (labels, hours), Footer (tagline/NAP). Verified with computed styles at 1440px (body 18, Services desc 16, Pricing name 17, price 28). Two `mocha` values that fell just under AA at the smaller size moved to `#6B5A45` (~6:1). Headings deliberately unchanged.
+
+2. **Pricing rebuilt as a refined enlarged menu** (user chose "refined menu" over cards/bands). Exact texts/prices unchanged. Gold-dot category header over a gold hairline (signature), full-width 1px hairline row dividers (replaced busy dotted borders + 2px gold header rule), larger names (17px) + right-aligned display prices (28px), semantic `<dl>`/`<dt>`/`<dd>`. Cornrows multi-line price preserved.
+
+3. **Perf — Pricing scroll lag (user-reported, desktop only).** Isolated-build headless profile could NOT reproduce it (≈59fps before & after) → machine/GPU-dependent. Applied two zero-downside paint-cost fixes anyway: `grain` now tiles a 256px seamless texture (`background-size`) instead of rasterizing one huge noise layer over the tall section; Hero's two always-on animations (`hero-gradient-bg` + `blur(40px)` `mesh-gradient`) + glow orbs now **pause via IntersectionObserver when the hero is off-screen** (inline `animationPlayState`). **User confirmed lag gone.**
+
+4. **FAQ / Footer / Navigation polish + section rhythm** (the S7 follow-ups):
+   - **Rhythm**: broke the uniform `py-20/28` into an arc — About + Contact (bookends) `py-24/36`, FAQ (dense Q&A) `py-16/24`, Services/Pricing/Gallery stay standard.
+   - **FAQ**: heavy `border-b-2` → 1px gold-hairline language; keyboard `focus-visible` ring; more row air (`py-6`); larger `text-pretty` answers.
+   - **Footer**: was a faint 2-row strip with AA-failing `cream/35` text. Rebuilt as a warm sign-off — gold hairline + serif "Good Hair by Zane" wordmark + positioning tagline + NAP one-liner; all text ≥`cream/55` (≥4.7:1). No NAP/social/hours duplication (Contact directly above already carries those).
+   - **Navigation**: keyboard `focus-visible` on links + CTA; accessible mobile drawer (`role=dialog`, `aria-expanded`/`aria-controls`, state-aware label, Escape-to-close, body-scroll-lock); `prefers-reduced-motion` guards on entrance + stagger.
+
+Files: `src/components/{Hero,About,Services,Pricing,Contact,FAQ,Footer,Navigation}.tsx`, `src/app/globals.css`. Verified via isolated production builds + Playwright (dev server shares `.next`, so used a temporary `NEXT_DISTDIR` distDir for isolation — since removed; `tsconfig.json` auto-edits from those builds were reverted).
+
+Open follow-ups: site-wide `Reveal` gates all section content at `opacity:0` until framer-motion `useInView` fires — fine in real browsers but ships blank without JS / in headless (the exact pattern Impeccable warns against); make content visible-by-default and let reveal only enhance. Then run `/impeccable audit` (a11y/perf/responsive) + `/impeccable critique`. Untracked `public/vysledky/IMG_8938.png` + `IMG_9164.png` are present but unused (Gallery uses the `.webp` versions) — candidate cleanup, not introduced this session.
+
+## What Was Done (Session 7) -- Impeccable Design Polish (de-template, elevate luxury)
+
+Ran the `/impeccable` skill to elevate the site toward "warm, expert, boutique" (confirmed direction: elevate luxury; core feeling: warmth & personal care; anti-references: generic salon template, cheap/discount, cold/clinical). **NOT committed** — all changes left uncommitted for user review.
+
+1. **Impeccable context created** -- Wrote `PRODUCT.md` (register: brand; users/purpose; 5 design principles; anti-references; WCAG AA notes) and `DESIGN.md` (North Star "The Warm Atelier"; real tokens in Stitch frontmatter; Named Rules; Do's/Don'ts encoding the anti-references). Live-mode config deferred (self-configures on first `/impeccable live`).
+
+2. **Section-opener cadence redesigned (biggest de-template lever)** -- Removed the repeated tiny-caps eyebrow from About/Services/Pricing/Gallery/FAQ (the #1 "template" tell). Each section now opens with a thin gold hairline; headings enlarged (clamp max 2.8rem -> 3rem) + `text-balance` + `leading-tight`. Italic accent word now rare (kept only on Hero "predlžovanie vlasov" + Contact "dnes"). Removed unused `.section-label`.
+
+3. **Services rebuilt** -- Removed 01/02/03 numbered scaffolding, gradient text (absolute ban), and the 3D tilt + mouse-glare. Calm boutique cards: gold hairline that grows on hover, gentle lift, semantic `<dl>` detail tables, readable espresso body. Removed dead `.text-gradient-gold` + `.card-3d` from globals.
+
+4. **Hero** -- Three glass metric cards -> one warm credential plate (150+/10+/50+ kept) with gold-hairline dividers + gold top-edge; dropped the 3D rotateX entrance. `Sparkles` icon -> quiet gold dot in the location badge. Plate label contrast mocha -> espresso. H1 `text-balance`, lead `text-pretty`.
+
+5. **About** -- Added personal presence: a "Zane" serif-italic signature + "Zakladateľka · Good Hair by Zane" line (no portrait exists in assets, so warmth is typographic). Flattened the 4 gradient-gold checkmark circles -> quiet gold-outlined badges. Benefit-desc contrast mocha -> #6B5A45 (~6:1). Converted the last non-WebP image `DSC_3592-HDR.jpg` -> `.webp` (526->235 KB, ~55%) and repointed the collage; the .jpg is now orphaned (still tracked).
+
+6. **WCAG AA contrast fixes** -- Pricing notes/disclaimer #8A7F72 -> #5C4A35; Contact labels cream/40 -> /65, day labels /50 -> /60.
+
+Files: `src/components/{Hero,About,Services,Pricing,Contact,Gallery,FAQ}.tsx`, `src/app/globals.css`; new `PRODUCT.md`, `DESIGN.md`, `public/produkty/DSC_3592-HDR.webp`. Verified via dev-server clean compiles (port 3005); not production-built.
+
+Open follow-ups: confirm signature title "Zakladateľka" with owner; optionally delete orphaned `DSC_3592-HDR.jpg`; FAQ body / Footer / Navigation not yet polished; section vertical rhythm still uniform (py-20/28); run `/impeccable audit` for a11y/perf/responsive.
 
 ## What Was Done (Session 6) -- Relocation to Most pri Bratislave, New Price List, WebP
 
@@ -68,35 +125,37 @@
 
 | Priority | Task | Notes |
 |----------|------|-------|
-| 1 | Finalize SEO for relocation | S6 pivoted rendered copy to Most pri Bratislave. Remaining (user deferred): keyword/content review, local citations/NAP everywhere, GSC re-submit, sitemap. |
-| 2 | Update chatbot KB (live) | Live mdntech bot still answers with OLD address/prices. Re-upload updated content on mdntech side, and refresh source files chatbot-knowledge-base.md + knowledge-base.md. |
-| 3 | Google My Business | Create/claim "Good Hair by Zane" at Nové polia 2, 900 46 Most pri Bratislave. NOTE: address currently shows "BOHEMY beauty room" on Maps. Fine-tune exact pin after. |
-| 4 | Google Search Console | Verify domain, submit sitemap.xml; re-index for new location. |
-| 5 | Design polish via Impeccable | Use the installed /impeccable skill next session (init, audit, critique, polish). |
-| 6 | Real customer reviews | Replace AggregateRating placeholder with actual Google Reviews link. |
-| 7 | Online booking | Integrate Calendly or Booksy for appointment scheduling. |
-| 8 | Blog section | MDX blog for content marketing (hair care tips, extensions guides). Local SEO boost. |
-| 9 | WCAG AA contrast verification | Body text darkened in S5 (#8A7F72 → #5C4A35); verify text/bg pairs hit 4.5:1. |
-| 10 | Improve OG image | Replace auto-generated with branded salon photo if desired. |
+| ✅ done (S9) | ~~Commit S7 + S8 design work~~ | Done — S7+S8+S9 committed + pushed to `main` this session. |
+| 1 | Fix Reveal opacity-gating | Site-wide `Reveal` hides all section content until framer-motion useInView fires → blank without JS / in headless renderers. Make content visible-by-default; reveal only enhances. |
+| 2 | Run /impeccable audit + critique | a11y / perf / responsive audit + UX critique — the S7/S8/S9 polish has not been formally audited. |
+| 3 | Finalize SEO for relocation | Keyword/content review, local citations/NAP everywhere, GSC re-submit, sitemap. |
+| 4 | Update chatbot KB (live) | mdntech bot still answers with OLD address/prices. Re-upload + refresh chatbot-knowledge-base.md + knowledge-base.md (latter still has old Ivanka address). |
+| 5 | Google My Business | Claim "Good Hair by Zane" at Nové polia 2; Maps shows "BOHEMY beauty room". Fine-tune pin. |
+| 6 | Google Search Console | Verify domain, submit sitemap.xml, re-index for new location. |
+| 7 | Verify remaining WCAG AA pairs | S7/S8 fixed Pricing/Contact/About/Hero/Footer/Services contrast; sweep remaining text/bg pairs for 4.5:1. |
+| 8 | Real customer reviews | Replace AggregateRating placeholder with actual Google Reviews link. |
+| 9 | Online booking / Blog / OG image | Calendly/Booksy booking; MDX blog for local SEO; branded OG image. |
 
 ## Key Files
 
 | File | Purpose | Recent Changes |
 |------|---------|----------------|
+| PRODUCT.md | Impeccable strategic context (register, users, principles, anti-refs) | S7: created |
+| DESIGN.md | Impeccable visual system (North Star "The Warm Atelier", tokens, rules) | S7: created |
 | src/app/layout.tsx | Root layout, SEO metadata, schema.org | S6: full NAP/schema/geo/SEO pivot to Most pri Bratislave |
 | src/app/page.tsx | Main page, imports all components | S6: RelocationPopup unmounted/removed |
-| src/app/globals.css | Tailwind base + utilities | S5: new utilities (.section-label, .btn-primary-luxe, .shadow-luxury, .heading-underline). S4: mobile-only media query disabling animations/blur. |
+| src/app/globals.css | Tailwind base + utilities | S9: refined .btn-primary-luxe hover (diagonal gold sheen, brightness warm-up, -3px lift + fuller glow, :active press). S8: fluid body base font-size (DESIGN.md token, 16→18px); grain tiles 256px texture (perf). S7: removed dead/banned .section-label, .text-gradient-gold, .card-3d. S5: .btn-primary-luxe, .shadow-luxury. S4: mobile-only media query. |
 | next.config.js | Security headers, image config | S3: HSTS + Permissions-Policy |
 | tailwind.config.ts | Custom colors, animations, fonts | — |
-| src/components/Hero.tsx | Hero with parallax, salon photo, stats cards | S6: main image zane3.webp + badge town. S5: pill badge + premium CTA. |
-| src/components/Services.tsx | 3 service cards with 3D hover | S5: gradient-gold numbers, shadow-luxury, hover gold border |
-| src/components/Pricing.tsx | Textual pricing (SEO indexable) | S6: rebuilt from new price sheet (kúry, braids, predlžovanie, spoločenský účes); per-category notes + multi-line prices |
-| src/components/Gallery.tsx | 9 result photos (WebP) with zoom | S6: added zane1/2/4/5.webp, alts pivoted |
-| src/components/FAQ.tsx | 6 FAQ items with accordion | S6: town + new à-la-carte pricing in answers. S5: gold border. |
-| src/components/Contact.tsx | Contact info + Google Maps | S6: new address + address-based map + intro town |
-| src/components/Navigation.tsx | Navbar with backdrop-blur | S5: btn-primary-luxe CTA |
-| src/components/Footer.tsx | Footer with copyright, contact, M.D.N credit | S4: M.D.N Tech logo + link |
-| src/components/About.tsx | About section with feature checkmarks | S6: town pivot. S5: gradient gold check badges |
+| src/components/Hero.tsx | Hero with parallax, salon photo, credential plate | S8: ambient animations pause off-screen (IntersectionObserver, perf); lead/label type bumped. S7: stat cards -> credential plate, Sparkles -> gold dot. S6: zane3.webp + badge town. |
+| src/components/Services.tsx | 3 boutique service cards | S8: desc + detail text enlarged (14→16 / dl 15.2/13.6px), dd mocha → #6B5A45 (AA). S7: rebuilt — removed 01/02/03 + gradient text + 3D glare; gold hairline + semantic dl. |
+| src/components/Pricing.tsx | Textual pricing (SEO indexable) | S8: rebuilt as refined enlarged menu (gold-dot headers + hairline dividers, 17px names / 28px prices, semantic dl) — exact texts/prices kept. S7: header gold rule. S6: built from new price sheet. |
+| src/components/Gallery.tsx | 9 result photos (WebP) with zoom | S9: IMG_8938/IMG_9164 webp regenerated from user's updated PNGs (q=85, ~92% smaller; source PNGs deleted). S7: header gold rule, eyebrow unified. S6: added zane1/2/4/5.webp, alts pivoted. |
+| src/components/FAQ.tsx | 6 FAQ items with accordion | S8: 1px gold-hairline dividers, keyboard focus ring, more row air, larger text-pretty answers; section py-16/24. S7: header gold rule. S6: town + à-la-carte pricing. |
+| src/components/Contact.tsx | Contact info + Google Maps | S7: heading scaled; label/day-hours contrast fixed. S6: new address + address-based map. |
+| src/components/Navigation.tsx | Navbar with backdrop-blur | S8: keyboard focus-visible on links/CTA; accessible mobile drawer (role=dialog, aria, Escape, scroll-lock); reduced-motion guards. S5: btn-primary-luxe CTA. |
+| src/components/Footer.tsx | Footer: warm sign-off + copyright + M.D.N credit | S9: enlarged bottom-row texts (copyright 0.78→0.9rem, M.D.N credit 0.72→0.85rem; cream/55→/60). S8: rebuilt — gold hairline + serif wordmark + tagline + NAP one-liner; fixed AA-failing cream/35 text (now ≥cream/55). S4: M.D.N Tech logo + link. |
+| src/components/About.tsx | About section with Zane signature + features | S7: Zane signature, flat gold-outline checks, contrast fix, DSC_3592 -> webp. S6: town pivot. |
 | chatbot-knowledge-base.md | Chatbot Q&A source — STALE (old address/prices) | S5: created; needs S6 refresh |
 | public/og-image.jpg | OG image (1200x630) | — |
 | public/llms.txt | AI search readiness file | — |

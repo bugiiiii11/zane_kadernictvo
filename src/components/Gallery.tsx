@@ -47,16 +47,13 @@ export default function Gallery() {
   return (
     <section id="galeria" className="py-20 lg:py-28 bg-warm-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 max-w-2xl mx-auto">
           <Reveal>
-            <span className="text-xs tracking-[0.2em] uppercase text-mocha font-body block mb-4">
-              Naša práca
-            </span>
+            <span className="block h-px w-16 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-7" />
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="font-display text-[clamp(2rem,3.5vw,2.8rem)] font-light text-deep-brown">
-              Výsledky, ktoré{' '}
-              <em className="italic text-mocha">hovoria za nás</em>
+            <h2 className="font-display text-[clamp(2.15rem,3.8vw,3rem)] font-light text-deep-brown leading-tight text-balance">
+              Výsledky, ktoré hovoria za nás
             </h2>
           </Reveal>
         </div>

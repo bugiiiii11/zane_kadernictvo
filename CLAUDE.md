@@ -12,8 +12,8 @@ Modern website for "Good Hair by Zane" in Most pri Bratislave, Slovakia (relocat
 - **Deployment**: Vercel
 
 ## Current State
-- **Session**: 6
-- **Status**: Live at goodhairbyzane.com. Relocated to Most pri Bratislave (Nové polia 2, 900 46) — NAP, schema, geo (48.1451, 17.2896), Maps, hero/gallery, and pricing updated; RelocationPopup removed. New price list (kúry, braids, predlžovanie, spoločenský účes). New images converted to WebP. SEO copy pivoted to Most pri Bratislave (final SEO refinement deferred). Impeccable design skill installed in `.claude/skills/` (commands-only, for next session).
+- **Session**: 9
+- **Status**: Live at goodhairbyzane.com. **S9: committed + pushed the full S7+S8+S9 design polish to `main` (triggers Vercel deploy).** S9 work: enlarged the two small Footer bottom-row texts (copyright 0.78→0.9rem, M.D.N credit 0.72→0.85rem, both cream/55→/60); refined the primary-button (`.btn-primary-luxe`) hover (brighter diagonal gold sheen, `brightness(1.08)` warm-up, taller −3px lift + fuller glow, new `:active` press); regenerated the two updated Gallery photos `IMG_8938`/`IMG_9164` PNG→WebP (~92% smaller) + deleted the source PNGs. S7+S8 (de-template, Pricing menu, type scale, FAQ/Footer/Nav, perf) shipped in the same commit. Continue next: fix site-wide Reveal opacity-gating (blank without JS), run /impeccable audit + critique. Prior S6 relocation to Most pri Bratislave complete (final SEO refinement still deferred).
 - **Repo**: https://github.com/bugiiiii11/zane_kadernictvo
 - **Live**: https://goodhairbyzane.com
 

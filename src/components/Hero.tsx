@@ -3,7 +3,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const stats = [
   { num: '150+', label: 'Spokojných klientok' },
@@ -34,6 +34,21 @@ export default function Hero() {
   const textY = useTransform(scrollYProgress, [0, 1], [0, isDesktop ? -60 : 0]);
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, isDesktop ? 0 : 1]);
 
+  // Pause the always-on ambient animations once the hero is off-screen, so
+  // their continuous repaint cost stops competing with scrolling elsewhere.
+  const [ambientOn, setAmbientOn] = useState(true);
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    const io = new IntersectionObserver(
+      ([entry]) => setAmbientOn(entry.isIntersecting),
+      { threshold: 0 }
+    );
+    io.observe(node);
+    return () => io.disconnect();
+  }, []);
+  const ambientStyle = { animationPlayState: ambientOn ? 'running' : 'paused' };
+
   return (
     <header
       ref={ref}
@@ -41,12 +56,12 @@ export default function Hero() {
       className="relative min-h-screen grid lg:grid-cols-2 overflow-hidden"
     >
       {/* 3D Animated gradient background */}
-      <div className="absolute inset-0 hero-gradient-bg" />
-      <div className="mesh-gradient" />
+      <div className="absolute inset-0 hero-gradient-bg" style={ambientStyle} />
+      <div className="mesh-gradient" style={ambientStyle} />
 
       {/* Ambient glow orbs — hidden on mobile for performance */}
-      <div className="absolute top-20 left-[10%] w-72 h-72 bg-gold/8 rounded-full blur-[100px] animate-glow hidden lg:block" />
-      <div className="absolute bottom-20 right-[20%] w-96 h-96 bg-blush/6 rounded-full blur-[120px] animate-glow hidden lg:block" />
+      <div className="absolute top-20 left-[10%] w-72 h-72 bg-gold/8 rounded-full blur-[100px] animate-glow hidden lg:block" style={ambientStyle} />
+      <div className="absolute bottom-20 right-[20%] w-96 h-96 bg-blush/6 rounded-full blur-[120px] animate-glow hidden lg:block" style={ambientStyle} />
 
       <motion.div
         style={{ y: textY, opacity }}
@@ -56,10 +71,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="inline-flex items-center gap-3 mb-6 px-4 py-2 rounded-full bg-gold-light/40 border border-gold/30"
+          className="inline-flex items-center gap-2.5 mb-6 px-4 py-2 rounded-full bg-gold-light/40 border border-gold/30 w-fit"
         >
-          <Sparkles className="w-4 h-4 text-espresso" />
-          <span className="text-[0.7rem] tracking-[0.22em] uppercase text-espresso font-body font-medium">
+          <span className="w-1.5 h-1.5 rounded-full bg-gold" />
+          <span className="text-[0.75rem] tracking-[0.22em] uppercase text-espresso font-body font-medium">
             Vlasový salón v Moste pri Bratislave
           </span>
         </motion.div>
@@ -68,7 +83,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="font-display text-[clamp(2.5rem,5vw,4.5rem)] font-light text-deep-brown leading-[1.1] mb-6"
+          className="font-display text-[clamp(2.5rem,5vw,4.5rem)] font-light text-deep-brown leading-[1.1] text-balance mb-6"
         >
           Profesionálne{' '}
           <em className="italic text-mocha">predlžovanie vlasov</em> s luxusnou
@@ -79,7 +94,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
-          className="text-[#5C4A35] text-base lg:text-lg max-w-md mb-8 font-normal leading-relaxed"
+          className="text-[#5C4A35] text-lg lg:text-xl max-w-md mb-8 font-normal leading-relaxed text-pretty"
         >
           Špecializujeme sa na prémiové predlžovanie a zahusťovanie vlasov
           keratínovou, micro-ring, nano-ring a mikrokapsulovou metódou. Viac ako 10 rokov
@@ -123,30 +138,31 @@ export default function Hero() {
           <div className="absolute inset-0 bg-gradient-to-t from-warm-white/60 via-transparent to-transparent lg:bg-gradient-to-r lg:from-warm-white/30 lg:via-transparent" />
         </motion.div>
 
-        {/* Stats cards */}
-        <div className="absolute bottom-6 left-6 lg:bottom-12 lg:-left-8 flex gap-0.5 z-20">
-          {stats.map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 40, rotateX: 15 }}
-              animate={{ opacity: 1, y: 0, rotateX: 0 }}
-              transition={{
-                duration: 0.6,
-                delay: 0.9 + i * 0.15,
-                ease: [0.25, 0.4, 0.25, 1],
-              }}
-              className="glass px-4 py-3 md:px-5 md:py-4 text-center shadow-luxury border-t-2 border-t-gold"
-              style={{ perspective: '600px' }}
-            >
-              <div className="font-display text-2xl md:text-3xl font-semibold text-deep-brown leading-none">
-                {stat.num}
+        {/* Credential plate — editorial proof, not metric cards */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.9, ease: [0.25, 0.4, 0.25, 1] }}
+          className="absolute bottom-6 left-6 right-6 lg:bottom-12 lg:-left-8 lg:right-auto z-20"
+        >
+          <div className="flex items-center justify-center lg:justify-start bg-warm-white/95 backdrop-blur-sm shadow-luxury border-t-2 border-t-gold px-5 py-4 lg:px-8 lg:py-6">
+            {stats.map((stat, i) => (
+              <div key={stat.label} className="flex items-center">
+                {i > 0 && (
+                  <span className="mx-4 lg:mx-7 h-10 w-px bg-gradient-to-b from-transparent via-gold/50 to-transparent" />
+                )}
+                <div className="text-center lg:text-left">
+                  <div className="font-display text-2xl lg:text-3xl font-semibold text-deep-brown leading-none">
+                    {stat.num}
+                  </div>
+                  <div className="text-[0.68rem] lg:text-[0.72rem] tracking-[0.1em] uppercase text-espresso mt-1.5 leading-tight">
+                    {stat.label}
+                  </div>
+                </div>
               </div>
-              <div className="text-[0.65rem] md:text-[0.7rem] tracking-[0.08em] uppercase text-mocha font-medium mt-1.5">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </header>
   );
