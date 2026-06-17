@@ -21,13 +21,13 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL('https://goodhairbyzane.com'),
   title: {
-    default: 'Predlžovanie vlasov Ivanka pri Dunaji | Good Hair by Zane',
+    default: 'Predlžovanie vlasov Most pri Bratislave | Good Hair by Zane',
     template: '%s | Good Hair by Zane',
   },
   description:
-    'Predlžovanie vlasov a rekonštrukčné kúry v Ivanke pri Dunaji. 10+ rokov skúseností, 150+ klientok. Keratín, micro-ring, nano-ring, mikrokapsule. Objednajte sa!',
+    'Predlžovanie vlasov a rekonštrukčné kúry v Moste pri Bratislave. 10+ rokov skúseností, 150+ klientok. Keratín, micro-ring, nano-ring, mikrokapsule. Objednajte sa!',
   keywords: [
-    'predlžovanie vlasov Ivanka pri Dunaji',
+    'predlžovanie vlasov Most pri Bratislave',
     'rekonštrukčné kúry vlasy',
     'regeneračné kúry vlasy',
     'predlžovanie vlasov Bratislava',
@@ -36,6 +36,7 @@ export const metadata: Metadata = {
     'nano-ring predlžovanie',
     'mikrokapsule predlžovanie vlasov',
     'micro-ring predlžovanie',
+    'vlasový salón Most pri Bratislave',
     'vlasový salón Senec',
     'vlasový salón Bernolákovo',
     'predlžovanie vlasov cena',
@@ -56,7 +57,7 @@ export const metadata: Metadata = {
     locale: 'sk_SK',
     url: 'https://goodhairbyzane.com',
     siteName: 'Good Hair by Zane',
-    title: 'Good Hair by Zane — Predlžovanie vlasov Ivanka pri Dunaji',
+    title: 'Good Hair by Zane — Predlžovanie vlasov Most pri Bratislave',
     description:
       'Luxusný vlasový salón špecializujúci sa na profesionálne predlžovanie vlasov a regeneračné kúry. 10+ rokov skúseností, 150+ spokojných klientok.',
     images: [
@@ -64,16 +65,16 @@ export const metadata: Metadata = {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Good Hair by Zane — Predlžovanie vlasov v Ivanke pri Dunaji',
+        alt: 'Good Hair by Zane — Predlžovanie vlasov v Moste pri Bratislave',
       },
     ],
   },
   alternates: { canonical: 'https://goodhairbyzane.com' },
   other: {
     'geo.region': 'SK-BL',
-    'geo.placename': 'Ivanka pri Dunaji',
-    'geo.position': '48.1874;17.2574',
-    ICBM: '48.1874, 17.2574',
+    'geo.placename': 'Most pri Bratislave',
+    'geo.position': '48.1451;17.2896',
+    ICBM: '48.1451, 17.2896',
   },
 };
 
@@ -86,19 +87,19 @@ const jsonLd = {
       name: 'Good Hair by Zane',
       image: 'https://goodhairbyzane.com/og-image.jpg',
       description:
-        'Luxusný vlasový salón v Ivanke pri Dunaji špecializujúci sa na profesionálne predlžovanie vlasov a rekonštrukčné regeneračné kúry. Keratínové, micro-ring, nano-ring a mikrokapsulové metódy s použitím 100% ľudských vlasov.',
+        'Luxusný vlasový salón v Moste pri Bratislave špecializujúci sa na profesionálne predlžovanie vlasov a rekonštrukčné regeneračné kúry. Keratínové, micro-ring, nano-ring a mikrokapsulové metódy s použitím 100% ľudských vlasov.',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Cintorínska 272/1',
-        addressLocality: 'Ivanka pri Dunaji',
-        postalCode: '900 28',
+        streetAddress: 'Nové polia 2',
+        addressLocality: 'Most pri Bratislave',
+        postalCode: '900 46',
         addressRegion: 'Bratislavský kraj',
         addressCountry: 'SK',
       },
       geo: {
         '@type': 'GeoCoordinates',
-        latitude: 48.1874,
-        longitude: 17.2574,
+        latitude: 48.1451,
+        longitude: 17.2896,
       },
       telephone: '+421944854229',
       email: 'goodhairbyzane@gmail.com',
@@ -212,10 +213,10 @@ const jsonLd = {
       mainEntity: [
         {
           '@type': 'Question',
-          name: 'Koľko stojí predlžovanie vlasov v Ivanke pri Dunaji?',
+          name: 'Koľko stojí predlžovanie vlasov v Moste pri Bratislave?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Cena predlžovania vlasov závisí od zvolenej metódy, počtu prameňov a požadovanej dĺžky. Keratínové predlžovanie začína od 350 €, micro-ring od 300 € a nano-ring od 320 €. Ponúkame bezplatnú konzultáciu s presnou cenovou kalkuláciou na mieru.',
+            text: 'Cena predlžovania vlasov sa skladá z ceny vlasov (od 250 €) a práce. Nadpojenie stojí od 0,60 € za spoj, odpojenie 50–80 €. Vlasy sa kupujú zvlášť. Presná cena závisí od počtu prameňov a požadovanej dĺžky — ponúkame bezplatnú konzultáciu s kalkuláciou na mieru.',
           },
         },
         {
@@ -247,7 +248,7 @@ const jsonLd = {
           name: 'Kde sa nachádza salón Good Hair by Zane?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Náš salón sa nachádza na adrese Cintorínska 272/1, 900 28 Ivanka pri Dunaji. Sme len 15 minút autom z centra Bratislavy a ľahko dostupní aj z obcí Bernolákovo, Most pri Bratislave a Senec. Parkovanie je priamo pred salónom.',
+            text: 'Náš salón sa nachádza na adrese Nové polia 2, 900 46 Most pri Bratislave. Sme len pár minút od Bratislavy a ľahko dostupní aj z Ivanky pri Dunaji, Dunajskej Lužnej a Senca. Parkovanie je priamo pred salónom.',
           },
         },
         {

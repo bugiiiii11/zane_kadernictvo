@@ -60,7 +60,7 @@ export default function Hero() {
         >
           <Sparkles className="w-4 h-4 text-espresso" />
           <span className="text-[0.7rem] tracking-[0.22em] uppercase text-espresso font-body font-medium">
-            Vlasový salón v Ivanke pri Dunaji
+            Vlasový salón v Moste pri Bratislave
           </span>
         </motion.div>
 
@@ -113,8 +113,8 @@ export default function Hero() {
       <div className="relative lg:h-screen h-[50vh]">
         <motion.div style={{ y: imageY }} className="absolute inset-0">
           <Image
-            src="/priestory/DSC_3461-HDR.webp"
-            alt="Interiér vlasového salónu Good Hair by Zane v Ivanke pri Dunaji — kadernícke stanice s osvetlenými zrkadlami a kvetinovými dekoráciami"
+            src="/priestory/zane3.webp"
+            alt="Interiér vlasového salónu Good Hair by Zane v Moste pri Bratislave — priestor pre predlžovanie vlasov a regeneračné kúry"
             fill
             className="object-cover"
             priority

@@ -8,10 +8,10 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3 text-[0.75rem] text-cream/35">
         <span>
           &copy; {new Date().getFullYear()} Good Hair by Zane — Vlasový salón,
-          Ivanka pri Dunaji
+          Most pri Bratislave
         </span>
         <span>
-          Cintorínska 272/1, 900 28 Ivanka pri Dunaji |{' '}
+          Nové polia 2, 900 46 Most pri Bratislave |{' '}
           <a
             href="tel:+421944854229"
             className="text-cream/55 hover:text-gold transition-colors"
@@ -22,7 +22,7 @@ export default function Footer() {
       </div>
       <div className="max-w-7xl mx-auto mt-4 pt-3 border-t border-cream/10 flex justify-center">
         <a
-          href="https://www.mdntech.org/"
+          href="https://www.mdntech.org/sk/"
           target="_blank"
           rel="noopener noreferrer"
           className="group flex items-center gap-2 text-[0.7rem] text-cream/30 transition-all duration-300 hover:text-cream/60"

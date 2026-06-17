@@ -6,7 +6,7 @@ import Reveal from './Reveal';
 const images = [
   {
     src: '/vysledky/IMG_9324.webp',
-    alt: 'Predlžovanie a zahusťovanie dlhých blond kučeravých vlasov — výsledok v salóne Good Hair by Zane v Ivanke pri Dunaji',
+    alt: 'Predlžovanie a zahusťovanie dlhých blond kučeravých vlasov — výsledok v salóne Good Hair by Zane v Moste pri Bratislave',
     span: true,
   },
   {
@@ -23,7 +23,23 @@ const images = [
   },
   {
     src: '/vysledky/IMG_7945.webp',
-    alt: 'Kreatívne copánkové účesy s farebnými prameňmi v salóne Good Hair by Zane Ivanka pri Dunaji',
+    alt: 'Kreatívne copánkové účesy s farebnými prameňmi v salóne Good Hair by Zane Most pri Bratislave',
+  },
+  {
+    src: '/vysledky/zane1.webp',
+    alt: 'Výsledok predlžovania vlasov — dlhé husté vlasy po ošetrení v salóne Good Hair by Zane v Moste pri Bratislave',
+  },
+  {
+    src: '/vysledky/zane2.webp',
+    alt: 'Predlžovanie a zahusťovanie vlasov — prirodzený a objemný výsledok v salóne Good Hair by Zane',
+  },
+  {
+    src: '/vysledky/zane4.webp',
+    alt: 'Profesionálne predĺžené vlasy 100% ľudskými vlasmi — výsledok v salóne Good Hair by Zane Most pri Bratislave',
+  },
+  {
+    src: '/vysledky/zane5.webp',
+    alt: 'Regeneračná kúra a žiarivé zdravé vlasy — výsledok ošetrenia v salóne Good Hair by Zane',
   },
 ];
 

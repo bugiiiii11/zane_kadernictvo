@@ -2,71 +2,51 @@
 
 import Reveal from './Reveal';
 
-const categories = [
+type PriceItem = {
+  name: string;
+  price?: string;
+  priceLines?: string[];
+};
+
+type Category = {
+  title: string;
+  items: PriceItem[];
+  note?: string;
+};
+
+const categories: Category[] = [
+  {
+    title: 'Rekonštrukčné a regeneračné kúry',
+    items: [
+      { name: 'Prémiová rekonštrukčná kúra', price: 'od 90 €' },
+      { name: 'Hĺbková regeneračná kúra', price: 'od 50 €' },
+      { name: 'Keratínové ošetrenie', price: 'od 100 €' },
+    ],
+    note: 'Cena záleží od dĺžky a hustoty vlasov.',
+  },
+  {
+    title: 'Braids',
+    items: [
+      { name: 'Vysoký cop', price: '60 €' },
+      { name: 'Boxerské copíky', price: '30 €' },
+      {
+        name: 'Cornrows',
+        priceLines: ['4 kusy – 40 €', '6 kusov – 60 €', '8 kusov – 80 €'],
+      },
+    ],
+  },
   {
     title: 'Predlžovanie vlasov',
     items: [
-      {
-        name: 'Keratínové predlžovanie',
-        desc: '100% ľudské vlasy, najtrvácnejší spoj, výdrž 4–6 mesiacov. 50–200 prameňov podľa hustoty.',
-        price: 'od 350 €',
-      },
-      {
-        name: 'Micro-ring predlžovanie',
-        desc: 'Bez tepla a lepidla — najšetrnejšia metóda. Spoj pomocou mikro krúžkov, ľahko odnímateľné.',
-        price: 'od 300 €',
-      },
-      {
-        name: 'Nano-ring predlžovanie',
-        desc: 'Najmenšie spoje pre maximálnu diskrétnosť. Bez tepla a lepidla, ideálne pre jemné vlasy.',
-        price: 'od 320 €',
-      },
-      {
-        name: 'Mikrokapsulové predlžovanie',
-        desc: 'Neviditeľné spoje — revolúcia v predlžovaní. Mikrokapsule sa aplikujú na jednotlivé vlasy pre dokonale prirodzený výsledok.',
-        price: 'od 400 €',
-      },
-      {
-        name: 'Prepojenie existujúcich prameňov',
-        desc: 'Opätovné pripojenie po odrastení. Nový spoj, rovnaké vlasy — úspora bez kompromisu na kvalite.',
-        price: 'od 150 €',
-      },
+      { name: 'Nadpojenie', price: '1 spoj – 0,60 €' },
+      { name: 'Odpojenie', price: '50 – 80 €' },
+      { name: 'Vlasy', price: 'od 250 €' },
     ],
+    note: 'Vlasy sa kupujú zvlášť.',
   },
   {
-    title: 'Regeneračné kúry',
-    items: [    
-      {
-        name: 'Prémiová rekonštrukčná kúra',
-        desc: 'Najúčinnejšia obnova pre intenzívne namáhané a chemicky ošetrené vlasy. Viditeľný efekt po 1 aplikácii.',
-        price: 'od 85 €',
-      },
-      {
-        name: 'Keratínové ošetrenie',
-        desc: 'Vyhladenie, lesk a ochrana vlasového vlákna. Eliminuje krepovitosť, výsledok 6–8 týždňov.',
-        price: 'od 100 €',
-      },
-     {
-        name: 'Hĺbková regenerácia vlasov',
-        desc: 'Intenzívna výživa pre suché a poškodené vlasy. Obnovuje hydratáciu, elasticitu a lesk.',
-        price: 'od 45 €',
-      },
-    ],
-  },
-  {
-    title: 'Konzultácie a doplnkové služby',
-    items: [
-      {
-        name: 'Individuálna vlasová konzultácia',
-        desc: 'Zhodnotenie stavu vlasov, návrh riešenia a presná cenová kalkulácia. Bez záväzkov.',
-        price: 'Bezplatne',
-      },
-      {
-        name: 'Starostlivosť o predĺžené vlasy',
-        desc: 'Kontrola spojov, údržba, poradenstvo o správnej domácej starostlivosti.',
-        price: 'od 25 €',
-      },
-    ],
+    title: 'Spoločenský účes',
+    items: [{ name: 'Spoločenský účes', price: '60 €' }],
   },
 ];
 
@@ -100,19 +80,32 @@ export default function Pricing() {
                   key={item.name}
                   className="flex justify-between items-baseline py-4 border-b border-dotted border-sand group hover:bg-warm-white/40 transition-colors -mx-2 px-2 rounded-sm"
                 >
-                  <div className="pr-4">
-                    <div className="text-sm font-medium text-deep-brown group-hover:text-espresso transition-colors">
-                      {item.name}
-                    </div>
-                    <div className="text-xs text-[#6B5F52] mt-1 font-normal leading-relaxed">
-                      {item.desc}
-                    </div>
+                  <div className="pr-4 text-sm font-medium text-deep-brown group-hover:text-espresso transition-colors">
+                    {item.name}
                   </div>
-                  <div className="font-display text-xl font-semibold text-espresso whitespace-nowrap group-hover:text-gold transition-colors">
-                    {item.price}
-                  </div>
+                  {item.priceLines ? (
+                    <div className="text-right space-y-1">
+                      {item.priceLines.map((line) => (
+                        <div
+                          key={line}
+                          className="font-display text-lg font-semibold text-espresso whitespace-nowrap group-hover:text-gold transition-colors"
+                        >
+                          {line}
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="font-display text-xl font-semibold text-espresso whitespace-nowrap group-hover:text-gold transition-colors">
+                      {item.price}
+                    </div>
+                  )}
                 </div>
               ))}
+              {cat.note && (
+                <p className="text-xs text-[#8A7F72] italic font-light mt-3">
+                  {cat.note}
+                </p>
+              )}
             </div>
           </Reveal>
         ))}

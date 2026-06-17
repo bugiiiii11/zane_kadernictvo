@@ -32,7 +32,7 @@ export default function About() {
           </Reveal>
           <Reveal delay={0.2}>
             <p className="text-[#5C4A35] mb-4 leading-relaxed font-normal">
-              Good Hair by Zane je vlasový salón v Ivanke pri Dunaji, ktorý sa
+              Good Hair by Zane je vlasový salón v Moste pri Bratislave, ktorý sa
               špecializuje na profesionálne predlžovanie vlasov a prémiové
               regeneračné kúry. Ponúkame štyri overené metódy — keratínové
               predlžovanie, micro-ring, nano-ring a mikrokapsule — všetky s použitím výlučne

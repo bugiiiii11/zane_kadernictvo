@@ -6,8 +6,8 @@ import Reveal from './Reveal';
 
 const faqs = [
   {
-    q: 'Koľko stojí predlžovanie vlasov v Ivanke pri Dunaji?',
-    a: 'Cena predlžovania vlasov závisí od zvolenej metódy (keratín, micro-ring, nano-ring alebo mikrokapsule), počtu prameňov a požadovanej dĺžky. Keratínové predlžovanie začína od 350 €, micro-ring od 300 €, nano-ring od 320 € a mikrokapsule od 400 €. Ponúkame bezplatnú konzultáciu, kde vám navrhneme optimálne riešenie a presnú cenu.',
+    q: 'Koľko stojí predlžovanie vlasov v Moste pri Bratislave?',
+    a: 'Cena predlžovania vlasov sa skladá z ceny vlasov (od 250 €) a práce. Nadpojenie stojí od 0,60 € za spoj, odpojenie 50–80 €. Vlasy sa kupujú zvlášť. Presná cena závisí od počtu prameňov, požadovanej dĺžky a zvolenej metódy (keratín, micro-ring, nano-ring alebo mikrokapsule) — ponúkame bezplatnú konzultáciu s kalkuláciou na mieru.',
   },
   {
     q: 'Aké metódy predlžovania vlasov ponúkate?',
@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     q: 'Kde sa nachádza salón Good Hair by Zane?',
-    a: 'Náš salón sa nachádza na adrese Cintorínska 272/1, 900 28 Ivanka pri Dunaji. Sme len 15 minút autom z centra Bratislavy a ľahko dostupní aj z obcí Bernolákovo, Most pri Bratislave a Senec. Parkovanie je priamo pred salónom.',
+    a: 'Náš salón sa nachádza na adrese Nové polia 2, 900 46 Most pri Bratislave. Sme len pár minút od Bratislavy a ľahko dostupní aj z Ivanky pri Dunaji, Dunajskej Lužnej a Senca. Parkovanie je priamo pred salónom.',
   },
   {
     q: 'Musím sa objednať vopred?',

@@ -22,7 +22,7 @@ export default function Contact() {
             <p className="text-cream/60 mb-10 max-w-md font-light leading-relaxed">
               Radi vám poradíme a pomôžeme vybrať riešenie presne pre vás.
               Neváhajte nás kontaktovať — tešíme sa na vás v našom salóne v
-              Ivanke pri Dunaji.
+              Moste pri Bratislave.
             </p>
           </Reveal>
 
@@ -73,9 +73,9 @@ export default function Contact() {
                     Adresa
                   </div>
                   <div className="text-cream">
-                    Cintorínska 272/1, 900 28
+                    Nové polia 2, 900 46
                     <br />
-                    Ivanka pri Dunaji
+                    Most pri Bratislave
                   </div>
                 </div>
               </div>
@@ -135,14 +135,14 @@ export default function Contact() {
         <Reveal delay={0.2} direction="right">
           <div className="rounded overflow-hidden h-[400px] lg:h-full min-h-[400px] shadow-layered">
             <iframe
-              src="https://maps.google.com/maps?q=48.1876108,17.2544667&z=16&output=embed"
+              src="https://maps.google.com/maps?q=Nov%C3%A9%20polia%202%2C%20900%2046%20Most%20pri%20Bratislave&z=16&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Good Hair by Zane — Cintorínska 272/1, Ivanka pri Dunaji"
+              title="Good Hair by Zane — Nové polia 2, Most pri Bratislave"
             />
           </div>
         </Reveal>
