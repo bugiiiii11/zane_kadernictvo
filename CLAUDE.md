@@ -12,10 +12,10 @@ Modern website for "O VLASY by Zane" (rebranded S10 from "Good Hair by Zane"; ne
 - **Deployment**: Vercel
 
 ## Current State
-- **Session**: 9
-- **Status**: Live at goodhairbyzane.com. **S9: committed + pushed the full S7+S8+S9 design polish to `main` (triggers Vercel deploy).** S9 work: enlarged the two small Footer bottom-row texts (copyright 0.78→0.9rem, M.D.N credit 0.72→0.85rem, both cream/55→/60); refined the primary-button (`.btn-primary-luxe`) hover (brighter diagonal gold sheen, `brightness(1.08)` warm-up, taller −3px lift + fuller glow, new `:active` press); regenerated the two updated Gallery photos `IMG_8938`/`IMG_9164` PNG→WebP (~92% smaller) + deleted the source PNGs. S7+S8 (de-template, Pricing menu, type scale, FAQ/Footer/Nav, perf) shipped in the same commit. Continue next: fix site-wide Reveal opacity-gating (blank without JS), run /impeccable audit + critique. Prior S6 relocation to Most pri Bratislave complete (final SEO refinement still deferred).
+- **Session**: 10
+- **Status**: **Live at https://ovlasy.sk** (S10, 2026-09-10). S10: full rebrand to O VLASY by Zane (Logo.tsx placeholder mark, favicon/OG regenerated, manifesto-driven copy), hair extensions removed, Malibu C deep cleansing (od 50 €) + event hairstyles (od 60 €) added, SEO layer moved to ovlasy.sk, chatbot widget hidden (code kept as a comment in layout.tsx). DNS at Websupport → Vercel done; goodhairbyzane.com apex 308-redirects to ovlasy.sk. Next: redirect www.goodhairbyzane.com too, founder sign-off on copy + final logo, GSC/GBP/social migration, chatbot KB rewrite, Reveal opacity-gating fix, /impeccable audit.
 - **Repo**: https://github.com/bugiiiii11/zane_kadernictvo
-- **Live**: https://goodhairbyzane.com (old) → https://ovlasy.sk (new primary once DNS on Websupport points to Vercel; old domain to become a 308 redirect)
+- **Live**: https://ovlasy.sk (goodhairbyzane.com 308-redirects to it; www.goodhairbyzane.com redirect still pending)
 
 ## SEO Strategy
 - **Primary keywords**: starostlivosť o vlasy Most pri Bratislave, regeneračné kúry vlasy, hĺbkové čistenie vlasovej pokožky
