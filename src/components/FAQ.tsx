@@ -6,23 +6,27 @@ import Reveal from './Reveal';
 
 const faqs = [
   {
-    q: 'Koľko stojí predlžovanie vlasov v Moste pri Bratislave?',
-    a: 'Cena predlžovania vlasov sa skladá z ceny vlasov (od 250 €) a práce. Nadpojenie stojí od 0,60 € za spoj, odpojenie 50–80 €. Vlasy sa kupujú zvlášť. Presná cena závisí od počtu prameňov, požadovanej dĺžky a zvolenej metódy (keratín, micro-ring, nano-ring alebo mikrokapsule) — ponúkame bezplatnú konzultáciu s kalkuláciou na mieru.',
+    q: 'Čo je hĺbkové čistenie vlasovej pokožky a vlasov a komu pomôže?',
+    a: 'Je to detoxikačné ošetrenie Malibu C, ktoré pomocou vitamínových kryštálov odstráni z vlasov a pokožky hlavy minerály z tvrdej vody, chlór a nánosy stylingových produktov. Pomôže, ak sú vlasy mdlé, ťažké, zle sa farbia alebo blond vlasy sťahujú do zelena, a tiež pri podráždenej, svrbivej pokožke či lupinách. Prípravky sú vegánske, bez sulfátov a parabénov. Cena je od 50 € podľa dĺžky a hustoty vlasov.',
   },
   {
-    q: 'Aké metódy predlžovania vlasov ponúkate?',
-    a: 'V salóne Good Hair by Zane ponúkame štyri overené metódy: keratínové predlžovanie (najtrvácnejší spoj, výdrž 4–6 mesiacov), micro-ring (bez tepla a lepidla, najšetrnejšia), nano-ring (najmenšie spoje, maximálna diskrétnosť) a mikrokapsule (neviditeľné spoje, revolúcia v predlžovaní). Všetky metódy používajú 100% ľudské vlasy najvyššej kvality.',
+    q: 'Koľko stojí regeneračná kúra v Moste pri Bratislave?',
+    a: 'Hĺbková regeneračná kúra stojí od 50 €, prémiová rekonštrukčná kúra od 90 € a keratínové ošetrenie od 100 €. Konečná cena závisí od dĺžky a hustoty vlasov. Na bezplatnej konzultácii zhodnotíme stav vašich vlasov a pripravíme presnú kalkuláciu.',
   },
   {
-    q: 'Ako dlho vydržia predĺžené vlasy?',
-    a: 'Predĺžené vlasy pri správnej starostlivosti vydržia 3 až 6 mesiacov v závislosti od metódy a rastu vlastných vlasov. Keratínové spoje vydržia najdlhšie (4–6 mesiacov), micro-ring a nano-ring 3–5 mesiacov. Po odrastení je možné pramene opätovne pripojiť, čo je výrazne lacnejšie ako nová aplikácia.',
+    q: 'Aký je rozdiel medzi regeneračnou kúrou a hĺbkovým čistením?',
+    a: 'Hĺbkové čistenie vlasy a pokožku najprv zbaví usadenín, ktoré bránia výžive preniknúť do vlasového vlákna. Regeneračná kúra následne dodá vlasom výživu, silu a lesk. Najlepší výsledok dosiahnete ich kombináciou: očistiť a potom regenerovať. Radi vám poradíme, čo vaše vlasy práve potrebujú.',
   },
   {
-    q: 'Poškodí predlžovanie moje vlastné vlasy?',
-    a: 'Nie, pri správnej aplikácii a dodržaní starostlivosti predlžovanie vlasy nepoškodzuje. Používame šetrné metódy a kvalitné materiály. Na bezplatnej konzultácii zhodnotíme stav vašich vlasov a odporučíme najvhodnejšiu metódu — napríklad pre jemné vlasy sú ideálne nano-ring alebo mikrokapsule.',
+    q: 'Robíte aj svadobné účesy a účesy na stužkovú?',
+    a: 'Áno. Vytvárame spoločenské, svadobné a účesy na stužkovú aj na akúkoľvek inú výnimočnú udalosť, cena je od 60 €. Účes navrhneme podľa vašich šiat a typu vlasov tak, aby vydržal celý večer. Pred svadbou odporúčame skúšobný účes a termín si rezervovať s dostatočným predstihom.',
   },
   {
-    q: 'Kde sa nachádza salón Good Hair by Zane?',
+    q: 'Robíte aj predlžovanie vlasov?',
+    a: 'Predlžovanie vlasov aktuálne neponúkame. V salóne O VLASY by Zane sa sústredíme na zdravie vlasov: regeneračné a rekonštrukčné kúry, hĺbkové čistenie vlasovej pokožky a vlasov a účesy pre výnimočné udalosti. Ak hľadáte objem a dĺžku, radi vám poradíme, ako ich dosiahnuť starostlivosťou o vlastné vlasy.',
+  },
+  {
+    q: 'Kde sa nachádza salón O VLASY by Zane?',
     a: 'Náš salón sa nachádza na adrese Nové polia 2, 900 46 Most pri Bratislave. Sme len pár minút od Bratislavy a ľahko dostupní aj z Ivanky pri Dunaji, Dunajskej Lužnej a Senca. Parkovanie je priamo pred salónom.',
   },
   {

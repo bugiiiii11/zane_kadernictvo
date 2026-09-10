@@ -25,6 +25,22 @@ const categories: Category[] = [
     note: 'Cena záleží od dĺžky a hustoty vlasov.',
   },
   {
+    title: 'Hĺbkové čistenie vlasov a pokožky',
+    items: [
+      { name: 'Hĺbkové čistenie vlasovej pokožky a vlasov', price: 'od 50 €' },
+    ],
+    note: 'Detoxikačné ošetrenie Malibu C. Cena záleží od dĺžky a hustoty vlasov.',
+  },
+  {
+    title: 'Účesy pre výnimočné udalosti',
+    items: [
+      { name: 'Spoločenský účes', price: 'od 60 €' },
+      { name: 'Svadobný účes', price: 'od 60 €' },
+      { name: 'Účes na stužkovú', price: 'od 60 €' },
+    ],
+    note: 'Účes na každú výnimočnú príležitosť. Cena záleží od náročnosti účesu a dĺžky vlasov.',
+  },
+  {
     title: 'Braids',
     items: [
       { name: 'Vysoký cop', price: '60 €' },
@@ -34,19 +50,6 @@ const categories: Category[] = [
         priceLines: ['4 kusy – 40 €', '6 kusov – 60 €', '8 kusov – 80 €'],
       },
     ],
-  },
-  {
-    title: 'Predlžovanie vlasov',
-    items: [
-      { name: 'Nadpojenie', price: '1 spoj – 0,60 €' },
-      { name: 'Odpojenie', price: '50 – 80 €' },
-      { name: 'Vlasy', price: 'od 250 €' },
-    ],
-    note: 'Vlasy sa kupujú zvlášť.',
-  },
-  {
-    title: 'Spoločenský účes',
-    items: [{ name: 'Spoločenský účes', price: '60 €' }],
   },
 ];
 
@@ -60,7 +63,7 @@ export default function Pricing() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="font-display text-[clamp(2.15rem,3.8vw,3rem)] font-light text-deep-brown leading-tight text-balance">
-              Transparentné ceny pre každú klientku
+              O vlasy férovo, o cenách otvorene
             </h2>
           </Reveal>
         </div>
@@ -116,8 +119,8 @@ export default function Pricing() {
 
         <Reveal delay={0.2}>
           <p className="text-center text-[0.95rem] text-[#5C4A35] mt-10 max-w-xl mx-auto leading-relaxed">
-            * Konečná cena závisí od požadovanej dĺžky, počtu prameňov a
-            zvolenej metódy. Pre presnú kalkuláciu si dohodnite bezplatnú
+            * Konečná cena závisí od dĺžky a hustoty vlasov a od zvoleného
+            ošetrenia. Pre presnú kalkuláciu si dohodnite bezplatnú
             konzultáciu.
           </p>
         </Reveal>

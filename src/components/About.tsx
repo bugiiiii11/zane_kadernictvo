@@ -5,9 +5,9 @@ import { Check } from 'lucide-react';
 import Reveal from './Reveal';
 
 const features = [
-  { title: '100% ľudské vlasy', desc: 'Najvyššia kvalita prameňov z Európy' },
-  { title: 'Bezplatná konzultácia', desc: 'Poradíme vám s výberom metódy' },
-  { title: 'Šetrné metódy', desc: 'Vaše vlasy nepoškodíme' },
+  { title: 'Diagnostika vlasov a pokožky', desc: 'Ošetrenie navrhneme podľa stavu vašich vlasov' },
+  { title: 'Bezplatná konzultácia', desc: 'Poradíme vám s výberom kúry' },
+  { title: 'Šetrné prípravky', desc: 'Prémiové značky, ktoré vlasy nepoškodia' },
   { title: 'Garancia spokojnosti', desc: '150+ spokojných klientok' },
 ];
 
@@ -24,25 +24,25 @@ export default function About() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="font-display text-[clamp(2.15rem,3.8vw,3rem)] font-light text-deep-brown leading-tight text-balance mb-6">
-              Luxusná starostlivosť pre zdravé a krásne vlasy
+              O vlasy s rozumom, o vás s citom
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="text-[#5C4A35] mb-4 leading-relaxed font-normal">
-              Good Hair by Zane je vlasový salón v Moste pri Bratislave, ktorý sa
-              špecializuje na profesionálne predlžovanie vlasov a prémiové
-              regeneračné kúry. Ponúkame štyri overené metódy — keratínové
-              predlžovanie, micro-ring, nano-ring a mikrokapsule — všetky s použitím výlučne
-              100% ľudských vlasov najvyššej kvality.
+              O VLASY by Zane je vlasový salón v Moste pri Bratislave, ktorý sa
+              nezameriava iba na účes, ale na zdravie vlasov od korienkov po
+              končeky. Špecializujeme sa na rekonštrukčné a regeneračné kúry,
+              hĺbkové čistenie vlasovej pokožky a vlasov a na účesy pre
+              výnimočné udalosti.
             </p>
           </Reveal>
           <Reveal delay={0.3}>
             <p className="text-[#5C4A35] mb-8 leading-relaxed font-normal">
-              Každej klientke venujeme individuálnu pozornosť a navrhneme
-              riešenie presne podľa jej typu vlasov, životného štýlu a
-              očakávaní. Či chcete zdravšie
-              vlasy alebo jednoducho dlhšie, hustejšie — sme tu pre vás. Navštívte nás len 15 minút od centra
-              Bratislavy.
+              Každej klientke venujeme individuálnu pozornosť. Najprv
+              zhodnotíme stav vlasov a pokožky hlavy, potom navrhneme kúru
+              alebo ošetrenie presne podľa toho, čo vaše vlasy potrebujú.
+              Pracujeme výlučne s prémiovými, šetrnými prípravkami. Navštívte
+              nás len 15 minút od centra Bratislavy.
             </p>
           </Reveal>
           <Reveal delay={0.35}>
@@ -51,7 +51,7 @@ export default function About() {
                 Zane
               </span>
               <p className="text-[0.75rem] tracking-[0.18em] uppercase text-espresso mt-2">
-                Zakladateľka · Good Hair by Zane
+                Zakladateľka · O VLASY by Zane
               </p>
             </div>
           </Reveal>
@@ -81,7 +81,7 @@ export default function About() {
             <div className="row-span-2 relative rounded overflow-hidden shadow-layered">
               <Image
                 src="/vysledky/IMG_8590.webp"
-                alt="Kadernícke stanice v salóne Good Hair by Zane — dve pracovné miesta so zrkadlami a kvetinovými dekoráciami"
+                alt="Pracovné miesta v salóne O VLASY by Zane — dve stanice so zrkadlami a kvetinovými dekoráciami"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 50vw, 25vw"
@@ -90,7 +90,7 @@ export default function About() {
             <div className="relative rounded overflow-hidden shadow-layered">
               <Image
                 src="/produkty/DSC_3649-HDR.webp"
-                alt="Detail pracovného miesta Good Hair by Zane — osvetlené zrkadlo a profesionálne kadernícke nástroje"
+                alt="Detail pracovného miesta O VLASY by Zane — osvetlené zrkadlo a profesionálne nástroje na starostlivosť o vlasy"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 50vw, 25vw"
@@ -99,7 +99,7 @@ export default function About() {
             <div className="relative rounded overflow-hidden shadow-layered">
               <Image
                 src="/produkty/DSC_3592-HDR.webp"
-                alt="Prémiové vlasové produkty Sens.ùs a milk_shake používané v salóne Good Hair by Zane"
+                alt="Prémiové vlasové produkty Sens.ùs a milk_shake používané v salóne O VLASY by Zane"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 50vw, 25vw"

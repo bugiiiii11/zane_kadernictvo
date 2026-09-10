@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Logo from './Logo';
 
 export default function Footer() {
   return (
@@ -11,13 +12,18 @@ export default function Footer() {
 
         <a
           href="#"
-          className="font-display text-2xl lg:text-3xl tracking-wide text-cream transition-colors hover:text-gold-light focus-visible:outline-none focus-visible:text-gold-light"
+          className="text-2xl lg:text-3xl rounded-sm transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+          aria-label="O VLASY by Zane — domov"
         >
-          Good Hair <em className="italic font-light text-gold">by Zane</em>
+          <Logo variant="light" />
         </a>
 
+        <p className="mt-5 font-display text-lg lg:text-xl italic text-gold-light/90 text-balance">
+          O vlasy sa staráme. O vlasy, nie iba o účes. O vlasy s rozumom.
+        </p>
+
         <p className="mt-4 text-[0.95rem] text-cream/70 leading-relaxed">
-          Predlžovanie a regeneračné kúry vlasov
+          Regeneračné kúry, hĺbkové čistenie a účesy
           <span className="mx-2 text-gold/50">·</span>
           Most pri Bratislave
         </p>
@@ -37,7 +43,7 @@ export default function Footer() {
 
       <div className="max-w-5xl mx-auto mt-10 pt-6 border-t border-cream/10 flex flex-col sm:flex-row items-center justify-between gap-4">
         <span className="text-[0.9rem] text-cream/60 order-2 sm:order-1">
-          &copy; {new Date().getFullYear()} Good Hair by Zane. Všetky práva
+          &copy; {new Date().getFullYear()} O VLASY by Zane. Všetky práva
           vyhradené.
         </span>
         <a

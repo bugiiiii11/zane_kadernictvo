@@ -18,30 +18,32 @@ const outfit = Outfit({
   display: 'swap',
 });
 
+const SITE_URL = 'https://ovlasy.sk';
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://goodhairbyzane.com'),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Predlžovanie vlasov Most pri Bratislave | Good Hair by Zane',
-    template: '%s | Good Hair by Zane',
+    default: 'Starostlivosť o vlasy Most pri Bratislave | O VLASY by Zane',
+    template: '%s | O VLASY by Zane',
   },
   description:
-    'Predlžovanie vlasov a rekonštrukčné kúry v Moste pri Bratislave. 10+ rokov skúseností, 150+ klientok. Keratín, micro-ring, nano-ring, mikrokapsule. Objednajte sa!',
+    'O vlasy sa staráme, nie iba o účes. Regeneračné kúry, hĺbkové čistenie vlasovej pokožky (Malibu C) a účesy na výnimočné udalosti v Moste pri Bratislave. Objednajte sa!',
   keywords: [
-    'predlžovanie vlasov Most pri Bratislave',
-    'rekonštrukčné kúry vlasy',
+    'starostlivosť o vlasy Most pri Bratislave',
     'regeneračné kúry vlasy',
-    'predlžovanie vlasov Bratislava',
-    'zahusťovanie vlasov',
-    'keratínové predlžovanie vlasov',
-    'nano-ring predlžovanie',
-    'mikrokapsule predlžovanie vlasov',
-    'micro-ring predlžovanie',
+    'rekonštrukčné kúry vlasy',
+    'hĺbkové čistenie vlasovej pokožky',
+    'detoxikácia vlasov Malibu C',
+    'keratínové ošetrenie vlasov',
+    'svadobný účes Most pri Bratislave',
+    'spoločenský účes Bratislava',
+    'účes na stužkovú',
     'vlasový salón Most pri Bratislave',
     'vlasový salón Senec',
     'vlasový salón Bernolákovo',
-    'predlžovanie vlasov cena',
+    'O vlasy by Zane',
   ],
-  authors: [{ name: 'Good Hair by Zane' }],
+  authors: [{ name: 'O VLASY by Zane' }],
   robots: {
     index: true,
     follow: true,
@@ -55,21 +57,21 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'sk_SK',
-    url: 'https://goodhairbyzane.com',
-    siteName: 'Good Hair by Zane',
-    title: 'Good Hair by Zane — Predlžovanie vlasov Most pri Bratislave',
+    url: SITE_URL,
+    siteName: 'O VLASY by Zane',
+    title: 'O VLASY by Zane — Starostlivosť o vlasy v Moste pri Bratislave',
     description:
-      'Luxusný vlasový salón špecializujúci sa na profesionálne predlžovanie vlasov a regeneračné kúry. 10+ rokov skúseností, 150+ spokojných klientok.',
+      'O vlasy sa staráme, nie iba o účes. Regeneračné a rekonštrukčné kúry, hĺbkové čistenie vlasovej pokožky a účesy pre výnimočné udalosti. 10+ rokov skúseností.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Good Hair by Zane — Predlžovanie vlasov v Moste pri Bratislave',
+        alt: 'O VLASY by Zane — Starostlivosť o vlasy v Moste pri Bratislave',
       },
     ],
   },
-  alternates: { canonical: 'https://goodhairbyzane.com' },
+  alternates: { canonical: SITE_URL },
   other: {
     'geo.region': 'SK-BL',
     'geo.placename': 'Most pri Bratislave',
@@ -83,11 +85,13 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'HairSalon',
-      '@id': 'https://goodhairbyzane.com/#salon',
-      name: 'Good Hair by Zane',
-      image: 'https://goodhairbyzane.com/og-image.jpg',
+      '@id': `${SITE_URL}/#salon`,
+      name: 'O VLASY by Zane',
+      alternateName: 'Good Hair by Zane',
+      image: `${SITE_URL}/og-image.jpg`,
+      slogan: 'O vlasy sa staráme, nie iba o účes.',
       description:
-        'Luxusný vlasový salón v Moste pri Bratislave špecializujúci sa na profesionálne predlžovanie vlasov a rekonštrukčné regeneračné kúry. Keratínové, micro-ring, nano-ring a mikrokapsulové metódy s použitím 100% ľudských vlasov.',
+        'Vlasový salón v Moste pri Bratislave zameraný na zdravie vlasov: rekonštrukčné a regeneračné kúry, hĺbkové čistenie vlasovej pokožky a vlasov (Malibu C) a účesy pre výnimočné udalosti — spoločenské, svadobné a na stužkovú.',
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Nové polia 2',
@@ -103,24 +107,24 @@ const jsonLd = {
       },
       telephone: '+421944854229',
       email: 'goodhairbyzane@gmail.com',
-      url: 'https://goodhairbyzane.com',
+      url: SITE_URL,
       sameAs: [
         'https://www.instagram.com/goodhairbyzane/',
         'https://www.facebook.com/people/Good-hair-by-zane/61585936526464/',
       ],
       priceRange: '€€',
       areaServed: [
-        { '@type': 'City', name: 'Ivanka pri Dunaji' },
+        { '@type': 'City', name: 'Most pri Bratislave' },
         { '@type': 'City', name: 'Bratislava' },
+        { '@type': 'City', name: 'Ivanka pri Dunaji' },
         { '@type': 'City', name: 'Senec' },
         { '@type': 'City', name: 'Bernolákovo' },
-        { '@type': 'City', name: 'Most pri Bratislave' },
       ],
       founder: {
         '@type': 'Person',
         name: 'Zane',
         jobTitle: 'Vlasová špecialistka',
-        worksFor: { '@id': 'https://goodhairbyzane.com/#salon' },
+        worksFor: { '@id': `${SITE_URL}/#salon` },
       },
       openingHoursSpecification: [
         {
@@ -142,47 +146,68 @@ const jsonLd = {
         itemListElement: [
           {
             '@type': 'Offer',
+            priceCurrency: 'EUR',
+            price: '50',
             itemOffered: {
               '@type': 'Service',
-              name: 'Keratínové predlžovanie vlasov',
+              name: 'Hĺbková regeneračná kúra',
               description:
-                'Profesionálne predlžovanie vlasov keratínovou metódou s 100% ľudskými vlasmi. Najtrvácnejší spoj, výdrž 4–6 mesiacov.',
+                'Intenzívna výživa pre suché, lámavé a namáhané vlasy. Vráti vlasom lesk, silu a vitalitu. Od 50 €.',
             },
           },
           {
             '@type': 'Offer',
+            priceCurrency: 'EUR',
+            price: '90',
             itemOffered: {
               '@type': 'Service',
-              name: 'Nano-ring predlžovanie vlasov',
+              name: 'Prémiová rekonštrukčná kúra',
               description:
-                'Predlžovanie vlasov s najmenšími spojmi pre maximálnu diskrétnosť. Bez tepla a lepidla.',
+                'Hĺbková rekonštrukcia poškodených, farbených a chemicky ošetrených vlasov. Od 90 €.',
             },
           },
           {
             '@type': 'Offer',
+            priceCurrency: 'EUR',
+            price: '100',
             itemOffered: {
               '@type': 'Service',
-              name: 'Mikrokapsulové predlžovanie vlasov',
+              name: 'Keratínové ošetrenie',
               description:
-                'Revolučná technika s neviditeľnými spojmi. Mikrokapsule sa aplikujú na jednotlivé vlasy pre dokonale prirodzený výsledok.',
+                'Vyhladenie, lesk a ochrana vlasového vlákna keratínovým ošetrením. Od 100 €.',
             },
           },
           {
             '@type': 'Offer',
+            priceCurrency: 'EUR',
+            price: '50',
             itemOffered: {
               '@type': 'Service',
-              name: 'Micro-ring predlžovanie vlasov',
+              name: 'Hĺbkové čistenie vlasovej pokožky a vlasov',
               description:
-                'Predlžovanie bez tepla a lepidla pomocou mikro krúžkov. Najšetrnejšia metóda k vlastným vlasom.',
+                'Detoxikačné ošetrenie Malibu C: odstráni minerály z tvrdej vody, chlór a nánosy stylingových produktov, zmierni podráždenie pokožky hlavy. Vegánske, bez sulfátov a parabénov. Od 50 €.',
             },
           },
           {
             '@type': 'Offer',
+            priceCurrency: 'EUR',
+            price: '60',
             itemOffered: {
               '@type': 'Service',
-              name: 'Rekonštrukčné a regeneračné kúry',
+              name: 'Účesy pre výnimočné udalosti',
               description:
-                'Prémiové regeneračné kúry pre obnovu zdravia a vitality vlasov. Keratínové ošetrenie, hĺbková regenerácia.',
+                'Spoločenské, svadobné účesy a účesy na stužkovú, ktoré vydržia celý večer. Od 60 €.',
+            },
+          },
+          {
+            '@type': 'Offer',
+            priceCurrency: 'EUR',
+            price: '30',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Braids',
+              description:
+                'Vysoký cop (60 €), boxerské copíky (30 €) a cornrows (4 ks 40 €, 6 ks 60 €, 8 ks 80 €).',
             },
           },
         ],
@@ -190,62 +215,70 @@ const jsonLd = {
     },
     {
       '@type': 'WebSite',
-      '@id': 'https://goodhairbyzane.com/#website',
-      url: 'https://goodhairbyzane.com',
-      name: 'Good Hair by Zane',
+      '@id': `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: 'O VLASY by Zane',
       inLanguage: 'sk',
     },
     {
       '@type': 'BreadcrumbList',
-      '@id': 'https://goodhairbyzane.com/#breadcrumb',
+      '@id': `${SITE_URL}/#breadcrumb`,
       itemListElement: [
         {
           '@type': 'ListItem',
           position: 1,
           name: 'Domov',
-          item: 'https://goodhairbyzane.com',
+          item: SITE_URL,
         },
       ],
     },
     {
       '@type': 'FAQPage',
-      '@id': 'https://goodhairbyzane.com/#faq',
+      '@id': `${SITE_URL}/#faq`,
       mainEntity: [
         {
           '@type': 'Question',
-          name: 'Koľko stojí predlžovanie vlasov v Moste pri Bratislave?',
+          name: 'Čo je hĺbkové čistenie vlasovej pokožky a vlasov a komu pomôže?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Cena predlžovania vlasov sa skladá z ceny vlasov (od 250 €) a práce. Nadpojenie stojí od 0,60 € za spoj, odpojenie 50–80 €. Vlasy sa kupujú zvlášť. Presná cena závisí od počtu prameňov a požadovanej dĺžky — ponúkame bezplatnú konzultáciu s kalkuláciou na mieru.',
+            text: 'Je to detoxikačné ošetrenie Malibu C, ktoré pomocou vitamínových kryštálov odstráni z vlasov a pokožky hlavy minerály z tvrdej vody, chlór a nánosy stylingových produktov. Pomôže, ak sú vlasy mdlé, ťažké, zle sa farbia alebo blond vlasy sťahujú do zelena, a tiež pri podráždenej, svrbivej pokožke či lupinách. Prípravky sú vegánske, bez sulfátov a parabénov. Cena je od 50 € podľa dĺžky a hustoty vlasov.',
           },
         },
         {
           '@type': 'Question',
-          name: 'Aké metódy predlžovania vlasov ponúkate?',
+          name: 'Koľko stojí regeneračná kúra v Moste pri Bratislave?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Ponúkame štyri overené metódy: keratínové predlžovanie (najtrvácnejší spoj, 4–6 mesiacov), micro-ring (bez tepla a lepidla), nano-ring (najmenšie spoje, maximálna diskrétnosť) a mikrokapsule (neviditeľné spoje, revolúcia v predlžovaní). Všetky metódy používajú 100% ľudské vlasy najvyššej kvality.',
+            text: 'Hĺbková regeneračná kúra stojí od 50 €, prémiová rekonštrukčná kúra od 90 € a keratínové ošetrenie od 100 €. Konečná cena závisí od dĺžky a hustoty vlasov. Na bezplatnej konzultácii zhodnotíme stav vašich vlasov a pripravíme presnú kalkuláciu.',
           },
         },
         {
           '@type': 'Question',
-          name: 'Ako dlho vydržia predĺžené vlasy?',
+          name: 'Aký je rozdiel medzi regeneračnou kúrou a hĺbkovým čistením?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Predĺžené vlasy vydržia 3 až 6 mesiacov pri správnej starostlivosti v závislosti od metódy a rastu vlastných vlasov. Keratínové spoje vydržia najdlhšie (4–6 mesiacov), micro-ring a nano-ring 3–5 mesiacov. Po odrastení je možné pramene opätovne pripojiť.',
+            text: 'Hĺbkové čistenie vlasy a pokožku najprv zbaví usadenín, ktoré bránia výžive preniknúť do vlasového vlákna. Regeneračná kúra následne dodá vlasom výživu, silu a lesk. Najlepší výsledok dosiahnete ich kombináciou: očistiť a potom regenerovať.',
           },
         },
         {
           '@type': 'Question',
-          name: 'Poškodí predlžovanie moje vlastné vlasy?',
+          name: 'Robíte aj svadobné účesy a účesy na stužkovú?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Nie, pri správnej aplikácii a dodržaní starostlivosti predlžovanie vlasy nepoškodzuje. Používame šetrné metódy a kvalitné materiály. Na bezplatnej konzultácii zhodnotíme stav vašich vlasov a odporučíme najvhodnejšiu metódu pre váš typ vlasov.',
+            text: 'Áno. Vytvárame spoločenské, svadobné a účesy na stužkovú aj na akúkoľvek inú výnimočnú udalosť, cena je od 60 €. Účes navrhneme podľa vašich šiat a typu vlasov tak, aby vydržal celý večer. Pred svadbou odporúčame skúšobný účes a termín si rezervovať s dostatočným predstihom.',
           },
         },
         {
           '@type': 'Question',
-          name: 'Kde sa nachádza salón Good Hair by Zane?',
+          name: 'Robíte aj predlžovanie vlasov?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Predlžovanie vlasov aktuálne neponúkame. V salóne O VLASY by Zane sa sústredíme na zdravie vlasov: regeneračné a rekonštrukčné kúry, hĺbkové čistenie vlasovej pokožky a vlasov a účesy pre výnimočné udalosti.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Kde sa nachádza salón O VLASY by Zane?',
           acceptedAnswer: {
             '@type': 'Answer',
             text: 'Náš salón sa nachádza na adrese Nové polia 2, 900 46 Most pri Bratislave. Sme len pár minút od Bratislavy a ľahko dostupní aj z Ivanky pri Dunaji, Dunajskej Lužnej a Senca. Parkovanie je priamo pred salónom.',
@@ -272,8 +305,8 @@ export default function RootLayout({
   return (
     <html lang="sk" className={`${cormorant.variable} ${outfit.variable}`}>
       <head>
-        <link rel="icon" href="/zane_favicon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/zane_favicon.png" />
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="512x512" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -14,7 +14,7 @@ The job to be done: find a trusted specialist, understand the methods and roughl
 
 ## Product Purpose
 
-A single-page marketing site that positions **Good Hair by Zane** as a specialist boutique for hair extensions and hair regeneration — explicitly **not** a general kaderníctvo. Its job is to turn a first-time visitor into a phone booking.
+A single-page marketing site that positions **O VLASY by Zane** (ovlasy.sk; formerly Good Hair by Zane) as a specialist boutique for hair *health* — regeneration treatments, Malibu C deep cleansing of scalp and hair, and hairstyles for special occasions. Hair extensions are no longer offered (dropped in the 2026-09 rebrand). The brand manifesto — "O vlasy sa staráme. O vlasy, nie iba o účes. O vlasy s rozumom." — is the voice; section headings play on it — explicitly **not** a general kaderníctvo. Its job is to turn a first-time visitor into a phone booking.
 
 Success looks like: qualified inquiries and bookings, and a first impression that feels premium *and* personally warm — enough that a visitor trusts Zane with a significant, personal investment in how they look.
 
@@ -34,7 +34,7 @@ The voice is personal and caring — it speaks one-to-one to each client ("indiv
 
 1. **Boutique, never template.** Every section should feel made for Zane specifically. The test: if it could be dropped into any salon site unchanged, redo it.
 2. **Warmth carries the luxury.** The premium feel comes from generous space, restraint, real craft, and genuine care — not from gloss, effects, or gradients-everywhere. This luxury whispers and welcomes; it does not shout.
-3. **Specialist authority, made legible.** Surface the expertise — the four extension methods, 10+ years, real before/after results — clearly and reassuringly, so a considered, emotional purchase feels safe.
+3. **Specialist authority, made legible.** Surface the expertise — the treatments and what they solve (hard water, chlorine, build-up, irritated scalp), 10+ years, real results — clearly and reassuringly, so a considered, emotional purchase feels safe.
 4. **One-to-one, not one-to-many.** Copy, imagery, and tone address each client personally. Never transactional, never "processed".
 5. **Show the work.** Real results and the real space do more than adjectives. Let photography and proof carry the persuasion.
 

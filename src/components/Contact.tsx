@@ -20,9 +20,9 @@ export default function Contact() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="text-cream/60 mb-10 max-w-md font-light leading-relaxed">
-              Radi vám poradíme a pomôžeme vybrať riešenie presne pre vás.
-              Neváhajte nás kontaktovať — tešíme sa na vás v našom salóne v
-              Moste pri Bratislave.
+              Radi vám poradíme, ktorá kúra alebo ošetrenie je pre vaše vlasy
+              najvhodnejšie. Neváhajte nás kontaktovať — tešíme sa na vás
+              v salóne O VLASY by Zane v Moste pri Bratislave.
             </p>
           </Reveal>
 
@@ -104,7 +104,7 @@ export default function Contact() {
                 href="https://www.instagram.com/goodhairbyzane/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Good Hair by Zane na Instagrame"
+                aria-label="O VLASY by Zane na Instagrame"
                 className="w-11 h-11 rounded-full border border-gold/30 flex items-center justify-center hover:bg-gold hover:border-gold transition-all"
               >
                 <svg
@@ -118,7 +118,7 @@ export default function Contact() {
                 href="https://www.facebook.com/people/Good-hair-by-zane/61585936526464/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Good Hair by Zane na Facebooku"
+                aria-label="O VLASY by Zane na Facebooku"
                 className="w-11 h-11 rounded-full border border-gold/30 flex items-center justify-center hover:bg-gold hover:border-gold transition-all"
               >
                 <svg
@@ -142,7 +142,7 @@ export default function Contact() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Good Hair by Zane — Nové polia 2, Most pri Bratislave"
+              title="O VLASY by Zane — Nové polia 2, Most pri Bratislave"
             />
           </div>
         </Reveal>

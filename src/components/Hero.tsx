@@ -75,7 +75,7 @@ export default function Hero() {
         >
           <span className="w-1.5 h-1.5 rounded-full bg-gold" />
           <span className="text-[0.75rem] tracking-[0.22em] uppercase text-espresso font-body font-medium">
-            Vlasový salón v Moste pri Bratislave
+            Starostlivosť o vlasy · Most pri Bratislave
           </span>
         </motion.div>
 
@@ -85,9 +85,8 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.3 }}
           className="font-display text-[clamp(2.5rem,5vw,4.5rem)] font-light text-deep-brown leading-[1.1] text-balance mb-6"
         >
-          Profesionálne{' '}
-          <em className="italic text-mocha">predlžovanie vlasov</em> s luxusnou
-          starostlivosťou
+          O vlasy sa staráme,{' '}
+          <em className="italic text-mocha">nie iba o účes.</em>
         </motion.h1>
 
         <motion.p
@@ -96,10 +95,9 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.5 }}
           className="text-[#5C4A35] text-lg lg:text-xl max-w-md mb-8 font-normal leading-relaxed text-pretty"
         >
-          Špecializujeme sa na prémiové predlžovanie a zahusťovanie vlasov
-          keratínovou, micro-ring, nano-ring a mikrokapsulovou metódou. Viac ako 10 rokov
-          skúseností, 150+ spokojných klientok a individuálny prístup ku každej
-          jednej z vás.
+          Regeneračné a rekonštrukčné kúry, hĺbkové čistenie vlasovej pokožky
+          a účesy pre výnimočné dni. Viac ako 10 rokov skúseností, 150+
+          spokojných klientok a prístup šitý na mieru vašim vlasom.
         </motion.p>
 
         <motion.div
@@ -129,7 +127,7 @@ export default function Hero() {
         <motion.div style={{ y: imageY }} className="absolute inset-0">
           <Image
             src="/priestory/zane3.webp"
-            alt="Interiér vlasového salónu Good Hair by Zane v Moste pri Bratislave — priestor pre predlžovanie vlasov a regeneračné kúry"
+            alt="Interiér vlasového salónu O VLASY by Zane v Moste pri Bratislave — priestor pre regeneračné kúry a starostlivosť o vlasy"
             fill
             className="object-cover"
             priority

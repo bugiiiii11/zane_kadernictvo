@@ -6,40 +6,40 @@ import Reveal from './Reveal';
 const images = [
   {
     src: '/vysledky/IMG_9324.webp',
-    alt: 'Predlžovanie a zahusťovanie dlhých blond kučeravých vlasov — výsledok v salóne Good Hair by Zane v Moste pri Bratislave',
+    alt: 'Dlhé blond kučeravé vlasy plné objemu a lesku — výsledok starostlivosti v salóne O VLASY by Zane v Moste pri Bratislave',
     span: true,
   },
   {
     src: '/vysledky/IMG_7166.webp',
-    alt: 'Predlžovanie vlasov keratínovou metódou — dokonale hladké blond vlasy v Good Hair by Zane',
+    alt: 'Dokonale hladké a lesklé blond vlasy po keratínovom ošetrení v salóne O VLASY by Zane',
   },
   {
     src: '/vysledky/IMG_9164.webp',
-    alt: 'Zahusťovanie vlasov — luxusné platinové vlny po predĺžení v salóne Good Hair by Zane',
+    alt: 'Luxusné platinové vlny — spoločenský účes pripravený v salóne O VLASY by Zane',
   },
   {
     src: '/vysledky/IMG_8938.webp',
-    alt: 'Rekonštrukčná kúra pre tmavé vlasy — lesk a vitalita po ošetrení Good Hair by Zane',
+    alt: 'Rekonštrukčná kúra pre tmavé vlasy — lesk a vitalita po ošetrení v salóne O VLASY by Zane',
   },
   {
     src: '/vysledky/IMG_7945.webp',
-    alt: 'Kreatívne copánkové účesy s farebnými prameňmi v salóne Good Hair by Zane Most pri Bratislave',
+    alt: 'Kreatívne copánkové účesy (braids) s farebnými prameňmi v salóne O VLASY by Zane Most pri Bratislave',
   },
   {
     src: '/vysledky/zane1.webp',
-    alt: 'Výsledok predlžovania vlasov — dlhé husté vlasy po ošetrení v salóne Good Hair by Zane v Moste pri Bratislave',
+    alt: 'Dlhé husté vlasy s prirodzeným leskom po regeneračnej kúre v salóne O VLASY by Zane v Moste pri Bratislave',
   },
   {
     src: '/vysledky/zane2.webp',
-    alt: 'Predlžovanie a zahusťovanie vlasov — prirodzený a objemný výsledok v salóne Good Hair by Zane',
+    alt: 'Objemné vlasy s prirodzeným pohybom — výsledok starostlivosti o vlasy v salóne O VLASY by Zane',
   },
   {
     src: '/vysledky/zane4.webp',
-    alt: 'Profesionálne predĺžené vlasy 100% ľudskými vlasmi — výsledok v salóne Good Hair by Zane Most pri Bratislave',
+    alt: 'Zdravé dlhé vlasy po hĺbkovom čistení a regeneračnej kúre v salóne O VLASY by Zane Most pri Bratislave',
   },
   {
     src: '/vysledky/zane5.webp',
-    alt: 'Regeneračná kúra a žiarivé zdravé vlasy — výsledok ošetrenia v salóne Good Hair by Zane',
+    alt: 'Regeneračná kúra a žiarivé zdravé vlasy — výsledok ošetrenia v salóne O VLASY by Zane',
   },
 ];
 

@@ -3,6 +3,6 @@ import { MetadataRoute } from 'next';
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [{ userAgent: '*', allow: '/' }],
-    sitemap: 'https://goodhairbyzane.com/sitemap.xml',
+    sitemap: 'https://ovlasy.sk/sitemap.xml',
   };
 }

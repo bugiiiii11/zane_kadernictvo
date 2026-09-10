@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Phone, Menu, X } from 'lucide-react';
+import Logo from './Logo';
 
 const links = [
   { href: '#sluzby', label: 'Služby' },
@@ -52,10 +53,10 @@ export default function Navigation() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between">
           <a
             href="#"
-            className="font-display text-xl md:text-2xl text-deep-brown tracking-wide focus-visible:outline-none focus-visible:text-espresso"
+            className="text-xl md:text-2xl rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+            aria-label="O VLASY by Zane — domov"
           >
-            Good Hair{' '}
-            <em className="text-mocha font-light italic">by Zane</em>
+            <Logo />
           </a>
 
           <ul className="hidden lg:flex items-center gap-8">

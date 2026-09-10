@@ -1,6 +1,6 @@
 ---
-name: Good Hair by Zane
-description: Boutique hair-extension & regeneration salon — warm, expert, personal luxury.
+name: O VLASY by Zane
+description: Boutique hair-health salon (regeneration, Malibu C deep cleansing, event hairstyles) — warm, expert, personal luxury.
 colors:
   warm-white: "#FDFBF8"
   cream: "#F7F3EE"
@@ -63,7 +63,9 @@ components:
     padding: "8px 16px"
 ---
 
-# Design System: Good Hair by Zane
+# Design System: O VLASY by Zane
+
+**Wordmark (first draft, S10):** gold ring + centred gold dot stands in for the "O", then "VLASY" in Cormorant (uppercase, tracking 0.14em), then italic "by Zane" in mocha (gold on dark). Component: `src/components/Logo.tsx`. Favicon/OG use the same ring+dot geometry. The founder will supply a final logo later.
 
 ## 1. Overview
 

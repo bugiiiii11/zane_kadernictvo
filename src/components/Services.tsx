@@ -5,7 +5,7 @@ import Reveal from './Reveal';
 const services = [
   {
     title: 'Rekonštrukčné a regeneračné kúry',
-    desc: 'Rekonštrukčná procedúra pre hĺbkovú regeneráciu suchých, lámavých a poškodených vlasov. Vráťia vašim vlasom lesk, silu a vitalitu — viditeľný výsledok už po prvom ošetrení. Ideálne pre farbené, chemicky ošetrené alebo suché vlasy.',
+    desc: 'Rekonštrukčná procedúra pre hĺbkovú regeneráciu suchých, lámavých a poškodených vlasov. Vráti vašim vlasom lesk, silu a vitalitu — viditeľný výsledok už po prvom ošetrení. Ideálne pre farbené, chemicky ošetrené alebo suché vlasy.',
     details: [
       ['Hĺbková regenerácia', 'Intenzívna výživa pre suché vlasy'],
       ['Keratínové ošetrenie', 'Vyhladenie, lesk a ochrana vlákna'],
@@ -14,24 +14,23 @@ const services = [
     ],
   },
   {
-    title: 'Predlžovanie vlasov',
-    desc: 'Profesionálne predlžovanie a zahusťovanie vlasov prispôsobené vášmu typu vlasov a životnému štýlu. Používame výlučne 100% ľudské vlasy najvyššej kvality pre dokonale prirodzený vzhľad, ktorý vás nadchne.',
+    title: 'Hĺbkové čistenie vlasov a pokožky',
+    desc: 'Detoxikačné ošetrenie Malibu C, ktoré z vlasov a pokožky hlavy odstráni minerály z tvrdej vody, chlór a nánosy stylingových produktov. Vlasy sú po ňom ľahšie, lesklejšie a lepšie prijímajú následnú kúru či farbu. Úľava aj pre podráždenú a svrbivú pokožku.',
     details: [
-      ['Keratínová metóda', 'Najtrvácnejší spoj, 3–5 mesiacov'],
-      ['Micro-ring', 'Bez tepla a lepidla, najšetrnejšia'],
-      ['Nano-ring', 'Najmenšie spoje, maximálna diskrétnosť'],
-      ['Mikrokapsule', 'Neviditeľné spoje, revolúcia v predlžovaní'],
-      ['Kvalita vlasov', '100% európske ľudské vlasy'],
+      ['Tvrdá voda a minerály', 'Odstráni usadeniny, ktoré vlasy zaťažujú'],
+      ['Chlór a styling', 'Zbaví vlasy nánosov a matnosti'],
+      ['Pokožka hlavy', 'Zmierni podráždenie, svrbenie a lupiny'],
+      ['Zloženie', 'Vegánske, bez sulfátov a parabénov'],
     ],
   },
   {
-    title: 'Individuálna konzultácia',
-    desc: 'Bezplatná osobná konzultácia, počas ktorej zhodnotíme stav vašich vlasov, navrhneme optimálne riešenie a pripravíme presnú cenovú kalkuláciu. Žiadne skryté poplatky — transparentný prístup od prvého stretnutia.',
+    title: 'Účesy pre výnimočné udalosti',
+    desc: 'Spoločenské, svadobné a účesy na stužkovú, ktoré vydržia celý večer. Účes navrhneme podľa vašich šiat, typu vlasov a charakteru udalosti, aby ste sa cítili prirodzene a výnimočne zároveň.',
     details: [
-      ['Analýza vlasov', 'Stav, typ a hrúbka vlasov'],
-      ['Návrh riešenia', 'Metóda, počet prameňov, dĺžka'],
-      ['Cenová kalkulácia', 'Presná cena bez prekvapení'],
-      ['Trvanie', 'Cca 30 minút, bezplatne'],
+      ['Svadobný účes', 'Pre nevestu aj svadobčanky'],
+      ['Spoločenský účes', 'Plesy, oslavy, firemné večery'],
+      ['Stužková', 'Účes, ktorý vydrží do rána'],
+      ['Skúšobný účes', 'Odporúčame pred veľkým dňom'],
     ],
   },
 ];
@@ -83,7 +82,7 @@ export default function Services() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="font-display text-[clamp(2.15rem,3.8vw,3rem)] font-light text-deep-brown leading-tight text-balance">
-              Špecializujeme sa na to, čo robíme najlepšie
+              O vlasy sa staráme do hĺbky
             </h2>
           </Reveal>
         </div>
