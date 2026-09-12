@@ -8,7 +8,7 @@ const features = [
   { title: 'Diagnostika vlasov a pokožky', desc: 'Ošetrenie navrhneme podľa stavu vašich vlasov' },
   { title: 'Bezplatná konzultácia', desc: 'Poradíme vám s výberom kúry' },
   { title: 'Šetrné prípravky', desc: 'Prémiové značky, ktoré vlasy nepoškodia' },
-  { title: 'Garancia spokojnosti', desc: '150+ spokojných klientok' },
+  { title: 'Osobný prístup', desc: 'Čas a pozornosť pre každú klientku' },
 ];
 
 export default function About() {
@@ -81,7 +81,7 @@ export default function About() {
             <div className="row-span-2 relative rounded overflow-hidden shadow-layered">
               <Image
                 src="/vysledky/IMG_8590.webp"
-                alt="Pracovné miesta v salóne O VLASY by Zane — dve stanice so zrkadlami a kvetinovými dekoráciami"
+                alt="Dlhé blond vlasy vyčesané po regeneračnej kúre v salóne O VLASY by Zane v Moste pri Bratislave"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 50vw, 25vw"
@@ -90,7 +90,7 @@ export default function About() {
             <div className="relative rounded overflow-hidden shadow-layered">
               <Image
                 src="/produkty/DSC_3649-HDR.webp"
-                alt="Detail pracovného miesta O VLASY by Zane — osvetlené zrkadlo a profesionálne nástroje na starostlivosť o vlasy"
+                alt="Prémiové šampóny a masky na regeneráciu vlasov používané v salóne O VLASY by Zane"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 50vw, 25vw"

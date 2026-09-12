@@ -42,10 +42,17 @@ export default function Footer() {
       </div>
 
       <div className="max-w-5xl mx-auto mt-10 pt-6 border-t border-cream/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <span className="text-[0.9rem] text-cream/60 order-2 sm:order-1">
-          &copy; {new Date().getFullYear()} O VLASY by Zane. Všetky práva
-          vyhradené.
-        </span>
+        <div className="order-2 sm:order-1 flex flex-col items-center sm:items-start gap-1.5">
+          <span className="text-[0.9rem] text-cream/60">
+            &copy; {new Date().getFullYear()} O VLASY by Zane. Všetky práva
+            vyhradené.
+          </span>
+          <span className="text-[0.8rem] text-cream/45">
+            IČO: 57399760
+            <span className="mx-2 text-cream/25">·</span>
+            DIČ: 1074439806
+          </span>
+        </div>
         <a
           href="https://www.mdntech.org/sk/"
           target="_blank"

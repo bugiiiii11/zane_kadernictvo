@@ -1,37 +1,35 @@
+import Image from 'next/image';
+
 /**
- * O VLASY by Zane — wordmark (first draft; the final mark will replace it).
- * The "O" is a gold ring with a centred gold dot — the site's recurring
- * gold-dot motif — followed by "VLASY" in the display serif and a quiet
- * italic "by Zane".
+ * O VLASY by Zane — the founder's wordmark: a serif "OVLASY" whose O holds
+ * three hair strands, over a gold rule. Two colour cuts of the same artwork,
+ * because the mark sits on cream in the nav and on charcoal in the footer.
+ * Sizing follows the inherited font-size, so callers keep using text-* classes.
+ *
+ * `public/logo-mark.webp` is the O-and-strands alone — the master the favicon
+ * and apple-touch icon are cut from; regenerate those from it, not from a
+ * screenshot.
  */
 type LogoProps = {
   variant?: 'dark' | 'light';
   className?: string;
 };
 
-export function LogoMark({ className = 'h-7 w-7' }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true" className={className}>
-      <circle cx="16" cy="16" r="13" stroke="currentColor" strokeWidth="1.75" />
-      <circle cx="16" cy="16" r="2.25" fill="currentColor" />
-    </svg>
-  );
-}
-
 export default function Logo({ variant = 'dark', className = '' }: LogoProps) {
   const isDark = variant === 'dark';
   return (
-    <span className={`inline-flex items-center gap-2.5 ${className}`}>
-      <LogoMark className="h-[1.15em] w-[1.15em] shrink-0 text-gold" />
-      <span
-        className={`font-display leading-none tracking-[0.14em] uppercase ${
-          isDark ? 'text-deep-brown' : 'text-cream'
-        }`}
-      >
-        Vlasy
-      </span>
+    <span className={`inline-flex items-baseline gap-2.5 ${className}`}>
+      <Image
+        src={isDark ? '/logo-ovlasy.webp' : '/logo-ovlasy-light.webp'}
+        alt="O VLASY by Zane"
+        width={895}
+        height={276}
+        sizes="(max-width: 768px) 160px, 220px"
+        className="h-[1.85em] w-auto self-center"
+        priority
+      />
       <em
-        className={`font-display font-light italic normal-case tracking-normal leading-none ${
+        className={`font-display font-light italic leading-none text-[0.72em] ${
           isDark ? 'text-mocha' : 'text-gold'
         }`}
       >

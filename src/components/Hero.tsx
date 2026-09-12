@@ -5,10 +5,14 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
-const stats = [
-  { num: '150+', label: 'Spokojných klientok' },
-  { num: '10+', label: 'Rokov skúseností' },
-  { num: '50+', label: 'Prémiových produktov' },
+// Qualitative credentials, not head-count metrics — what the salon actually
+// does differently, which is the honest version of social proof here.
+// Kept to two words apiece: the plate is three narrow columns on a phone and
+// anything longer wraps into ragged, uneven stacks.
+const credentials = [
+  { title: 'Diagnostika', desc: 'Pred kúrou' },
+  { title: 'Malibu C', desc: 'Detox vlasov' },
+  { title: 'Účesy', desc: 'Na udalosti' },
 ];
 
 function useIsDesktop() {
@@ -96,8 +100,8 @@ export default function Hero() {
           className="text-[#5C4A35] text-lg lg:text-xl max-w-md mb-8 font-normal leading-relaxed text-pretty"
         >
           Regeneračné a rekonštrukčné kúry, hĺbkové čistenie vlasovej pokožky
-          a účesy pre výnimočné dni. Viac ako 10 rokov skúseností, 150+
-          spokojných klientok a prístup šitý na mieru vašim vlasom.
+          a účesy pre výnimočné dni. Každé ošetrenie navrhneme až po diagnostike
+          vlasov — presne podľa toho, čo vaše vlasy potrebujú.
         </motion.p>
 
         <motion.div
@@ -136,7 +140,7 @@ export default function Hero() {
           <div className="absolute inset-0 bg-gradient-to-t from-warm-white/60 via-transparent to-transparent lg:bg-gradient-to-r lg:from-warm-white/30 lg:via-transparent" />
         </motion.div>
 
-        {/* Credential plate — editorial proof, not metric cards */}
+        {/* Credential plate — what we do, not how many we have done */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -144,17 +148,17 @@ export default function Hero() {
           className="absolute bottom-6 left-6 right-6 lg:bottom-12 lg:-left-8 lg:right-auto z-20"
         >
           <div className="flex items-center justify-center lg:justify-start bg-warm-white/95 backdrop-blur-sm shadow-luxury border-t-2 border-t-gold px-5 py-4 lg:px-8 lg:py-6">
-            {stats.map((stat, i) => (
-              <div key={stat.label} className="flex items-center">
+            {credentials.map((c, i) => (
+              <div key={c.title} className="flex items-center">
                 {i > 0 && (
-                  <span className="mx-4 lg:mx-7 h-10 w-px bg-gradient-to-b from-transparent via-gold/50 to-transparent" />
+                  <span className="mx-3 lg:mx-6 h-10 w-px bg-gradient-to-b from-transparent via-gold/50 to-transparent" />
                 )}
                 <div className="text-center lg:text-left">
-                  <div className="font-display text-2xl lg:text-3xl font-semibold text-deep-brown leading-none">
-                    {stat.num}
+                  <div className="font-display text-base lg:text-2xl font-medium text-deep-brown leading-tight">
+                    {c.title}
                   </div>
-                  <div className="text-[0.68rem] lg:text-[0.72rem] tracking-[0.1em] uppercase text-espresso mt-1.5 leading-tight">
-                    {stat.label}
+                  <div className="text-[0.6rem] lg:text-[0.72rem] tracking-[0.08em] lg:tracking-[0.1em] uppercase text-espresso mt-1.5 leading-tight whitespace-nowrap">
+                    {c.desc}
                   </div>
                 </div>
               </div>

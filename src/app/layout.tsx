@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     siteName: 'O VLASY by Zane',
     title: 'O VLASY by Zane — Starostlivosť o vlasy v Moste pri Bratislave',
     description:
-      'O vlasy sa staráme, nie iba o účes. Regeneračné a rekonštrukčné kúry, hĺbkové čistenie vlasovej pokožky a účesy pre výnimočné udalosti. 10+ rokov skúseností.',
+      'O vlasy sa staráme, nie iba o účes. Regeneračné a rekonštrukčné kúry, hĺbkové čistenie vlasovej pokožky (Malibu C) a účesy pre výnimočné udalosti v Moste pri Bratislave.',
     images: [
       {
         url: '/og-image.jpg',
@@ -106,6 +106,12 @@ const jsonLd = {
       },
       telephone: '+421944854229',
       email: 'goodhairbyzane@gmail.com',
+      taxID: '1074439806',
+      identifier: {
+        '@type': 'PropertyValue',
+        name: 'IČO',
+        value: '57399760',
+      },
       url: SITE_URL,
       sameAs: [
         'https://www.instagram.com/goodhairbyzane/',
@@ -133,12 +139,6 @@ const jsonLd = {
           closes: '18:00',
         },
       ],
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '5.0',
-        reviewCount: '150',
-        bestRating: '5',
-      },
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: 'Služby salónu',

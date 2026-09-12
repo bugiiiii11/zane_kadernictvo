@@ -51,6 +51,8 @@ npm run lint     # Linting
 - Business is NOT a "kaderníctvo" — focus on hair health (regeneračné kúry, hĺbkové čistenie) + event hairstyles. Never reintroduce predlžovanie vlasov as an offered service.
 - Pricing must be textual (SEO-indexable), never images
 - Phone number must be clickable (tel: link)
-- Design: luxury warm tones (cream, mocha, gold), Cormorant Garamond + Outfit fonts. Logo = `src/components/Logo.tsx` (gold ring+dot "O" + VLASY + by Zane) — placeholder until the founder supplies a final mark
+- Design: luxury warm tones (cream, mocha, gold), Cormorant Garamond + Outfit fonts. Logo = the founder's final mark: `public/logo-ovlasy.webp` (dark) / `-light.webp` (on charcoal), rendered by `src/components/Logo.tsx` + an italic "by Zane". `public/logo-mark.webp` (the O with hair strands) is the master for favicon/apple-touch-icon
 - Images: use descriptive Slovak alt texts with keywords
 - Saturday hours are "na objednávku", not fixed times
+- NEVER state years of experience or a client count — the founder has neither the tenure nor the numbers, and asked for USPs instead. No AggregateRating in schema until there are real reviews.
+- Business IDs (živnosť): IČO 57399760, DIČ 1074439806 — in the Footer and in HairSalon schema (`identifier` / `taxID`)
