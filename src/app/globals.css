@@ -133,41 +133,51 @@
       0 0 0 1px rgba(197, 169, 123, 0.20),
       inset 0 1px 0 rgba(255, 255, 255, 0.08);
     transition:
-      transform 0.45s cubic-bezier(0.23, 1, 0.32, 1),
-      box-shadow 0.45s cubic-bezier(0.23, 1, 0.32, 1),
-      filter 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+      transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
+      box-shadow 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
   }
-  /* Diagonal light sweep — a single, brighter pass of gold sheen */
-  .btn-primary-luxe::before {
+  /*
+   * Hover draws a gold hairline frame that settles inward — the same rule that
+   * divides every section of the site, borrowed as the button's affordance.
+   * The fill never changes: lightening a rich brown only muddies it.
+   */
+  .btn-primary-luxe::after {
     content: '';
     position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      105deg,
-      transparent 35%,
-      rgba(226, 212, 184, 0.5) 50%,
-      transparent 65%
-    );
-    transform: translateX(-120%);
-    transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    top: 9px;
+    right: 9px;
+    bottom: 9px;
+    left: 9px;
+    border: 1px solid rgba(226, 212, 184, 0.7);
+    opacity: 0;
+    transition:
+      opacity 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+      top 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+      right 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+      bottom 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+      left 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
     pointer-events: none;
   }
-  .btn-primary-luxe:hover {
-    transform: translateY(-3px);
-    filter: brightness(1.08) saturate(1.04);
+  .btn-primary-luxe:hover,
+  .btn-primary-luxe:focus-visible {
+    transform: translateY(-2px);
     box-shadow:
-      0 16px 38px -6px rgba(58, 46, 34, 0.45),
-      0 0 0 1px rgba(197, 169, 123, 0.55),
-      0 0 44px -8px rgba(197, 169, 123, 0.55),
-      inset 0 1px 0 rgba(255, 255, 255, 0.16);
+      0 14px 28px -10px rgba(58, 46, 34, 0.42),
+      0 0 0 1px rgba(197, 169, 123, 0.32),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
   }
-  .btn-primary-luxe:hover::before {
-    transform: translateX(120%);
+  .btn-primary-luxe:hover::after,
+  .btn-primary-luxe:focus-visible::after {
+    top: 6px;
+    right: 6px;
+    bottom: 6px;
+    left: 6px;
+    opacity: 1;
   }
-  /* Tactile press — settle back down on click */
+  /* Tactile press — settle flush against the page */
   .btn-primary-luxe:active {
-    transform: translateY(-1px);
-    transition-duration: 0.1s;
+    transform: translateY(0);
+    transition-duration: 0.12s;
   }
 
   /* 3D Shader-like gradient background for Hero */
