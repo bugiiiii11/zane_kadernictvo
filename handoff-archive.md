@@ -2,6 +2,12 @@
 
 Rotated out of handoff.md on 2026-09-10 (Session 10 wrap). Newest first.
 
+Rotated out on 2026-09-12 (Session 11 wrap).
+
+## What Was Done (Session 9) -- Footer text bump, button hover polish, Gallery WebP
+
+- Enlarged Footer bottom-row texts; refined `.btn-primary-luxe` hover (diagonal gold sheen, brightness warm-up, -3px lift, `:active` press); regenerated `IMG_8938`/`IMG_9164` → WebP. Committed S7+S8+S9 together (062a217).
+
 ## What Was Done (Session 8) -- Impeccable Cont.: Type Scale, Pricing Redesign, Perf, FAQ/Footer/Nav
 
 Continued `/impeccable polish` (register: brand; North Star "The Warm Atelier"). Left uncommitted alongside S7 for user review (shipped in the S9 commit). User confirmed both reported issues fixed (text bigger, Pricing lag gone).
