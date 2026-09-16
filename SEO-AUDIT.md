@@ -8,14 +8,14 @@ local production build and the source.
 
 | Area | Weight | Live (as deployed) | After this session's fixes |
 |------|-------:|-------------------:|---------------------------:|
-| Technical SEO | 25% | 66 | 90 |
+| Technical SEO | 25% | 66 | 93 |
 | Content quality | 25% | 64 | 64 |
 | On-page SEO | 20% | 65 | 80 |
 | Schema / structured data | 10% | 65 | 92 |
 | Performance (CWV) | 10% | 40 | 55 |
 | Images | 5% | 90 | 90 |
 | AI search readiness | 5% | 72 | 80 |
-| **Weighted total** | | **64 / 100** | **78 / 100** |
+| **Weighted total** | | **64 / 100** | **79 / 100** |
 
 Content quality is unchanged on purpose: every remaining item there is a copy change
 that needs the founder's sign-off, which is still outstanding.
@@ -67,11 +67,11 @@ booking process and the business IDs.
 
 ## Still open — needs the site owner, not code
 
-1. **`www.goodhairbyzane.com` still returns 200.** It serves a byte-identical copy of the
-   whole site, with its own robots.txt and sitemap.xml, carrying the old phone number and
-   email. The apex redirects correctly; only this host was missed. Fix it in Vercel:
-   308 to ovlasy.sk, path not preserved. Note the apex currently preserves the path, so
-   `goodhairbyzane.com/sluzby` redirects into a 404.
+1. ~~`www.goodhairbyzane.com` still returns 200.~~ **Fixed 2026-09-16.** It was serving a
+   byte-identical copy of the whole site, with its own robots.txt and sitemap.xml,
+   carrying the old phone number and email. Both the apex and the www host now 308 to
+   ovlasy.sk. Paths are preserved, but the old site was always a single page, so the only
+   paths that redirect into a 404 are ones that never existed.
 2. **Deploy the current branch.** The live site still publishes the old phone number and
    email in its HTML, its JSON-LD and its llms.txt, and 404s on the favicon and manifest.
    Deploying closes more findings than any other single action.
