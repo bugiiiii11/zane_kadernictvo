@@ -12,16 +12,28 @@ Modern website for "O VLASY by Zane" (rebranded S10 from "Good Hair by Zane"; ne
 - **Deployment**: Vercel
 
 ## Current State
-- **Session**: 10
-- **Status**: **Live at https://ovlasy.sk** (S10, 2026-09-10). S10: full rebrand to O VLASY by Zane (Logo.tsx placeholder mark, favicon/OG regenerated, manifesto-driven copy), hair extensions removed, Malibu C deep cleansing (od 50 €) + event hairstyles (od 60 €) added, SEO layer moved to ovlasy.sk, chatbot widget hidden (code kept as a comment in layout.tsx). DNS at Websupport → Vercel done; goodhairbyzane.com apex 308-redirects to ovlasy.sk. Next: redirect www.goodhairbyzane.com too, founder sign-off on copy + final logo, GSC/GBP/social migration, chatbot KB rewrite, Reveal opacity-gating fix, /impeccable audit.
+- **Session**: 12
+- **Status**: **Live at https://ovlasy.sk**, deployed 2026-09-16 (sha 8b99263). S12: new phone
+  +421 950 249 838 and email ovlasy.sk@gmail.com everywhere; professional favicon set (charcoal tile
+  cut from `logo-mark.webp`) + web manifest; full SEO audit (7 specialist passes, weighted score
+  64 -> 79) with its fixes shipped -- one linked 9-entity JSON-LD graph, `minPrice` for "od" prices,
+  FAQ moved to a single source, hero LCP no longer opacity-gated, five components turned back into
+  server components, landscape nav drawer and 768-855px service-card overflow fixed. See `SEO-AUDIT.md`.
 - **Repo**: https://github.com/bugiiiii11/zane_kadernictvo
-- **Live**: https://ovlasy.sk (goodhairbyzane.com 308-redirects to it; www.goodhairbyzane.com redirect still pending)
+- **Live**: https://ovlasy.sk (both goodhairbyzane.com and www.goodhairbyzane.com 308-redirect to it)
+- **Deploy gotcha**: a Vercel project can stay pinned to a revoked `gitCredentialId` and fail every
+  build in 0 ms with `git_info_fail`, even after the GitHub App regains repository access. Refresh it
+  with `POST /v9/projects/<project>/link {"type":"github","repo":"<org>/<repo>"}`.
+- **Next**: founder sign-off on copy + legal details, GSC/GBP/social migration, chatbot KB rewrite.
 
 ## SEO Strategy
 - **Primary keywords**: starostlivosť o vlasy Most pri Bratislave, regeneračné kúry vlasy, hĺbkové čistenie vlasovej pokožky
 - **Secondary**: rekonštrukčné kúry, detoxikácia vlasov Malibu C, keratínové ošetrenie, svadobný účes / spoločenský účes / účes na stužkovú, vlasový salón Senec, O vlasy by Zane
 - **Relocation note (S6)**: rendered SEO copy pivoted Ivanka pri Dunaji → Most pri Bratislave. Ivanka kept only as a nearby served-area mention (FAQ + schema areaServed). Final SEO refinement (citations, GMB, GSC re-submit) deferred.
-- **Schema**: HairSalon (with areaServed, founder), FAQPage, BreadcrumbList, WebSite
+- **Schema**: one linked `@graph` -- HairSalon, Person (founder), 4x Service, WebSite, WebPage,
+  FAQPage. BreadcrumbList was removed (never eligible on a one-pager). Saturday is deliberately
+  absent from `openingHoursSpecification`: Schema.org has no honest "na objednavku" vocabulary,
+  so it belongs in the Google Business Profile hours attribute instead.
 - **Local SEO**: geo meta tags, NAP consistency, Google Maps embedded, areaServed (5 cities)
 - **Services offered (S10)**: Rekonštrukčné a regeneračné kúry; Hĺbkové čistenie vlasov a pokožky (Malibu C, od 50 €); Účesy pre výnimočné udalosti (od 60 €); Braids. NO hair extensions any more (one FAQ says so, for old search traffic).
 - **Social**: Facebook + Instagram only (NO Twitter)

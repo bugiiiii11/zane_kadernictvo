@@ -72,9 +72,7 @@ booking process and the business IDs.
    carrying the old phone number and email. Both the apex and the www host now 308 to
    ovlasy.sk. Paths are preserved, but the old site was always a single page, so the only
    paths that redirect into a 404 are ones that never existed.
-2. **Deploy the current branch.** Blocked as of 2026-09-16: the Vercel GitHub App installation for bugiiiii11 (id 161945200) is limited to three repositories (crm-core, mdn-tech, rein) and does not include zane_kadernictvo, so every build fails in 0 ms with a GitHub 404 before it starts. Add the repo at https://github.com/settings/installations/161945200, then redeploy. The live site still publishes the old phone number and
-   email in its HTML, its JSON-LD and its llms.txt, and 404s on the favicon and manifest.
-   Deploying closes more findings than any other single action.
+2. ~~Deploy the current branch.~~ **Done 2026-09-16** (sha 8b99263). Two causes had to be cleared: the Vercel GitHub App was scoped to three repositories that did not include this one, and the project stayed pinned to a revoked git credential even after that was widened -- refreshing the project link rotated it. Verified live: favicon, manifest and icons all 200, new phone and email throughout, 9-entity JSON-LD with no dangling references, hero heading no longer opacity-gated, 6 font preloads.
 3. **Google Search Console:** add the ovlasy.sk property, submit the sitemap, run Change
    of Address from the old property.
 4. **Google Business Profile:** rename to O VLASY by Zane, new URL, new phone and email,
