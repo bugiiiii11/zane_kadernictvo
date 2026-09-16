@@ -119,7 +119,7 @@ const jsonLd = {
       image: [
         `${SITE_URL}/priestory/DSC_3369-HDR.webp`,
         `${SITE_URL}/vysledky/ovlasy2.webp`,
-        `${SITE_URL}/vysledky/IMG_8590.webp`,
+        `${SITE_URL}/vysledky/ovlasy3.webp`,
         `${SITE_URL}/produkty/DSC_3592-HDR.webp`,
       ],
       address: {
@@ -231,7 +231,7 @@ const jsonLd = {
                 '@id': `${SITE_URL}/#offer-premiova-rekonstrukcna-kura`,
                 name: 'Prémiová rekonštrukčná kúra',
                 description:
-                  'Hĺbková rekonštrukcia poškodených, farbených a chemicky ošetrených vlasov. Cena závisí od dĺžky a hustoty vlasov.',
+                  'Hĺbková rekonštrukcia poškodených, farbených a chemicky ošetrených vlasov. Ošetrenie trvá približne 120 minút. Cena závisí od dĺžky a hustoty vlasov.',
                 url: `${SITE_URL}/#cennik`,
                 availability: 'https://schema.org/InStock',
                 itemOffered: { '@id': `${SITE_URL}/#service-kury` },
@@ -247,7 +247,7 @@ const jsonLd = {
                 '@id': `${SITE_URL}/#offer-hlbkova-regeneracna-kura`,
                 name: 'Hĺbková regeneračná kúra',
                 description:
-                  'Intenzívna výživa pre suché, lámavé a namáhané vlasy. Vráti vlasom lesk, silu a vitalitu.',
+                  'Intenzívna výživa pre suché, lámavé a namáhané vlasy. Vráti vlasom lesk, silu a vitalitu. Ošetrenie trvá približne 90 minút.',
                 url: `${SITE_URL}/#cennik`,
                 availability: 'https://schema.org/InStock',
                 itemOffered: { '@id': `${SITE_URL}/#service-kury` },
@@ -263,7 +263,7 @@ const jsonLd = {
                 '@id': `${SITE_URL}/#offer-keratinove-osetrenie`,
                 name: 'Keratínové ošetrenie',
                 description:
-                  'Vyhladenie, lesk a ochrana vlasového vlákna keratínovým ošetrením.',
+                  'Vyhladenie, lesk a ochrana vlasového vlákna keratínovým ošetrením. Ošetrenie trvá približne 120 minút.',
                 url: `${SITE_URL}/#cennik`,
                 availability: 'https://schema.org/InStock',
                 itemOffered: { '@id': `${SITE_URL}/#service-kury` },
@@ -285,7 +285,7 @@ const jsonLd = {
                 '@id': `${SITE_URL}/#offer-hlbkove-cistenie`,
                 name: 'Hĺbkové čistenie vlasovej pokožky a vlasov',
                 description:
-                  'Detoxikačné ošetrenie Malibu C: odstráni minerály z tvrdej vody, chlór a nánosy stylingových produktov, zmierni podráždenie pokožky hlavy. Vegánske, bez sulfátov a parabénov.',
+                  'Detoxikačné ošetrenie Malibu C: odstráni minerály z tvrdej vody, chlór a nánosy stylingových produktov, zmierni podráždenie pokožky hlavy. Vegánske, bez sulfátov a parabénov. Ošetrenie trvá približne 60 minút.',
                 url: `${SITE_URL}/#cennik`,
                 availability: 'https://schema.org/InStock',
                 itemOffered: { '@id': `${SITE_URL}/#service-cistenie` },
@@ -307,7 +307,7 @@ const jsonLd = {
                 '@id': `${SITE_URL}/#offer-spolocensky-uces`,
                 name: 'Spoločenský účes',
                 description:
-                  'Účes na ples, oslavu či firemný večer, ktorý vydrží celý večer.',
+                  'Účes na ples, oslavu či firemný večer, ktorý vydrží celý večer. Česanie trvá 60 až 90 minút.',
                 url: `${SITE_URL}/#cennik`,
                 availability: 'https://schema.org/InStock',
                 itemOffered: { '@id': `${SITE_URL}/#service-ucesy` },
@@ -323,7 +323,7 @@ const jsonLd = {
                 '@id': `${SITE_URL}/#offer-svadobny-uces`,
                 name: 'Svadobný účes',
                 description:
-                  'Účes pre nevestu aj svadobčanky, navrhnutý podľa šiat a typu vlasov. Pred svadbou odporúčame skúšobný účes.',
+                  'Účes pre nevestu aj svadobčanky, navrhnutý podľa šiat a typu vlasov. Česanie trvá 60 až 90 minút. Pred svadbou odporúčame skúšobný účes, ktorý trvá približne 60 minút.',
                 url: `${SITE_URL}/#cennik`,
                 availability: 'https://schema.org/InStock',
                 itemOffered: { '@id': `${SITE_URL}/#service-ucesy` },
@@ -338,7 +338,8 @@ const jsonLd = {
                 '@type': 'Offer',
                 '@id': `${SITE_URL}/#offer-uces-stuzkova`,
                 name: 'Účes na stužkovú',
-                description: 'Účes na stužkovú slávnosť, ktorý vydrží do rána.',
+                description:
+                  'Účes na stužkovú slávnosť, ktorý vydrží do rána. Česanie trvá 60 až 90 minút.',
                 url: `${SITE_URL}/#cennik`,
                 availability: 'https://schema.org/InStock',
                 itemOffered: { '@id': `${SITE_URL}/#service-ucesy` },
@@ -359,6 +360,8 @@ const jsonLd = {
                 '@type': 'Offer',
                 '@id': `${SITE_URL}/#offer-vysoky-cop`,
                 name: 'Vysoký cop',
+                description:
+                  'Vysoký cop zapletený na mieru. Zapletenie trvá približne 60 minút.',
                 url: `${SITE_URL}/#cennik`,
                 availability: 'https://schema.org/InStock',
                 itemOffered: { '@id': `${SITE_URL}/#service-braids` },
@@ -370,6 +373,8 @@ const jsonLd = {
                 '@type': 'Offer',
                 '@id': `${SITE_URL}/#offer-boxerske-copiky`,
                 name: 'Boxerské copíky',
+                description:
+                  'Dva boxerské copíky zapletené na mieru. Zapletenie trvá približne 60 minút.',
                 url: `${SITE_URL}/#cennik`,
                 availability: 'https://schema.org/InStock',
                 itemOffered: { '@id': `${SITE_URL}/#service-braids` },
@@ -381,7 +386,7 @@ const jsonLd = {
                 '@type': 'Offer',
                 '@id': `${SITE_URL}/#offer-cornrows`,
                 name: 'Cornrows',
-                description: '4 kusy — 40 €, 6 kusov — 60 €, 8 kusov — 80 €.',
+                description: '4 kusy — 40 €, 6 kusov — 60 €, 8 kusov — 80 €. Zapletenie trvá približne 90 minút.',
                 url: `${SITE_URL}/#cennik`,
                 availability: 'https://schema.org/InStock',
                 itemOffered: { '@id': `${SITE_URL}/#service-braids` },
@@ -406,6 +411,7 @@ const jsonLd = {
       name: 'Žaneta Lábska',
       alternateName: 'Zane',
       jobTitle: 'Vlasová špecialistka',
+      image: `${SITE_URL}/pictures/zaneta-labska.webp`,
       description:
         'Zakladateľka salónu O VLASY by Zane. Venuje sa zdraviu vlasov, ich obnove a regenerácii — diagnostike vlasov a pokožky hlavy, rekonštrukčným a regeneračným kúram, hĺbkovému čisteniu Malibu C a účesom pre výnimočné udalosti.',
       url: `${SITE_URL}/#o-nas`,

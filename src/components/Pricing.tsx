@@ -1,9 +1,16 @@
+import { Clock } from 'lucide-react';
 import Reveal from './Reveal';
 
+/**
+ * `duration` is deliberately required: "ako dlho to trvá" is the most common
+ * question before booking, and the site carried no answer at all until the
+ * founder supplied these times. A new service must not ship without one.
+ */
 type PriceItem = {
   name: string;
   price?: string;
   priceLines?: string[];
+  duration: string;
 };
 
 type Category = {
@@ -16,36 +23,49 @@ const categories: Category[] = [
   {
     title: 'Rekonštrukčné a regeneračné kúry',
     items: [
-      { name: 'Prémiová rekonštrukčná kúra', price: 'od 90 €' },
-      { name: 'Hĺbková regeneračná kúra', price: 'od 50 €' },
-      { name: 'Keratínové ošetrenie', price: 'od 100 €' },
+      {
+        name: 'Prémiová rekonštrukčná kúra',
+        price: 'od 90 €',
+        duration: '120 min',
+      },
+      {
+        name: 'Hĺbková regeneračná kúra',
+        price: 'od 50 €',
+        duration: '90 min',
+      },
+      { name: 'Keratínové ošetrenie', price: 'od 100 €', duration: '120 min' },
     ],
     note: 'Cena záleží od dĺžky a hustoty vlasov.',
   },
   {
     title: 'Hĺbkové čistenie vlasov a pokožky',
     items: [
-      { name: 'Hĺbkové čistenie vlasovej pokožky a vlasov', price: 'od 50 €' },
+      {
+        name: 'Hĺbkové čistenie vlasovej pokožky a vlasov',
+        price: 'od 50 €',
+        duration: '60 min',
+      },
     ],
     note: 'Detoxikačné ošetrenie Malibu C. Cena záleží od dĺžky a hustoty vlasov.',
   },
   {
     title: 'Účesy pre výnimočné udalosti',
     items: [
-      { name: 'Spoločenský účes', price: 'od 60 €' },
-      { name: 'Svadobný účes', price: 'od 60 €' },
-      { name: 'Účes na stužkovú', price: 'od 60 €' },
+      { name: 'Spoločenský účes', price: 'od 60 €', duration: '60–90 min' },
+      { name: 'Svadobný účes', price: 'od 60 €', duration: '60–90 min' },
+      { name: 'Účes na stužkovú', price: 'od 60 €', duration: '60–90 min' },
     ],
-    note: 'Účes na každú výnimočnú príležitosť. Cena záleží od náročnosti účesu a dĺžky vlasov.',
+    note: 'Účes na každú výnimočnú príležitosť. Skúšobný účes pred svadbou trvá približne 60 minút. Cena záleží od náročnosti účesu a dĺžky vlasov.',
   },
   {
     title: 'Braids',
     items: [
-      { name: 'Vysoký cop', price: '60 €' },
-      { name: 'Boxerské copíky', price: '30 €' },
+      { name: 'Vysoký cop', price: '60 €', duration: '60 min' },
+      { name: 'Boxerské copíky', price: '30 €', duration: '60 min' },
       {
         name: 'Cornrows',
         priceLines: ['4 kusy – 40 €', '6 kusov – 60 €', '8 kusov – 80 €'],
+        duration: '90 min',
       },
     ],
   },
@@ -84,6 +104,15 @@ export default function Pricing() {
                   >
                     <dt className="text-[1.0625rem] font-medium text-deep-brown group-hover:text-espresso transition-colors">
                       {item.name}
+                      <span className="mt-1.5 flex items-center gap-1.5 text-[0.8rem] font-normal text-[#6B5A45]">
+                        <Clock
+                          className="h-3.5 w-3.5 shrink-0 text-gold"
+                          strokeWidth={1.75}
+                          aria-hidden="true"
+                        />
+                        <span className="sr-only">Trvanie: </span>
+                        {item.duration}
+                      </span>
                     </dt>
                     <dd className="text-right shrink-0">
                       {item.priceLines ? (
@@ -117,9 +146,9 @@ export default function Pricing() {
 
         <Reveal delay={0.2}>
           <p className="text-center text-[0.95rem] text-[#5C4A35] mt-10 max-w-xl mx-auto leading-relaxed">
-            * Konečná cena závisí od dĺžky a hustoty vlasov a od zvoleného
-            ošetrenia. Pre presnú kalkuláciu si dohodnite bezplatnú
-            konzultáciu.
+            * Konečná cena aj uvedené trvanie závisia od dĺžky a hustoty vlasov
+            a od zvoleného ošetrenia — časy sú orientačné. Pre presnú kalkuláciu
+            si dohodnite bezplatnú konzultáciu.
           </p>
         </Reveal>
       </div>

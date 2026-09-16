@@ -19,6 +19,10 @@ export const faqs: Faq[] = [
     a: 'Hĺbková regeneračná kúra stojí od 50 €, prémiová rekonštrukčná kúra od 90 € a keratínové ošetrenie od 100 €. Konečná cena závisí od dĺžky a hustoty vlasov. Na bezplatnej konzultácii zhodnotíme stav vašich vlasov a pripravíme presnú kalkuláciu.',
   },
   {
+    q: 'Ako dlho trvá regeneračná kúra alebo hĺbkové čistenie vlasov?',
+    a: 'Prémiová rekonštrukčná kúra a keratínové ošetrenie trvajú približne 120 minút, hĺbková regeneračná kúra približne 90 minút a hĺbkové čistenie vlasovej pokožky a vlasov Malibu C približne 60 minút. Spoločenský, svadobný účes aj účes na stužkovú zaberú 60 až 90 minút, skúšobný účes pred svadbou približne 60 minút. Z braids trvá vysoký cop aj boxerské copíky približne 60 minút a cornrows približne 90 minút. Presný čas závisí od dĺžky a hustoty vlasov a potvrdíme vám ho pri objednaní termínu.',
+  },
+  {
     q: 'Aký je rozdiel medzi regeneračnou kúrou a hĺbkovým čistením?',
     a: 'Hĺbkové čistenie vlasy a pokožku najprv zbaví usadenín, ktoré bránia výžive preniknúť do vlasového vlákna. Regeneračná kúra následne dodá vlasom výživu, silu a lesk. Najlepší výsledok dosiahnete ich kombináciou: očistiť a potom regenerovať. Radi vám poradíme, čo vaše vlasy práve potrebujú.',
   },

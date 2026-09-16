@@ -122,12 +122,18 @@ export default function About() {
 
         <Reveal delay={0.2} direction="right">
           <div className="grid grid-cols-2 gap-3 h-[420px] lg:h-[500px]">
+            {/*
+              The founder's portrait replaced a results photo that still showed
+              the old GOOD HAIR CLUB branding on a chair. It also gives the
+              first-person bio next to it a face — the expertise signal the
+              section was missing.
+            */}
             <div className="row-span-2 relative rounded overflow-hidden shadow-layered">
               <Image
-                src="/vysledky/IMG_8590.webp"
-                alt="Dlhé blond vlasy vyčesané po regeneračnej kúre v salóne O VLASY by Zane v Moste pri Bratislave"
+                src="/pictures/zaneta-labska.webp"
+                alt="Žaneta Lábska, vlasová špecialistka a zakladateľka vlasového salónu O VLASY by Zane v Moste pri Bratislave"
                 fill
-                className="object-cover"
+                className="object-cover object-[60%_center]"
                 sizes="(max-width: 1024px) 50vw, 25vw"
               />
             </div>
