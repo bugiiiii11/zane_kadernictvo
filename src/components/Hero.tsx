@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
@@ -35,6 +35,11 @@ export default function Hero() {
     offset: ['start start', 'end start'],
   });
   const imageY = useTransform(scrollYProgress, [0, 1], [0, isDesktop ? 120 : 0]);
+
+  // The CSS prefers-reduced-motion block in globals.css cannot cancel a JS
+  // animation, so honour the preference here: no rise, just static content.
+  const reduceMotion = useReducedMotion();
+  const rise = (y: number) => (reduceMotion ? { y: 0 } : { y });
   const textY = useTransform(scrollYProgress, [0, 1], [0, isDesktop ? -60 : 0]);
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, isDesktop ? 0 : 1]);
 
@@ -72,8 +77,8 @@ export default function Hero() {
         className="flex flex-col justify-center px-6 lg:px-16 xl:px-24 pt-32 lg:pt-0 pb-12 lg:pb-0 relative z-10"
       >
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={rise(20)}
+          animate={{ y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="inline-flex items-center gap-2.5 mb-6 px-4 py-2 rounded-full bg-gold-light/40 border border-gold/30 w-fit"
         >
@@ -84,8 +89,8 @@ export default function Hero() {
         </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={rise(30)}
+          animate={{ y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
           className="font-display text-[clamp(2.5rem,5vw,4.5rem)] font-light text-deep-brown leading-[1.1] text-balance mb-6"
         >
@@ -94,8 +99,8 @@ export default function Hero() {
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={rise(30)}
+          animate={{ y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
           className="text-[#5C4A35] text-lg lg:text-xl max-w-md mb-8 font-normal leading-relaxed text-pretty"
         >
@@ -105,8 +110,8 @@ export default function Hero() {
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={rise(30)}
+          animate={{ y: 0 }}
           transition={{ duration: 0.7, delay: 0.7 }}
           className="flex flex-wrap gap-4"
         >
@@ -142,8 +147,8 @@ export default function Hero() {
 
         {/* Credential plate — what we do, not how many we have done */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={rise(40)}
+          animate={{ y: 0 }}
           transition={{ duration: 0.7, delay: 0.9, ease: [0.25, 0.4, 0.25, 1] }}
           className="absolute bottom-6 left-6 right-6 lg:bottom-12 lg:-left-8 lg:right-auto z-20"
         >

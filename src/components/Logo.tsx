@@ -30,7 +30,7 @@ export default function Logo({ variant = 'dark', className = '' }: LogoProps) {
       />
       <em
         className={`font-display font-light italic leading-none text-[0.72em] ${
-          isDark ? 'text-mocha' : 'text-gold'
+          isDark ? 'text-espresso' : 'text-gold'
         }`}
       >
         by Zane

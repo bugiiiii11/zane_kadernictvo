@@ -6,6 +6,7 @@ import { Phone, Menu, X } from 'lucide-react';
 import Logo from './Logo';
 
 const links = [
+  { href: '#o-nas', label: 'O nás' },
   { href: '#sluzby', label: 'Služby' },
   { href: '#cennik', label: 'Cenník' },
   { href: '#galeria', label: 'Galéria' },
@@ -52,7 +53,7 @@ export default function Navigation() {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between">
           <a
-            href="#"
+            href="#domov"
             className="text-xl md:text-2xl rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
             aria-label="O VLASY by Zane — domov"
           >
@@ -105,7 +106,7 @@ export default function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-warm-white flex flex-col items-center justify-center gap-8"
+            className="fixed inset-0 z-40 bg-warm-white flex flex-col items-center justify-start [@media(min-height:600px)]:justify-center gap-8 overflow-y-auto overscroll-contain px-6 pt-24 pb-12 min-h-[100dvh]"
           >
             {links.map((link, i) => (
               <motion.a

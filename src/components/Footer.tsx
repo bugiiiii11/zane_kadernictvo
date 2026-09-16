@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import Logo from './Logo';
 
@@ -11,7 +9,7 @@ export default function Footer() {
         <span className="block h-px w-16 bg-gradient-to-r from-transparent via-gold to-transparent mb-8" />
 
         <a
-          href="#"
+          href="#domov"
           className="text-2xl lg:text-3xl rounded-sm transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
           aria-label="O VLASY by Zane — domov"
         >
@@ -30,11 +28,11 @@ export default function Footer() {
 
         <p className="mt-5 text-[0.95rem] text-cream/70 leading-relaxed">
           Nové polia 2, 900 46 Most pri Bratislave
-          <span className="mx-2 text-cream/30 hidden sm:inline">·</span>
+          <span aria-hidden="true" className="mx-2 text-cream/30 hidden sm:inline">·</span>
           <br className="sm:hidden" />
           <a
             href="tel:+421950249838"
-            className="text-cream/80 hover:text-gold transition-colors focus-visible:outline-none focus-visible:text-gold"
+            className="inline-block py-2 -my-2 text-cream/80 hover:text-gold transition-colors focus-visible:outline-none focus-visible:text-gold"
           >
             +421 950 249 838
           </a>
@@ -47,7 +45,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} O VLASY by Zane. Všetky práva
             vyhradené.
           </span>
-          <span className="text-[0.8rem] text-cream/45">
+          <span className="text-[0.8rem] text-cream/70">
             IČO: 57399760
             <span className="mx-2 text-cream/25">·</span>
             DIČ: 1074439806

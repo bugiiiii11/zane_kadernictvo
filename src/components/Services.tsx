@@ -1,5 +1,3 @@
-'use client';
-
 import Reveal from './Reveal';
 
 const services = [
@@ -86,7 +84,7 @@ export default function Services() {
             </h2>
           </Reveal>
         </div>
-        <div className="grid md:grid-cols-3 gap-6 items-stretch">
+        <div className="grid lg:grid-cols-3 gap-6 items-stretch">
           {services.map((s, i) => (
             <ServiceCard key={s.title} service={s} index={i} />
           ))}
