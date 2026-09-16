@@ -1,5 +1,14 @@
 # Handoff Archive (do not read on /start)
 
+## What Was Done (Session 10) -- Rebrand to O VLASY by Zane, migration to ovlasy.sk
+
+- **Brand + domain decision:** founder bought `ovlasy.sk` (Websupport). Name is now **O VLASY by Zane**; manifesto lines "O vlasy sa staráme. / O vlasy, nie iba o účes. / O vlasy s rozumom." drive the copy (Hero H1, About/Services/Pricing H2s, Footer). Email + IG/FB stay `goodhairbyzane` until the founder changes them.
+- **Service pivot (founder decision):** hair extensions REMOVED everywhere; added Malibu C "Hĺbkové čistenie vlasov a pokožky" (od 50 €) and "Účesy pre výnimočné udalosti" (spoločenský/svadobný/stužková, od 60 €). Braids + regeneračné kúry kept. One FAQ ("Robíte aj predlžovanie vlasov?" → no) deliberately kept to catch old search traffic.
+- **Logo placeholder:** `src/components/Logo.tsx` (gold ring+dot = "O", "VLASY" Cormorant uppercase, italic "by Zane"). Favicon/apple-touch-icon/og-image regenerated from the same geometry (`scripts` in the session scratchpad, not committed). Old `zane_favicon.png` left in repo, unreferenced.
+- **SEO layer:** metadataBase/canonical/OG/schema/sitemap/robots/llms.txt → ovlasy.sk; schema keeps `alternateName: Good Hair by Zane`; OfferCatalog now carries prices. Commits 97d5f2a (rebrand) + 984c102 (chatbot hidden — widget code kept as a comment in `layout.tsx`).
+- **DNS/Vercel (done by user, verified):** apex A 216.198.79.1, www CNAME `54e8f50e5b9e4f66.vercel-dns-017.com` (project-specific value from the Vercel domain panel), AAAA for apex/www deleted, mail records untouched. Gotcha: Websupport auto-appends `.ovlasy.sk` to the "Pre adresu" field — enter `www`, not `www.ovlasy.sk`. `goodhairbyzane.com` → 308 → ovlasy.sk verified.
+- **Rejected:** committing the image-generation script (one-off; regenerate from `Logo.tsx` geometry if needed).
+
 Rotated out of handoff.md on 2026-09-10 (Session 10 wrap). Newest first.
 
 Rotated out on 2026-09-12 (Session 11 wrap).

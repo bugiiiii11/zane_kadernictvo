@@ -111,7 +111,7 @@ export default function Hero() {
           className="flex flex-wrap gap-4"
         >
           <a
-            href="tel:+421944854229"
+            href="tel:+421950249838"
             className="group btn-primary-luxe inline-flex items-center gap-3 px-8 py-4 text-cream text-[0.82rem] tracking-[0.12em] uppercase font-medium"
           >
             Objednať sa

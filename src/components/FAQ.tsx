@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: 'Musím sa objednať vopred?',
-    a: 'Áno, pracujeme výlučne na objednávku, aby sme vám mohli venovať plnú pozornosť a pripraviť všetko potrebné. Zavolajte nám na +421 944 854 229 alebo napíšte na goodhairbyzane@gmail.com a dohodneme termín, ktorý vám vyhovuje.',
+    a: 'Áno, pracujeme výlučne na objednávku, aby sme vám mohli venovať plnú pozornosť a pripraviť všetko potrebné. Zavolajte nám na +421 950 249 838 alebo napíšte na ovlasy.sk@gmail.com a dohodneme termín, ktorý vám vyhovuje.',
   },
 ];
 

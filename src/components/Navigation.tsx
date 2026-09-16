@@ -73,7 +73,7 @@ export default function Navigation() {
             ))}
             <li>
               <a
-                href="tel:+421944854229"
+                href="tel:+421950249838"
                 className="btn-primary-luxe inline-flex items-center gap-2 px-6 py-2.5 text-cream text-[0.78rem] tracking-[0.12em] uppercase font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-warm-white"
               >
                 <Phone className="w-3.5 h-3.5" />
@@ -121,7 +121,7 @@ export default function Navigation() {
               </motion.a>
             ))}
             <motion.a
-              href="tel:+421944854229"
+              href="tel:+421950249838"
               onClick={() => setOpen(false)}
               initial={prefersReduced ? { opacity: 0 } : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -129,7 +129,7 @@ export default function Navigation() {
               className="mt-4 inline-flex items-center gap-2 px-8 py-3 bg-espresso text-cream text-sm tracking-[0.1em] uppercase focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-warm-white"
             >
               <Phone className="w-4 h-4" />
-              +421 944 854 229
+              +421 950 249 838
             </motion.a>
           </motion.div>
         )}

@@ -29,8 +29,8 @@ Modern website for "O VLASY by Zane" (rebranded S10 from "Good Hair by Zane"; ne
 ## Contact (NAP)
 - **Name**: O VLASY by Zane (formerly Good Hair by Zane)
 - **Address**: Nové polia 2, 900 46 Most pri Bratislave
-- **Phone**: +421 944 854 229
-- **Email**: goodhairbyzane@gmail.com
+- **Phone**: +421 950 249 838
+- **Email**: ovlasy.sk@gmail.com
 - **Instagram**: https://www.instagram.com/goodhairbyzane/
 - **Facebook**: https://www.facebook.com/people/Good-hair-by-zane/61585936526464/
 

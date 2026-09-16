@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Cormorant_Garamond, Outfit } from 'next/font/google';
 import './globals.css';
 
@@ -18,6 +18,12 @@ const outfit = Outfit({
 });
 
 const SITE_URL = 'https://ovlasy.sk';
+
+export const viewport: Viewport = {
+  themeColor: '#2C2622',
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -104,8 +110,8 @@ const jsonLd = {
         latitude: 48.1451,
         longitude: 17.2896,
       },
-      telephone: '+421944854229',
-      email: 'goodhairbyzane@gmail.com',
+      telephone: '+421950249838',
+      email: 'ovlasy.sk@gmail.com',
       taxID: '1074439806',
       identifier: {
         '@type': 'PropertyValue',
@@ -288,7 +294,7 @@ const jsonLd = {
           name: 'Musím sa objednať vopred?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Áno, pracujeme výlučne na objednávku, aby sme vám mohli venovať plnú pozornosť a pripraviť všetko potrebné. Zavolajte nám na +421 944 854 229 alebo napíšte na goodhairbyzane@gmail.com.',
+            text: 'Áno, pracujeme výlučne na objednávku, aby sme vám mohli venovať plnú pozornosť a pripraviť všetko potrebné. Zavolajte nám na +421 950 249 838 alebo napíšte na ovlasy.sk@gmail.com.',
           },
         },
       ],
@@ -304,8 +310,11 @@ export default function RootLayout({
   return (
     <html lang="sk" className={`${cormorant.variable} ${outfit.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.png" type="image/png" sizes="512x512" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/favicon.ico" sizes="48x48" />
+        <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+        <link rel="manifest" href="/site.webmanifest" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -5,17 +5,8 @@
 ## Current State
 
 - **Phase:** Rebrand complete, final logo shipped. Live at **https://ovlasy.sk**. Waiting on the founder for copy sign-off + the missing legal details; then the SEO migration work.
-- **Session count:** 11
-- **Repo status:** clean, in sync with origin/main (16ae212). Untracked by design: `.claude/agents/`, `.claude/skills/` (local tooling), `knowledge-base.md` (stale chatbot KB).
-
-## What Was Done (Session 10) -- Rebrand to O VLASY by Zane, migration to ovlasy.sk
-
-- **Brand + domain decision:** founder bought `ovlasy.sk` (Websupport). Name is now **O VLASY by Zane**; manifesto lines "O vlasy sa staráme. / O vlasy, nie iba o účes. / O vlasy s rozumom." drive the copy (Hero H1, About/Services/Pricing H2s, Footer). Email + IG/FB stay `goodhairbyzane` until the founder changes them.
-- **Service pivot (founder decision):** hair extensions REMOVED everywhere; added Malibu C "Hĺbkové čistenie vlasov a pokožky" (od 50 €) and "Účesy pre výnimočné udalosti" (spoločenský/svadobný/stužková, od 60 €). Braids + regeneračné kúry kept. One FAQ ("Robíte aj predlžovanie vlasov?" → no) deliberately kept to catch old search traffic.
-- **Logo placeholder:** `src/components/Logo.tsx` (gold ring+dot = "O", "VLASY" Cormorant uppercase, italic "by Zane"). Favicon/apple-touch-icon/og-image regenerated from the same geometry (`scripts` in the session scratchpad, not committed). Old `zane_favicon.png` left in repo, unreferenced.
-- **SEO layer:** metadataBase/canonical/OG/schema/sitemap/robots/llms.txt → ovlasy.sk; schema keeps `alternateName: Good Hair by Zane`; OfferCatalog now carries prices. Commits 97d5f2a (rebrand) + 984c102 (chatbot hidden — widget code kept as a comment in `layout.tsx`).
-- **DNS/Vercel (done by user, verified):** apex A 216.198.79.1, www CNAME `54e8f50e5b9e4f66.vercel-dns-017.com` (project-specific value from the Vercel domain panel), AAAA for apex/www deleted, mail records untouched. Gotcha: Websupport auto-appends `.ovlasy.sk` to the "Pre adresu" field — enter `www`, not `www.ovlasy.sk`. `goodhairbyzane.com` → 308 → ovlasy.sk verified.
-- **Rejected:** committing the image-generation script (one-off; regenerate from `Logo.tsx` geometry if needed).
+- **Session count:** 12
+- **Repo status:** clean, pushed to origin/main. Untracked by design: `.claude/agents/`, `.claude/skills/` (local tooling), `knowledge-base.md` (chatbot KB, contact updated but still old brand/services).
 
 ## What Was Done (Session 11) -- Final logo, filtered gallery, honest stats, quieter CTA
 
@@ -28,6 +19,14 @@
 - **CTA hover redone** (`.btn-primary-luxe`). Rejected a gold veil rising from the base: rendered it, and the wash visibly muddies the rich brown. Landed on a 1px gold hairline frame that fades in and settles from 9px to 6px inset, fill unchanged, softer shadow, `:focus-visible` mirrored. The old treatment stacked a specular sweep + brightness bump + a 44px halo.
 - **Reveal bug confirmed, not just theoretical:** headless screenshots showed blank tiles until each element scrolled into view. Element-level screenshots of a section taller than the viewport will always show empty tiles until it is fixed -- crawl the whole page first.
 
+## What Was Done (Session 12) -- New phone/email, professional favicon, Reveal fix
+
+- **Contact change (founder):** phone is now **+421 950 249 838**, email **ovlasy.sk@gmail.com** -- replaced in every component, schema, FAQ, llms.txt, CLAUDE.md and both chatbot KB files. IG/FB handles still `goodhairbyzane`.
+- **Favicon rebuilt.** The old one was the thin O on a white tile -- a blank white square on dark tab strips. Now a charcoal (#2C2622) rounded tile with a cream O and gold strands, cut from `public/logo-mark.webp` (letter vs strand classified by saturation, recoloured). 16/32/48 px cuts get an alpha dilation (nearest-solid-pixel colour via distance transform) so the ring survives; padding shrinks with size. Shipped `favicon.ico` (16/32/48) + `favicon-32.png` + `icon-192/512.png` + `apple-touch-icon.png` (square, iOS rounds) + `site.webmanifest`; `themeColor` via the Next `viewport` export. Generator script lives only in the session scratchpad (rejected committing it, same as S10).
+- **Reveal fixed (was next-steps row 6):** `initial={false}` so SSR/no-JS/crawlers get visible content; after mount only elements BELOW the fold switch to hidden-then-animate. Verified headless: 0 Reveal-hidden elements without JS (the 23 opacity-0 nodes left are gallery hover overlays + collapsed FAQ answers, correct). Respects prefers-reduced-motion.
+- **Perf nit:** footer `<Logo variant="light">` no longer sets `priority` (was preloading a below-fold image).
+- **Checked, nothing else to change:** images already through next/image with correct `sizes`, map iframe lazy, 145 kB first-load JS, mobile 390 px full-page screenshot clean after the Reveal change.
+
 ## What To Do Next
 
 | # | Priority | Task |
@@ -35,13 +34,12 @@
 | 1 | High | **Redirect `www.goodhairbyzane.com`** -- still serves the site (200, duplicate content). Vercel -> Domains -> Edit -> Redirect 308 -> ovlasy.sk. Apex is already redirected. |
 | 2 | High | **Founder sign-off on copy** (Hero H1, manifesto headings, FAQ answers, "Zakladatelka" title). The logo is DONE and no longer blocking. |
 | 3 | High | **Legal block incomplete.** Sec. 3a Obchodneho zakonnika wants the obchodne meno (e.g. "Zaneta <Priezvisko> - O VLASY") and the zivnostensky register entry (okresny urad + registration number) on the site. ICO/DIC are in already; ask the founder for the other two and add them alongside in `Footer.tsx`. |
-| 4 | High | **SEO after migration:** GSC -- add the `ovlasy.sk` property (DNS TXT at Websupport), submit the sitemap, run Change of Address from the old property; GBP -- rename to O VLASY by Zane + new URL; IG/FB name/bio/link; local citations. Consider `info@ovlasy.sk` (Websupport mail) -> update Contact/Footer/FAQ/schema. |
+| 4 | High | **SEO after migration:** GSC -- add the `ovlasy.sk` property (DNS TXT at Websupport), submit the sitemap, run Change of Address from the old property; GBP -- rename to O VLASY by Zane + new URL; IG/FB name/bio/link; local citations. Email is now ovlasy.sk@gmail.com (S12); update GBP/IG/FB to match. |
 | 5 | Med | **Chatbot:** rewrite `chatbot-knowledge-base.md` + `knowledge-base.md` for the new brand/services (both still say Ivanka + extensions), upload to mdntech, then restore the `<Script>` from the comment in `src/app/layout.tsx`. |
-| 6 | Med | **Fix `Reveal` opacity-gating** (`src/components/Reveal.tsx`) -- content is blank without JS / in headless. Make it visible by default and let the reveal only enhance. Confirmed live in S11 screenshots. |
-| 7 | Med | **Founder decision: old brand visible in two gallery photos.** `IMG_7166` has a "GOOD HAIR Club" mirror decal, `IMG_8938` a "HAIR CLUB" chair headrest. Kept for now -- ask whether to drop or crop them. |
-| 8 | Med | Run `/impeccable audit` + `/impeccable critique` on the rebranded site (never formally audited). The Hero H1 still wraps to 3 lines on desktop; tighten if the founder wants 2. |
-| 9 | Low | Delete 7 orphaned files in `public/produkty/` (`DSC_3617/3635/3649/3667/3691-HDR.jpg`, `DSC_3635-HDR.webp`, `DSC_3691-HDR.webp`) -- zero references; verify with `grep -rl "produkty/<file>" src/`. |
-| 10 | Low | Sweep the remaining WCAG AA text/bg pairs; add a real Google Reviews link once there are reviews (the placeholder AggregateRating is gone, so there is no schema rating at all now). Online booking (Calendly/Booksy); MDX blog for "O vlasy s rozumom" tips. |
+| 6 | Med | **Founder decision: old brand visible in two gallery photos.** `IMG_7166` has a "GOOD HAIR Club" mirror decal, `IMG_8938` a "HAIR CLUB" chair headrest. Kept for now -- ask whether to drop or crop them. |
+| 7 | Med | Run `/impeccable audit` + `/impeccable critique` on the rebranded site (never formally audited). The Hero H1 still wraps to 3 lines on desktop; tighten if the founder wants 2. |
+| 8 | Low | Delete 7 orphaned files in `public/produkty/` (`DSC_3617/3635/3649/3667/3691-HDR.jpg`, `DSC_3635-HDR.webp`, `DSC_3691-HDR.webp`) -- zero references; verify with `grep -rl "produkty/<file>" src/`. |
+| 9 | Low | Sweep the remaining WCAG AA text/bg pairs; add a real Google Reviews link once there are reviews (the placeholder AggregateRating is gone, so there is no schema rating at all now). Online booking (Calendly/Booksy); MDX blog for "O vlasy s rozumom" tips. |
 
 ## Key Files
 
@@ -52,8 +50,7 @@
 | `src/components/Logo.tsx` + `public/logo-ovlasy*.webp` | Final wordmark, two colour cuts; `public/logo-mark.webp` is the icon master |
 | `src/components/Gallery.tsx` | 16 photos behind a service filter -- add new ones here with a `cat` |
 | `src/components/Footer.tsx` | NAP + ICO/DIC; the legal block still lacks obchodne meno + register entry |
-| `src/components/Contact.tsx` | Email + social are still on `goodhairbyzane` -- change when the founder switches |
-| `src/components/Reveal.tsx` | The opacity-gating bug lives here (next-steps row 6) |
+| `src/components/Contact.tsx` | Phone/email updated S12; IG/FB handles still `goodhairbyzane` |
 | `src/app/globals.css` | `.btn-primary-luxe` hover, body type scale, grain, hero gradients |
 | `chatbot-knowledge-base.md`, `knowledge-base.md` | Chatbot sources -- STALE (old brand, address, extensions) |
 | `PRODUCT.md`, `DESIGN.md`, `scripts/convert.py` | Impeccable context; image -> WebP converter |
@@ -71,3 +68,4 @@
 | 9 | 2026-06-18 | Footer text bump, button hover polish, Gallery WebP; shipped S7–S9 |
 | 10 | 2026-09-10 | Rebrand to O VLASY by Zane, migration to ovlasy.sk, chatbot hidden |
 | 11 | 2026-09-12 | Final logo extracted, filtered gallery, fake stats removed, CTA hover |
+| 12 | 2026-09-16 | New phone/email, charcoal-tile favicon set + manifest, Reveal SSR fix |

@@ -26,7 +26,7 @@ export default function Logo({ variant = 'dark', className = '' }: LogoProps) {
         height={276}
         sizes="(max-width: 768px) 160px, 220px"
         className="h-[1.85em] w-auto self-center"
-        priority
+        priority={isDark}
       />
       <em
         className={`font-display font-light italic leading-none text-[0.72em] ${

@@ -33,10 +33,10 @@ export default function Footer() {
           <span className="mx-2 text-cream/30 hidden sm:inline">·</span>
           <br className="sm:hidden" />
           <a
-            href="tel:+421944854229"
+            href="tel:+421950249838"
             className="text-cream/80 hover:text-gold transition-colors focus-visible:outline-none focus-visible:text-gold"
           >
-            +421 944 854 229
+            +421 950 249 838
           </a>
         </p>
       </div>

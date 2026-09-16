@@ -29,7 +29,7 @@ export default function Contact() {
           <div className="space-y-6 mb-10">
             <Reveal delay={0.2}>
               <a
-                href="tel:+421944854229"
+                href="tel:+421950249838"
                 className="flex items-start gap-4 group"
               >
                 <div className="w-11 h-11 rounded-full border border-gold/30 flex items-center justify-center flex-shrink-0 group-hover:border-gold/60 transition-colors">
@@ -40,14 +40,14 @@ export default function Contact() {
                     Telefón
                   </div>
                   <div className="text-cream group-hover:text-gold transition-colors">
-                    +421 944 854 229
+                    +421 950 249 838
                   </div>
                 </div>
               </a>
             </Reveal>
             <Reveal delay={0.25}>
               <a
-                href="mailto:goodhairbyzane@gmail.com"
+                href="mailto:ovlasy.sk@gmail.com"
                 className="flex items-start gap-4 group"
               >
                 <div className="w-11 h-11 rounded-full border border-gold/30 flex items-center justify-center flex-shrink-0 group-hover:border-gold/60 transition-colors">
@@ -58,7 +58,7 @@ export default function Contact() {
                     Email
                   </div>
                   <div className="text-cream group-hover:text-gold transition-colors">
-                    goodhairbyzane@gmail.com
+                    ovlasy.sk@gmail.com
                   </div>
                 </div>
               </a>

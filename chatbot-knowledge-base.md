@@ -40,8 +40,8 @@
 - Nedeľa: Zatvorené
 
 **Kontaktné údaje**
-- Telefón: +421 944 854 229 (klikateľný link: tel:+421944854229)
-- Email: goodhairbyzane@gmail.com
+- Telefón: +421 950 249 838 (klikateľný link: tel:+421950249838)
+- Email: ovlasy.sk@gmail.com
 - Instagram: https://www.instagram.com/goodhairbyzane/
 - Facebook: https://www.facebook.com/people/Good-hair-by-zane/61585936526464/
 
@@ -395,11 +395,11 @@ Pre presnú cenu si **dohodnuté bezplatnú konzultáciu**, kde Zane:
 ## KONTAKT
 
 ### Telefonicky
-- **Telefón**: +421 944 854 229
+- **Telefón**: +421 950 249 838
 - **Pracovný čas**: Pondelok–Piatok 09:00–18:00
 
 ### E-mailom
-- **Email**: goodhairbyzane@gmail.com
+- **Email**: ovlasy.sk@gmail.com
 - **Odpoveď**: Obvykle do 24 hodín
 
 ### Sociálne siete
@@ -505,8 +505,8 @@ A: Bezplatná individuálna konzultácia zahŕňa:
 
 **Q: Ako sa objednať na konzultáciu?**  
 A: Jednoducho nás kontaktujte:
-- **Telefón**: +421 944 854 229
-- **Email**: goodhairbyzane@gmail.com
+- **Telefón**: +421 950 249 838
+- **Email**: ovlasy.sk@gmail.com
 - **Instagram**: https://www.instagram.com/goodhairbyzane/
 
 Dohodneme čas, ktorý vám vyhovuje (aj v sobotu).
@@ -531,7 +531,7 @@ A: Áno, **pracujeme výlučne na objednávku**. To nám umožňuje:
 - Pripraviť všetko potrebné
 - Zaručiť kvalitu služby
 
-Zavolajte +421 944 854 229 alebo napíšte goodhairbyzane@gmail.com.
+Zavolajte +421 950 249 838 alebo napíšte ovlasy.sk@gmail.com.
 
 **Q: Ako sa dostanem do salóna?**  
 A: Salón je situovaný len 15 minút od Bratislavy:
@@ -584,10 +584,10 @@ A: Vitajte používajte **šampón bez sulfátov**. Sulfáty môžu oslabiť spo
 → Áno, používame **šetrné metódy a kvalitný materiál**. Pri správnej starostlivosti vlasy nepoškodíme.
 
 **"Koľko to stojí?"**  
-→ Závisí to od metódy a počtu prameňov. Zavolaj nám na +421 944 854 229 alebo príď na **bezplatnú konzultáciu**.
+→ Závisí to od metódy a počtu prameňov. Zavolaj nám na +421 950 249 838 alebo príď na **bezplatnú konzultáciu**.
 
 **"Ako sa objednám?"**  
-→ Zavolaj +421 944 854 229 alebo napíš goodhairbyzane@gmail.com. Dohodnem čas podľa teba.
+→ Zavolaj +421 950 249 838 alebo napíš ovlasy.sk@gmail.com. Dohodnem čas podľa teba.
 
 ---
 
