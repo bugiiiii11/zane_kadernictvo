@@ -4,20 +4,9 @@
 
 ## Current State
 
-- **Phase:** Rebrand complete, full SEO audit done and its fixes shipped AND deployed. Live at **https://ovlasy.sk**. Blocked on the founder for copy sign-off + legal details, and on the GSC/GBP migration.
-- **Session count:** 12
-- **Repo status:** clean, pushed to origin/main. Deployed and live. Untracked by design: `.claude/agents/`, `.claude/skills/` (local tooling), `knowledge-base.md` (chatbot KB, contact updated but still old brand/services).
-
-## What Was Done (Session 11) -- Final logo, filtered gallery, honest stats, quieter CTA
-
-- **Final logo, extracted from a JPG mockup.** The founder sent `zanelogo.jpg` -- black serif "OVLASY" (hair strands inside the O, gold rule) printed on textured cream paper, no alpha. Keying method: fit the paper as a cubic polynomial plate (two passes, refit after excluding ink), alpha-matte off it (LO 7 / HI 15 on the darkness delta), drop components without a 25px solid core to kill grain specks, unpremultiply the ink, then classify letters vs strand from the solid cores only and propagate that class to edge pixels via a distance transform. Without that propagation every antialiased letter edge takes the strand colour and gets a gold fringe on dark. Shipped `logo-ovlasy.webp` (dark) + `-light.webp` (cream/gold, for the charcoal footer) + `logo-mark.webp` (the O alone), and regenerated favicon/apple-touch/og-image from the mark.
-- **Rejected for the logo:** a plain luminance threshold (the strand tips genuinely fade into the paper, so it chops them) and leaving the mark on cream (the footer is charcoal). GOTCHA: the founder's original `zanelogo.jpg` was deleted after extraction -- `public/logo-mark.webp` is now the icon master; ask her for the source file if a print-size asset is ever needed.
-- **Gallery restructured** for the 7 new event hairstyles (16 photos total). Filters by service (ucesy / copanky / starostlivost); every photo stays mounted and is only CSS-hidden, so all alt text stays indexable and `next/image` still lazy-loads. `Reveal`s `once: true` means filtered-out tiles reveal correctly when they are shown.
-- **Found wrong alt text while categorising:** `zane2/4/5` are braids on children, not treatment results, and two About product shots described a mirror station. All rewritten -- worth re-checking any alt text that was written from a filename rather than from the image.
-- **Fabricated numbers removed** (founder: ~30 real clients, little tenure): "10+ rokov skusenosti" and "150+ spokojnych klientok" from the hero plate, hero copy, About feature and OG description; the hero plate now carries qualitative USPs. Also dropped the `AggregateRating` (5.0 / 150 reviews) from the HairSalon schema -- fabricated review data in structured markup is a manual-action risk.
-- **Hero plate labels had to be two words each** -- at 390px the plate is three ~84px columns and anything longer wraps into ragged, uneven stacks.
-- **CTA hover redone** (`.btn-primary-luxe`). Rejected a gold veil rising from the base: rendered it, and the wash visibly muddies the rich brown. Landed on a 1px gold hairline frame that fades in and settles from 9px to 6px inset, fill unchanged, softer shadow, `:focus-visible` mirrored. The old treatment stacked a specular sweep + brightness bump + a 44px halo.
-- **Reveal bug confirmed, not just theoretical:** headless screenshots showed blank tiles until each element scrolled into view. Element-level screenshots of a section taller than the viewport will always show empty tiles until it is fixed -- crawl the whole page first.
+- **Phase:** Rebrand and SEO audit shipped and live at **https://ovlasy.sk**. The founder has signed off the copy and supplied her bio and legal details; framer-motion is gone. Still blocked on her for treatment durations and the zivnostensky register number, and on the GSC/GBP/social migration.
+- **Session count:** 13
+- **Repo status:** committed and pushed to origin/main. Untracked by design: `.claude/agents/`, `.claude/skills/` (local tooling), `knowledge-base.md` (chatbot KB, contacts updated but still old brand/services).
 
 ## What Was Done (Session 12) -- New contacts, favicon, and a full SEO audit with its fixes
 
@@ -39,40 +28,51 @@
 - **Deployed and verified live** (dpl_GmxmgqEQ, sha 8b99263): favicon/manifest/icons all 200, new phone and email everywhere, 0 hits for the old number, JSON-LD is the 9-entity graph with no dangling refs, hero h1 no longer opacity-gated, and 6 font preloads -- confirming the local zero was only an environment artifact. Live mobile LCP median 3516 ms (old build measured 4044 ms on the same harness); CLS 0.000. Still short of the 2.5 s threshold, as predicted.
 - **Rejected:** splitting the one-pager into service or city pages. The domain is days old with no GSC data, 1052 words across 5 pages would be thin, and city landing pages would be doorway pages. Re-evaluate at day 90 on real query data only.
 
+## What Was Done (Session 13) -- Approved copy, founder bio, framer-motion removed
+
+- **Built the founder a sign-off sheet instead of waiting on her.** All three High rows were blocked on one person, so the unblocking move was a single Slovak decision page (published as an Artifact, in her own cream/gold + Cormorant identity) covering headings, missing facts and the Google/social tasks. She answered most of it the same day. Keep this pattern: when every priority is blocked on one human, the deliverable is the thing that unblocks them.
+- **Headings A1-A3 approved and shipped.** Services/Gallery/FAQ H2s now name the service; `FAQPage.name` synced to match. The argument that won it: the Services H2 ("O vlasy sa starame do hlbky") was a near-duplicate of the H1, so the manifesto read twice in a row -- it survives as a subtitle.
+- **Hero photo -> `ovlasy2.webp`** (founder: the old one showed GOOD HAIR CLUB). Its alt text had claimed "Interier vlasoveho salonu" for what is a hairstyle shot -- the same filename-not-image error as the S11 batch. Schema `primaryImageOfPage` and `image[]` still pointed at `zane3`; fixed. Dropped the photo from the gallery (16 -> 15) so it is not on the page twice. **`public/priestory/zane3.webp` is now orphaned.**
+- **Founder details landed:** bio verbatim as a pull quote in About (her words, not paraphrased -- emoji dropped), Zaneta Labska in About/Footer/`Person.name`/`HairSalon.legalName`/llms.txt with "Zane" kept as `alternateName`, trainings as `Person.hasCredential`, brands listed in About + llms.txt. Footer legal block now carries obchodne meno, non-VAT status and the issuing authority.
+- **framer-motion removed entirely.** Rewriting only `Reveal` would have left the library in the bundle -- Hero and Navigation imported it too. `Reveal` is now IntersectionObserver + a CSS transition, the hero parallax a CSS scroll timeline, the drawer a CSS transition on a `visibility: hidden` element that stays mounted. Page JS **53.6 -> 12.6 kB**, first load **141 -> 99.8 kB**, JS over the wire 140 -> 100 kB.
+- **GOTCHA -- runtime perf is not measurable on this machine.** The first A/B looked like a win (3524 -> 3144 ms LCP), then the *same* build re-measured at 3808 ms: the machine had drifted 21%. An interleaved two-port A/B (old build in a git worktree on 3006) gave old-build LCP spanning 2908-14212 ms. No LCP or TBT claim can be made locally. Only byte counts are trustworthy here; real numbers must come from PageSpeed/CrUX on the live site.
+- **Deliberate losses:** the hero text no longer fades out on desktop scroll (opacity on the LCP element is exactly what broke S12's measurement), and the parallax is simply absent where scroll timelines are unsupported (Firefox) -- the hero is static there.
+- **Verified deterministically instead:** SSR HTML has zero hidden nodes, no-JS gives 6705 chars + 6 H2s + a working `tel:` link, `prefers-reduced-motion` hides nothing, the drawer opens and closes, and all 59 reveals fire on scroll.
+- **Found, not fixed:** `IMG_8590.webp` in the About collage also shows the old GOOD HAIR CLUB branding on a chair -- a third instance beyond the two already logged. And `DSC_3592-HDR.webp`'s alt names Sens.us and milk_shake, brands absent from the founder's own list, which the page now contradicts.
+- **GOTCHA confirmed again:** bash `grep` and heredocs mangle Slovak diacritics -- a substring check falsely reported an old build as new, and a heredoc failed outright. Verify served builds by dumping H2s with `PYTHONIOENCODING=utf-8 python`, and write longer scripts to a file rather than piping a heredoc.
+
 ## What To Do Next
 
 | # | Priority | Task |
 |---|----------|------|
-| 1 | High | **Founder sign-off on copy** -- now also covers the SEO copy proposals in `SEO-AUDIT.md`: every heading is a manifesto line carrying no service or location (the lever is the first H2, not the H1), treatment durations appear nowhere, and the founder has no bio beyond a first name. |
-| 2 | High | **Legal block incomplete.** Sec. 3a Obchodneho zakonnika wants the obchodne meno (e.g. "Zaneta <Priezvisko> - O VLASY") and the zivnostensky register entry (okresny urad + registration number). ICO/DIC are in already; add alongside in `Footer.tsx`. `llms.txt` deliberately says "Znacka" rather than asserting a legal name we do not have. |
-| 3 | High | **SEO after migration:** GSC -- add the `ovlasy.sk` property (DNS TXT at Websupport), submit the sitemap, run Change of Address. GBP -- rename, new URL, new phone/email, and set Saturday as "by appointment" THERE (it is deliberately absent from the schema). IG/FB handles and bios still say `goodhairbyzane`. |
-| 4 | Med | **Chatbot:** rewrite `chatbot-knowledge-base.md` + `knowledge-base.md` for the new brand/services (both still say Ivanka + extensions; only the contacts were updated in S12), upload to mdntech, then restore the `<Script>` from the comment in `src/app/layout.tsx`. |
-| 5 | Med | **Mobile LCP will likely stay above 2.5 s** until the hero H1, rather than a 147 px sliver of the hero photo, becomes the LCP element. framer-motion is still the biggest main-thread blocker and `Reveal` keeps it on every section. A CSS/IntersectionObserver reveal would drop it for most of them. |
-| 6 | Med | **Founder decision: old brand visible in two gallery photos.** `IMG_7166` has a "GOOD HAIR Club" mirror decal, `IMG_8938` a "HAIR CLUB" chair headrest. Ask whether to drop or crop. |
-| 7 | Low | **Privacy page** -- the contact section embeds a Google Maps iframe that sets cookies with no consent and no policy page anywhere on the site. |
-| 8 | Low | Run `/impeccable audit` + `/impeccable critique` (never formally audited). Delete 7 orphaned files in `public/produkty/` (`DSC_3617/3635/3649/3667/3691-HDR.jpg`, `DSC_3635-HDR.webp`, `DSC_3691-HDR.webp`) -- verify with `grep -rl` first. 8 gallery images still carry camera filenames. |
-| 9 | Low | Real Google Reviews link once reviews exist (no schema rating at all now, by design). Online booking (Calendly/Booksy); MDX blog for "O vlasy s rozumom" only with a 6-month commitment. |
+| 1 | High | **Founder still owes two things** (the rest of the sign-off sheet is answered): treatment **durations** for the 10 services in B1 -- "trva" still appears zero times on the site, and it is the most common pre-booking question -- and the **zivnostensky register number** (Okresny urad Nove Zamky is in; the number is deliberately omitted from `Footer.tsx` rather than invented). |
+| 2 | High | **SEO after migration:** GSC -- add the `ovlasy.sk` property (DNS TXT at Websupport), submit the sitemap, run Change of Address. GBP -- rename, new URL, new phone/email, and set Saturday as "by appointment" THERE (deliberately absent from the schema). IG/FB handles and bios still say `goodhairbyzane`. |
+| 3 | High | **Verify the perf work on real data.** Local timings are noise (see S13). Run PageSpeed Insights on ovlasy.sk after this deploy and check CrUX in ~28 days. If LCP still exceeds 2.5 s the lever is the hero image, not JS -- the LCP element is the photo, and on mobile only a ~150 px sliver of it sits above the fold. |
+| 4 | Med | **Old brand is visible in THREE photos**, not two: `IMG_8590` (About collage, chair), `IMG_7166` (gallery, mirror decal), `IMG_8938` (gallery, headrest). Ask the founder: drop, crop or keep. While there, `DSC_3592-HDR.webp`'s alt names Sens.us and milk_shake -- brands the page now says she does not use. |
+| 5 | Med | **Chatbot:** rewrite `chatbot-knowledge-base.md` + `knowledge-base.md` for the new brand/services (both still say Ivanka + extensions; only contacts were updated in S12), add the founder bio and brand list, upload to mdntech, then restore the `<Script>` from the comment in `src/app/layout.tsx`. |
+| 6 | Low | **Privacy page** -- the contact section embeds a Google Maps iframe that sets cookies with no consent and no policy page anywhere on the site. Now unblocked: the operator's legal name is known. |
+| 7 | Low | Delete orphaned images -- `public/priestory/zane3.webp` (new, ex-hero) plus the 7 in `public/produkty/` (`DSC_3617/3635/3649/3667/3691-HDR.jpg`, `DSC_3635-HDR.webp`, `DSC_3691-HDR.webp`); verify with `grep -rl` first. 8 gallery images still carry camera filenames. |
+| 8 | Low | Run `/impeccable audit` + `/impeccable critique` (never formally audited). Real Google Reviews link once reviews exist (no schema rating at all now, by design). Online booking (Calendly/Booksy); MDX blog only with a 6-month commitment. |
 
 ## Key Files
 
 | File | Purpose |
 |------|---------|
 | `handoff.md` | Current state + next steps (capped; history in handoff-archive.md) |
-| `src/app/layout.tsx` | Metadata, schema.org (HairSalon with `identifier`/`taxID`, no AggregateRating), favicon links; chatbot `<Script>` kept as a comment |
-| `src/content/faqs.ts` | SINGLE source for the FAQ -- the accordion and the JSON-LD both read it. Never inline FAQ copy again |
-| `SEO-AUDIT.md` | S12 audit: scores, what was fixed, what needs the owner, deferred copy proposals |
-| `src/components/Hero.tsx` | Motion props must stay opacity-free -- opacity in `initial` re-breaks LCP |
-| `src/components/Gallery.tsx` | 16 photos behind a service filter -- add new ones here with a `cat` |
-| `src/components/Footer.tsx` | NAP + ICO/DIC; the legal block still lacks obchodne meno + register entry |
-| `src/components/Contact.tsx` | Phone/email updated S12; IG/FB handles still `goodhairbyzane` |
+| `src/app/globals.css` | The motion system (S13): `.rise`, `.reveal-*`, `.drawer*`, scroll-timeline parallax. These rules sit AFTER `@tailwind utilities`, so a shorthand here silently beats a Tailwind utility |
+| `src/components/Reveal.tsx` | IntersectionObserver + CSS. Must never hide anything server-side -- that is the S12 regression |
+| `src/components/Hero.tsx` | Motion props must stay opacity-free; opacity above the fold costs the LCP candidate |
+| `src/app/layout.tsx` | Metadata + the 9-entity schema graph (Person = Zaneta Labska, HairSalon.legalName, no AggregateRating); chatbot `<Script>` kept as a comment |
+| `src/components/About.tsx` | Founder bio verbatim, signature, trainings + brands. Collage photo `IMG_8590` still shows the old brand |
+| `src/components/Footer.tsx` | NAP + legal block; still missing the zivnostensky register number |
+| `src/content/faqs.ts` | SINGLE source for the FAQ -- accordion and JSON-LD both read it. Never inline FAQ copy again |
+| `SEO-AUDIT.md` | S12 audit: scores, what was fixed, what needs the owner |
 | `chatbot-knowledge-base.md`, `knowledge-base.md` | Chatbot sources -- STALE (old brand, address, extensions) |
-| `PRODUCT.md`, `DESIGN.md`, `scripts/convert.py` | Impeccable context; image -> WebP converter |
 
 ## Session Summary
 
 | Session | Date | Title |
 |---------|------|-------|
-| 3 | 2026-03-31 | SEO audit, image optimization, security headers |
 | 4 | 2026-04-17 | Mobile performance fixes, footer branding |
 | 5 | 2026-05-08 | Chatbot KB, relocation popup, visual hierarchy |
 | 6 | 2026-06-17 | Relocation to Most pri Bratislave, new price list, WebP |
@@ -82,3 +82,4 @@
 | 10 | 2026-09-10 | Rebrand to O VLASY by Zane, migration to ovlasy.sk, chatbot hidden |
 | 11 | 2026-09-12 | Final logo extracted, filtered gallery, fake stats removed, CTA hover |
 | 12 | 2026-09-16 | New contacts, favicon set, full SEO audit + fixes (score 64 -> 79) |
+| 13 | 2026-09-16 | Approved copy, founder bio + legal block, framer-motion removed |

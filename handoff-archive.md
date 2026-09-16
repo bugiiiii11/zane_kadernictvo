@@ -1,5 +1,17 @@
 # Handoff Archive (do not read on /start)
 
+## What Was Done (Session 11) -- Final logo, filtered gallery, honest stats, quieter CTA
+
+- **Final logo, extracted from a JPG mockup.** The founder sent `zanelogo.jpg` -- black serif "OVLASY" (hair strands inside the O, gold rule) printed on textured cream paper, no alpha. Keying method: fit the paper as a cubic polynomial plate (two passes, refit after excluding ink), alpha-matte off it (LO 7 / HI 15 on the darkness delta), drop components without a 25px solid core to kill grain specks, unpremultiply the ink, then classify letters vs strand from the solid cores only and propagate that class to edge pixels via a distance transform. Without that propagation every antialiased letter edge takes the strand colour and gets a gold fringe on dark. Shipped `logo-ovlasy.webp` (dark) + `-light.webp` (cream/gold, for the charcoal footer) + `logo-mark.webp` (the O alone), and regenerated favicon/apple-touch/og-image from the mark.
+- **Rejected for the logo:** a plain luminance threshold (the strand tips genuinely fade into the paper, so it chops them) and leaving the mark on cream (the footer is charcoal). GOTCHA: the founder's original `zanelogo.jpg` was deleted after extraction -- `public/logo-mark.webp` is now the icon master; ask her for the source file if a print-size asset is ever needed.
+- **Gallery restructured** for the 7 new event hairstyles (16 photos total). Filters by service (ucesy / copanky / starostlivost); every photo stays mounted and is only CSS-hidden, so all alt text stays indexable and `next/image` still lazy-loads. `Reveal`s `once: true` means filtered-out tiles reveal correctly when they are shown.
+- **Found wrong alt text while categorising:** `zane2/4/5` are braids on children, not treatment results, and two About product shots described a mirror station. All rewritten -- worth re-checking any alt text that was written from a filename rather than from the image.
+- **Fabricated numbers removed** (founder: ~30 real clients, little tenure): "10+ rokov skusenosti" and "150+ spokojnych klientok" from the hero plate, hero copy, About feature and OG description; the hero plate now carries qualitative USPs. Also dropped the `AggregateRating` (5.0 / 150 reviews) from the HairSalon schema -- fabricated review data in structured markup is a manual-action risk.
+- **Hero plate labels had to be two words each** -- at 390px the plate is three ~84px columns and anything longer wraps into ragged, uneven stacks.
+- **CTA hover redone** (`.btn-primary-luxe`). Rejected a gold veil rising from the base: rendered it, and the wash visibly muddies the rich brown. Landed on a 1px gold hairline frame that fades in and settles from 9px to 6px inset, fill unchanged, softer shadow, `:focus-visible` mirrored. The old treatment stacked a specular sweep + brightness bump + a 44px halo.
+- **Reveal bug confirmed, not just theoretical:** headless screenshots showed blank tiles until each element scrolled into view. Element-level screenshots of a section taller than the viewport will always show empty tiles until it is fixed -- crawl the whole page first.
+
+
 ## What Was Done (Session 10) -- Rebrand to O VLASY by Zane, migration to ovlasy.sk
 
 - **Brand + domain decision:** founder bought `ovlasy.sk` (Websupport). Name is now **O VLASY by Zane**; manifesto lines "O vlasy sa staráme. / O vlasy, nie iba o účes. / O vlasy s rozumom." drive the copy (Hero H1, About/Services/Pricing H2s, Footer). Email + IG/FB stay `goodhairbyzane` until the founder changes them.
@@ -72,3 +84,9 @@ Ran `/impeccable` to elevate toward "warm, expert, boutique" (anti-references: g
 |---------|------|-------|--------|
 | 1 | 2026-03-28 | Initial website build + deploy | 32652c6 |
 | 2 | 2026-03-31 | Real images, content updates, UX fixes | 3a302f2 |
+
+## Session Summary (archived)
+
+| Session | Date | Title |
+|---------|------|-------|
+| 3 | 2026-03-31 | SEO audit, image optimization, security headers |
