@@ -118,7 +118,7 @@ const jsonLd = {
       },
       image: [
         `${SITE_URL}/priestory/DSC_3369-HDR.webp`,
-        `${SITE_URL}/priestory/zane3.webp`,
+        `${SITE_URL}/vysledky/ovlasy2.webp`,
         `${SITE_URL}/vysledky/IMG_8590.webp`,
         `${SITE_URL}/produkty/DSC_3592-HDR.webp`,
       ],
@@ -151,6 +151,7 @@ const jsonLd = {
         },
         areaServed: 'SK',
       },
+      legalName: 'Žaneta Lábska',
       taxID: '1074439806',
       identifier: {
         '@type': 'PropertyValue',
@@ -402,10 +403,11 @@ const jsonLd = {
     {
       '@type': 'Person',
       '@id': `${SITE_URL}/#zane`,
-      name: 'Zane',
+      name: 'Žaneta Lábska',
+      alternateName: 'Zane',
       jobTitle: 'Vlasová špecialistka',
       description:
-        'Zakladateľka salónu O VLASY by Zane. Venuje sa diagnostike vlasov a pokožky hlavy, rekonštrukčným a regeneračným kúram, hĺbkovému čisteniu Malibu C a účesom pre výnimočné udalosti.',
+        'Zakladateľka salónu O VLASY by Zane. Venuje sa zdraviu vlasov, ich obnove a regenerácii — diagnostike vlasov a pokožky hlavy, rekonštrukčným a regeneračným kúram, hĺbkovému čisteniu Malibu C a účesom pre výnimočné udalosti.',
       url: `${SITE_URL}/#o-nas`,
       worksFor: { '@id': `${SITE_URL}/#salon` },
       knowsAbout: [
@@ -414,6 +416,16 @@ const jsonLd = {
         'Hĺbkové čistenie Malibu C',
         'Svadobné a spoločenské účesy',
       ],
+      hasCredential: [
+        'Malibu C',
+        'Vitaker',
+        'HTOKYO',
+        'BB|one',
+      ].map((brand) => ({
+        '@type': 'EducationalOccupationalCredential',
+        credentialCategory: 'Odborné školenie',
+        name: `Školenie ${brand}`,
+      })),
     },
 
     /* -------------------------------------------------------------- SERVICES */
@@ -504,12 +516,12 @@ const jsonLd = {
       primaryImageOfPage: {
         '@type': 'ImageObject',
         '@id': `${SITE_URL}/#primaryimage`,
-        url: `${SITE_URL}/priestory/zane3.webp`,
-        contentUrl: `${SITE_URL}/priestory/zane3.webp`,
+        url: `${SITE_URL}/vysledky/ovlasy2.webp`,
+        contentUrl: `${SITE_URL}/vysledky/ovlasy2.webp`,
         width: 960,
         height: 1280,
         caption:
-          'Interiér vlasového salónu O VLASY by Zane v Moste pri Bratislave',
+          'Hollywoodske vlny na zdravých blond vlasoch — spoločenský účes zo salónu O VLASY by Zane v Moste pri Bratislave',
       },
     },
 
@@ -517,7 +529,7 @@ const jsonLd = {
     {
       '@type': 'FAQPage',
       '@id': `${SITE_URL}/#faq`,
-      name: 'Všetko, čo potrebujete vedieť',
+      name: 'Časté otázky o starostlivosti o vlasy',
       inLanguage: 'sk',
       isPartOf: { '@id': `${SITE_URL}/#webpage` },
       about: { '@id': `${SITE_URL}/#salon` },

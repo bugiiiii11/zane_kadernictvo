@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Phone, Menu, X } from 'lucide-react';
 import Logo from './Logo';
 
@@ -17,7 +16,6 @@ const links = [
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const prefersReduced = useReducedMotion();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -41,11 +39,8 @@ export default function Navigation() {
 
   return (
     <>
-      <motion.nav
-        initial={prefersReduced ? false : { y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 backdrop-blur-md ${
+      <nav
+        className={`nav-drop fixed top-0 left-0 right-0 z-50 transition-all duration-500 backdrop-blur-md ${
           scrolled
             ? 'bg-[rgba(253,251,248,0.85)] py-3 shadow-[0_1px_0_rgba(197,169,123,0.2)]'
             : 'bg-[rgba(253,251,248,0.5)] py-5'
@@ -93,48 +88,43 @@ export default function Navigation() {
             {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
-      </motion.nav>
+      </nav>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            id="mobile-menu"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Navigácia"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-warm-white flex flex-col items-center justify-start [@media(min-height:600px)]:justify-center gap-8 overflow-y-auto overscroll-contain px-6 pt-24 pb-12 min-h-[100dvh]"
+      {/*
+        The drawer stays mounted and is hidden with `visibility`, which keeps it
+        out of the tab order and the accessibility tree while closed and still
+        lets it transition both ways. AnimatePresence was the only reason this
+        file needed a motion library.
+      */}
+      <div
+        id="mobile-menu"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigácia"
+        data-open={open}
+        className="drawer fixed inset-0 z-40 bg-warm-white flex flex-col items-center justify-start [@media(min-height:600px)]:justify-center gap-8 overflow-y-auto overscroll-contain px-6 pt-24 pb-12 min-h-[100dvh]"
+      >
+        {links.map((link, i) => (
+          <a
+            key={link.href}
+            href={link.href}
+            onClick={() => setOpen(false)}
+            style={{ '--item-index': i } as React.CSSProperties}
+            className="drawer-item font-display text-3xl text-deep-brown hover:text-mocha focus-visible:text-mocha focus-visible:outline-none"
           >
-            {links.map((link, i) => (
-              <motion.a
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                initial={prefersReduced ? { opacity: 0 } : { opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: prefersReduced ? 0 : i * 0.08, duration: 0.3 }}
-                className="font-display text-3xl text-deep-brown hover:text-mocha focus-visible:text-mocha focus-visible:outline-none transition-colors"
-              >
-                {link.label}
-              </motion.a>
-            ))}
-            <motion.a
-              href="tel:+421950249838"
-              onClick={() => setOpen(false)}
-              initial={prefersReduced ? { opacity: 0 } : { opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: prefersReduced ? 0 : 0.5, duration: 0.3 }}
-              className="mt-4 inline-flex items-center gap-2 px-8 py-3 bg-espresso text-cream text-sm tracking-[0.1em] uppercase focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-warm-white"
-            >
-              <Phone className="w-4 h-4" />
-              +421 950 249 838
-            </motion.a>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {link.label}
+          </a>
+        ))}
+        <a
+          href="tel:+421950249838"
+          onClick={() => setOpen(false)}
+          style={{ '--item-index': links.length } as React.CSSProperties}
+          className="drawer-item mt-4 inline-flex items-center gap-2 px-8 py-3 bg-espresso text-cream text-sm tracking-[0.1em] uppercase focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-warm-white"
+        >
+          <Phone className="w-4 h-4" />
+          +421 950 249 838
+        </a>
+      </div>
     </>
   );
 }

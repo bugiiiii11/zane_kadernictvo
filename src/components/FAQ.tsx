@@ -58,7 +58,7 @@ export default function FAQ() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="font-display text-[clamp(2.15rem,3.8vw,3rem)] font-light text-deep-brown leading-tight text-balance">
-              Všetko, čo potrebujete vedieť
+              Časté otázky o starostlivosti o vlasy
             </h2>
           </Reveal>
         </div>

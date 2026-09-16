@@ -45,10 +45,22 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} O VLASY by Zane. Všetky práva
             vyhradené.
           </span>
+          {/*
+            § 3a Obchodného zákonníka. The živnostenský register entry number
+            is still outstanding from the founder — the issuing authority is
+            known, the number is not, so it is left out rather than invented.
+          */}
           <span className="text-[0.8rem] text-cream/70">
+            Žaneta Lábska
+            <span className="mx-2 text-cream/25">·</span>
             IČO: 57399760
             <span className="mx-2 text-cream/25">·</span>
             DIČ: 1074439806
+            <span className="mx-2 text-cream/25">·</span>
+            Nie sme platiteľmi DPH
+          </span>
+          <span className="text-[0.8rem] text-cream/70">
+            Živnostenský register Okresného úradu Nové Zámky
           </span>
         </div>
         <a

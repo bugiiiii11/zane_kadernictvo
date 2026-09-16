@@ -1,7 +1,6 @@
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
-import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
@@ -15,33 +14,13 @@ const credentials = [
   { title: 'Účesy', desc: 'Na udalosti' },
 ];
 
-function useIsDesktop() {
-  const [isDesktop, setIsDesktop] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia('(min-width: 1024px)');
-    setIsDesktop(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
-    mq.addEventListener('change', handler);
-    return () => mq.removeEventListener('change', handler);
-  }, []);
-  return isDesktop;
-}
+// Entry motion is CSS now (see globals.css) — transform only, never opacity,
+// because Chromium will not pick a transparent element as the LCP candidate.
+const rise = (y: number, delay: number) =>
+  ({ '--rise': `${y}px`, '--rise-delay': `${delay}s` }) as React.CSSProperties;
 
 export default function Hero() {
-  const ref = useRef(null);
-  const isDesktop = useIsDesktop();
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start'],
-  });
-  const imageY = useTransform(scrollYProgress, [0, 1], [0, isDesktop ? 120 : 0]);
-
-  // The CSS prefers-reduced-motion block in globals.css cannot cancel a JS
-  // animation, so honour the preference here: no rise, just static content.
-  const reduceMotion = useReducedMotion();
-  const rise = (y: number) => (reduceMotion ? { y: 0 } : { y });
-  const textY = useTransform(scrollYProgress, [0, 1], [0, isDesktop ? -60 : 0]);
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, isDesktop ? 0 : 1]);
+  const ref = useRef<HTMLElement>(null);
 
   // Pause the always-on ambient animations once the hero is off-screen, so
   // their continuous repaint cost stops competing with scrolling elsewhere.
@@ -72,49 +51,35 @@ export default function Hero() {
       <div className="absolute top-20 left-[10%] w-72 h-72 bg-gold/8 rounded-full blur-[100px] animate-glow hidden lg:block" style={ambientStyle} />
       <div className="absolute bottom-20 right-[20%] w-96 h-96 bg-blush/6 rounded-full blur-[120px] animate-glow hidden lg:block" style={ambientStyle} />
 
-      <motion.div
-        style={{ y: textY, opacity }}
-        className="flex flex-col justify-center px-6 lg:px-16 xl:px-24 pt-32 lg:pt-0 pb-12 lg:pb-0 relative z-10"
-      >
-        <motion.div
-          initial={rise(20)}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="inline-flex items-center gap-2.5 mb-6 px-4 py-2 rounded-full bg-gold-light/40 border border-gold/30 w-fit"
+      <div className="hero-text-parallax flex flex-col justify-center px-6 lg:px-16 xl:px-24 pt-32 lg:pt-0 pb-12 lg:pb-0 relative z-10">
+        <div
+          style={rise(20, 0.2)}
+          className="rise inline-flex items-center gap-2.5 mb-6 px-4 py-2 rounded-full bg-gold-light/40 border border-gold/30 w-fit"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-gold" />
           <span className="text-[0.75rem] tracking-[0.22em] uppercase text-espresso font-body font-medium">
             Starostlivosť o vlasy · Most pri Bratislave
           </span>
-        </motion.div>
+        </div>
 
-        <motion.h1
-          initial={rise(30)}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="font-display text-[clamp(2.5rem,5vw,4.5rem)] font-light text-deep-brown leading-[1.1] text-balance mb-6"
+        <h1
+          style={rise(30, 0.3)}
+          className="rise font-display text-[clamp(2.5rem,5vw,4.5rem)] font-light text-deep-brown leading-[1.1] text-balance mb-6"
         >
           O vlasy sa staráme,{' '}
           <em className="italic text-mocha">nie iba o účes.</em>
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={rise(30)}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-          className="text-[#5C4A35] text-lg lg:text-xl max-w-md mb-8 font-normal leading-relaxed text-pretty"
+        <p
+          style={rise(30, 0.5)}
+          className="rise text-[#5C4A35] text-lg lg:text-xl max-w-md mb-8 font-normal leading-relaxed text-pretty"
         >
           Regeneračné a rekonštrukčné kúry, hĺbkové čistenie vlasovej pokožky
           a účesy pre výnimočné dni. Každé ošetrenie navrhneme až po diagnostike
           vlasov — presne podľa toho, čo vaše vlasy potrebujú.
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={rise(30)}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.7, delay: 0.7 }}
-          className="flex flex-wrap gap-4"
-        >
+        <div style={rise(30, 0.7)} className="rise flex flex-wrap gap-4">
           <a
             href="tel:+421950249838"
             className="group btn-primary-luxe inline-flex items-center gap-3 px-8 py-4 text-cream text-[0.82rem] tracking-[0.12em] uppercase font-medium"
@@ -128,29 +93,27 @@ export default function Hero() {
           >
             Naše služby
           </a>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
 
       {/* Hero image */}
       <div className="relative lg:h-screen h-[50vh]">
-        <motion.div style={{ y: imageY }} className="absolute inset-0">
+        <div className="hero-image-parallax absolute inset-0">
           <Image
-            src="/priestory/zane3.webp"
-            alt="Interiér vlasového salónu O VLASY by Zane v Moste pri Bratislave — priestor pre regeneračné kúry a starostlivosť o vlasy"
+            src="/vysledky/ovlasy2.webp"
+            alt="Hollywoodske vlny na zdravých blond vlasoch plných lesku — spoločenský účes zo salónu O VLASY by Zane v Moste pri Bratislave"
             fill
             className="object-cover"
             priority
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-warm-white/60 via-transparent to-transparent lg:bg-gradient-to-r lg:from-warm-white/30 lg:via-transparent" />
-        </motion.div>
+        </div>
 
         {/* Credential plate — what we do, not how many we have done */}
-        <motion.div
-          initial={rise(40)}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.7, delay: 0.9, ease: [0.25, 0.4, 0.25, 1] }}
-          className="absolute bottom-6 left-6 right-6 lg:bottom-12 lg:-left-8 lg:right-auto z-20"
+        <div
+          style={rise(40, 0.9)}
+          className="rise absolute bottom-6 left-6 right-6 lg:bottom-12 lg:-left-8 lg:right-auto z-20"
         >
           <div className="flex items-center justify-center lg:justify-start bg-warm-white/95 backdrop-blur-sm shadow-luxury border-t-2 border-t-gold px-5 py-4 lg:px-8 lg:py-6">
             {credentials.map((c, i) => (
@@ -169,7 +132,7 @@ export default function Hero() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </header>
   );

@@ -43,19 +43,65 @@ export default function About() {
               nás len 15 minút od centra Bratislavy.
             </p>
           </Reveal>
+          {/*
+            The founder in her own words — kept verbatim as she wrote it. This
+            is the site's only first-person voice and the largest expertise
+            signal it has, so it is not paraphrased into marketing copy.
+          */}
           <Reveal delay={0.35}>
-            <div className="mb-9">
+            <blockquote className="mb-8 border-l-2 border-gold/50 pl-5 lg:pl-6">
+              <p className="text-[#5C4A35] mb-4 leading-relaxed font-normal italic">
+                Vždy ma bavili krásne vlasy, ale časom som zistila, že ešte viac
+                ma baví to, čo je za nimi. Začala som sa viac zaujímať o to,
+                prečo sú vlasy poškodené, čo im chýba a hlavne — ako im môžeme
+                pomôcť.
+              </p>
+              <p className="text-[#5C4A35] mb-4 leading-relaxed font-normal italic">
+                Nechcem, aby boli vlasy len pekné v deň, keď klientka odíde zo
+                salónu. Chcem, aby boli postupne zdravšie, pevnejšie,
+                kvalitnejšie a aby sa ich majiteľka cítila dobre aj po umytí
+                doma.
+              </p>
+              <p className="text-[#5C4A35] leading-relaxed font-normal italic">
+                A práve preto som sa začala venovať zdraviu vlasov, ich obnove a
+                regenerácii. Pretože podľa mňa krásne vlasy začínajú pri zdravom
+                vlase.
+              </p>
+            </blockquote>
+          </Reveal>
+          <Reveal delay={0.4}>
+            <div className="mb-8">
               <span className="font-display text-[2.25rem] italic text-mocha leading-none">
-                Zane
+                Žaneta Lábska
               </span>
               <p className="text-[0.75rem] tracking-[0.18em] uppercase text-espresso mt-2">
                 Zakladateľka · O VLASY by Zane
               </p>
             </div>
           </Reveal>
+          <Reveal delay={0.45}>
+            <div className="mb-9 grid gap-4 sm:grid-cols-2 border-t border-sand pt-6">
+              <div>
+                <h3 className="text-[0.72rem] tracking-[0.18em] uppercase text-espresso mb-2">
+                  Absolvované školenia
+                </h3>
+                <p className="text-[0.9rem] text-[#6B5A45] leading-relaxed font-normal">
+                  Malibu C, Vitaker, HTOKYO a BB|one.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-[0.72rem] tracking-[0.18em] uppercase text-espresso mb-2">
+                  Pracujeme so značkami
+                </h3>
+                <p className="text-[0.9rem] text-[#6B5A45] leading-relaxed font-normal">
+                  BB|one, HTOKYO, Sedera, Vitaker, Losom a Malibu C.
+                </p>
+              </div>
+            </div>
+          </Reveal>
           <div className="grid grid-cols-2 gap-x-6 gap-y-5">
             {features.map((f, i) => (
-              <Reveal key={f.title} delay={0.4 + i * 0.1}>
+              <Reveal key={f.title} delay={0.5 + i * 0.1}>
                 <div className="flex items-start gap-3">
                   <span className="mt-1 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-gold/40 bg-gold-light/40">
                     <Check className="h-3.5 w-3.5 text-espresso stroke-[2.5]" />

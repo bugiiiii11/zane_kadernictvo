@@ -80,8 +80,14 @@ export default function Services() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="font-display text-[clamp(2.15rem,3.8vw,3rem)] font-light text-deep-brown leading-tight text-balance">
-              O vlasy sa staráme do hĺbky
+              Regeneračné kúry, hĺbkové čistenie a účesy
             </h2>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <p className="mt-5 text-[#5C4A35] leading-relaxed font-normal text-pretty">
+              O vlasy sa staráme do hĺbky — od diagnostiky vlasov a pokožky hlavy
+              až po účes, ktorý vydrží celý večer.
+            </p>
           </Reveal>
         </div>
         <div className="grid lg:grid-cols-3 gap-6 items-stretch">

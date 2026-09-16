@@ -6,7 +6,7 @@ import Reveal from './Reveal';
 
 /**
  * Two bodies of work live here — event hairstyles and hair-health results —
- * and at sixteen photos a single flat grid stopped reading as either. The
+ * and at fifteen photos a single flat grid stopped reading as either. The
  * filter groups them by service; every photo stays in the DOM so its alt text
  * is always indexable, filtered ones are only hidden.
  */
@@ -41,11 +41,6 @@ const images: { src: string; alt: string; cat: Category }[] = [
     src: '/vysledky/zane4.webp',
     alt: 'Vpletené copánky prechádzajúce do hladkého copu — braids v salóne O VLASY by Zane',
     cat: 'braids',
-  },
-  {
-    src: '/vysledky/ovlasy2.webp',
-    alt: 'Hollywoodske vlny na blond vlasoch — spoločenský účes na svadbu či stužkovú',
-    cat: 'ucesy',
   },
   {
     src: '/vysledky/zane1.webp',
@@ -116,7 +111,7 @@ export default function Gallery() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="font-display text-[clamp(2.15rem,3.8vw,3rem)] font-light text-deep-brown leading-tight text-balance">
-              Výsledky, ktoré hovoria za nás
+              Naše účesy a výsledky ošetrení
             </h2>
           </Reveal>
           <Reveal delay={0.15}>

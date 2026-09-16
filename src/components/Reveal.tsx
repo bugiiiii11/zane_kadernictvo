@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { motion, useInView, useReducedMotion } from 'framer-motion';
 
 interface RevealProps {
   children: React.ReactNode;
@@ -11,12 +10,24 @@ interface RevealProps {
   duration?: number;
 }
 
+const offsets = {
+  up: { x: '0', y: '40px' },
+  down: { x: '0', y: '-40px' },
+  left: { x: '40px', y: '0' },
+  right: { x: '-40px', y: '0' },
+  none: { x: '0', y: '0' },
+};
+
 /**
  * Scroll-reveal that only ever *enhances*. Server HTML (and any client without
  * JS, headless crawlers, screenshots) gets fully visible content. After mount,
  * elements that are still below the fold are hidden and animate in when they
  * scroll into view; anything already on screen at mount stays put -- no
  * visible -> hidden -> visible flash on the first paint.
+ *
+ * Plain IntersectionObserver plus a CSS transition. This used to be a
+ * framer-motion component; at 31 instances it was the single largest
+ * main-thread cost on the page, and nothing here needs a motion library.
  */
 export default function Reveal({
   children,
@@ -26,37 +37,50 @@ export default function Reveal({
   duration = 0.7,
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const reduceMotion = useReducedMotion();
-  const [animate, setAnimate] = useState(false);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const [phase, setPhase] = useState<'static' | 'hidden' | 'shown'>('static');
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || reduceMotion) return;
-    const rect = el.getBoundingClientRect();
-    const belowFold = rect.top > window.innerHeight;
-    if (belowFold) setAnimate(true);
-  }, [reduceMotion]);
+    if (!el) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  const directions = {
-    up: { y: 40, x: 0 },
-    down: { y: -40, x: 0 },
-    left: { y: 0, x: 40 },
-    right: { y: 0, x: -40 },
-    none: { y: 0, x: 0 },
-  };
-  const hidden = { opacity: 0, y: directions[direction].y, x: directions[direction].x };
-  const shown = { opacity: 1, y: 0, x: 0 };
+    // Already on screen at mount: leave it exactly as the server drew it.
+    if (el.getBoundingClientRect().top <= window.innerHeight) return;
+
+    setPhase('hidden');
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setPhase('shown');
+        io.disconnect();
+      },
+      { rootMargin: '-80px' }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const { x, y } = offsets[direction];
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      className={className}
-      initial={false}
-      animate={animate ? (isInView ? shown : hidden) : shown}
-      transition={{ duration, delay, ease: [0.25, 0.4, 0.25, 1] }}
+      className={`${phase === 'hidden' ? 'reveal-hidden' : ''}${
+        phase === 'shown' ? 'reveal-shown' : ''
+      } ${className}`.trim()}
+      style={
+        phase === 'static'
+          ? undefined
+          : ({
+              '--reveal-x': x,
+              '--reveal-y': y,
+              '--reveal-delay': `${delay}s`,
+              '--reveal-duration': `${duration}s`,
+            } as React.CSSProperties)
+      }
     >
       {children}
-    </motion.div>
+    </div>
   );
 }

@@ -239,12 +239,125 @@
   }
 }
 
+/* ==========================================================================
+   Motion — replaces framer-motion, which cost ~34 kB and ran 31 animated
+   components on the main thread. Two rules hold this together:
+
+   1. Nothing above the fold animates opacity. Chromium will not nominate a
+      transparent element as the LCP candidate, so a hero that fades in has
+      no measurable LCP at all. Entry motion here is transform-only.
+   2. Every animation starts from the *finished* state in the markup, so
+      server HTML, no-JS clients, crawlers and screenshots get the whole
+      page. JS may hide a below-the-fold element afterwards; it never has to
+      run for content to appear.
+   ========================================================================== */
+
+/* --- Entry rise: above-the-fold, transform-only, no observer ------------- */
+@keyframes rise-in {
+  from { transform: translateY(var(--rise, 30px)); }
+  to   { transform: translateY(0); }
+}
+
+.rise {
+  animation: rise-in 0.7s cubic-bezier(0.25, 0.4, 0.25, 1) var(--rise-delay, 0s) backwards;
+}
+
+@keyframes nav-drop {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(0); }
+}
+
+.nav-drop {
+  animation: nav-drop 0.6s cubic-bezier(0.25, 0.4, 0.25, 1) backwards;
+}
+
+/* --- Scroll reveal: below the fold only, so opacity is safe here --------- */
+.reveal-hidden {
+  opacity: 0;
+  transform: translate3d(var(--reveal-x, 0), var(--reveal-y, 40px), 0);
+}
+
+.reveal-shown {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity var(--reveal-duration, 0.7s) cubic-bezier(0.25, 0.4, 0.25, 1) var(--reveal-delay, 0s),
+    transform var(--reveal-duration, 0.7s) cubic-bezier(0.25, 0.4, 0.25, 1) var(--reveal-delay, 0s);
+}
+
+/* --- Hero parallax: scroll-driven, so it never touches the main thread ---
+   Desktop only, and only where the browser has a scroll timeline. Everywhere
+   else the hero is simply static, which is a fine version of this design.
+   Transform only — an opacity fade here would cost the LCP candidate.      */
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    @keyframes hero-text-lift {
+      to { transform: translateY(-60px); }
+    }
+    @keyframes hero-image-sink {
+      to { transform: translateY(120px); }
+    }
+
+    .hero-text-parallax {
+      animation: hero-text-lift linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 100vh;
+    }
+    .hero-image-parallax {
+      animation: hero-image-sink linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 100vh;
+    }
+  }
+}
+
+/* --- Mobile drawer: stays mounted so it can transition both ways.
+   `visibility` (not `display`) keeps it out of the tab order and the
+   accessibility tree while closed, and still allows the fade.             */
+.drawer {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.drawer[data-open='true'] {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0s linear 0s;
+}
+
+.drawer-item {
+  transform: translateY(20px);
+  /* Colour is transitioned here rather than with Tailwind's
+     `transition-colors`: these rules sit after `@tailwind utilities`, so a
+     shorthand here would silently win and drop the hover fade. */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.drawer[data-open='true'] .drawer-item {
+  transform: translateY(0);
+  transition-delay: calc(var(--item-index, 0) * 0.08s);
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
     scroll-behavior: auto !important;
+  }
+
+  /* The blanket rule above cannot cancel a scroll-driven animation (it has
+     no duration to shorten), so drop the timeline outright. */
+  .hero-text-parallax,
+  .hero-image-parallax {
+    animation: none !important;
+  }
+
+  .reveal-hidden,
+  .drawer-item {
+    transform: none !important;
   }
 }
